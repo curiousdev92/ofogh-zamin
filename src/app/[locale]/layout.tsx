@@ -9,19 +9,17 @@ import { SITE } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Cairo, Inter, Vazirmatn } from "next/font/google";
 import { notFound } from "next/navigation";
+import KalamehFont from "../../../public/fonts";
 
-// Each script's font is exposed as a CSS variable. globals.css maps --font-active
-// off <html lang>, so `font-sans` resolves to the right font with no per-component logic.
-const inter = Inter({ subsets: ["latin"], variable: "--font-en", display: "swap" });
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  variable: "--font-fa",
-  display: "swap",
-});
-const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-ar", display: "swap" });
-const FONT_VARS = `${inter.variable} ${vazirmatn.variable} ${cairo.variable}`;
+// const inter = Inter({ subsets: ["latin"], variable: "--font-en", display: "swap" });
+// const vazirmatn = Vazirmatn({
+//   subsets: ["arabic", "latin"],
+//   variable: "--font-fa",
+//   display: "swap",
+// });
+// const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-ar", display: "swap" });
+// const FONT_VARS = `${inter.variable} ${vazirmatn.variable} ${cairo.variable}`;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -61,7 +59,7 @@ export default async function LocaleLayout({
   const messages = (await getDictionary(l, "common")) as unknown as CommonMessages;
 
   return (
-    <html lang={config.hreflang} dir={config.dir} className={FONT_VARS}>
+    <html lang={config.hreflang} dir={config.dir} className={KalamehFont.className}>
       <body className="flex min-h-dvh flex-col">
         <Header locale={l} messages={messages} />
         <main className="flex-1">{children}</main>
