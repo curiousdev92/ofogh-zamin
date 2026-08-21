@@ -1,28 +1,14 @@
 import { notFound } from "next/navigation";
-// import { localeConfig, locales, type Locale } from "";
 
 // Google Fonts — only the subset needed per locale is loaded
 import { Locale, localeConfig, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { generateHreflangTags } from "@/lib/i18n/seo";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Cairo, Inter, Vazirmatn } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-en" });
-
-// Vazirmatn — best Persian web font, has latin subset too for mixed content
-// In production: self-host via next/font/local for full control
-const vazirmatn = localFont({
-  src: "../../public/fonts/Vazirmatn-variable.woff2",
-  variable: "--font-fa",
-  preload: false, // Only preload for fa locale (handled below)
-});
-
-const cairo = localFont({
-  src: "../../public/fonts/Cairo-variable.woff2",
-  variable: "--font-ar",
-  preload: false,
-});
+const vazirmatn = Vazirmatn({ variable: "--font-fa" });
+const cairo = Cairo({ variable: "--font-ar" });
 
 type Props = {
   children: React.ReactNode;
