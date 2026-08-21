@@ -3,6 +3,10 @@ import { defaultLocale, Locale, localeConfig, locales } from "./config";
 
 const BASE_URL = SITE.url;
 
+// OpenGraph expects underscore locale tags (en_US, fa_IR, ar_SA). Our intlLocale
+// is the hyphenated BCP-47 form (en-US) used by the Intl.* APIs — convert for OG.
+const toOgLocale = (locale: Locale) => localeConfig[locale].intlLocale.replace("-", "_");
+
 // Generate hreflang link tags for a given pathname
 // Call this in every page's <head> or generateMetadata()
 export function generateHreflangTags(pathname: string) {
@@ -33,7 +37,6 @@ export function buildLocalizedMetadata({
   title: string;
   description: string;
 }) {
-  const config = localeConfig[locale];
   const canonicalUrl = `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
 
   return {
@@ -51,9 +54,18 @@ export function buildLocalizedMetadata({
     openGraph: {
       title,
       description,
-      locale: config.intlLocale, // e.g. 'fa_IR', 'ar_SA'
-      alternateLocale: locales.filter((l) => l !== locale).map((l) => localeConfig[l].intlLocale),
+      siteName: SITE.name,
+      type: "website",
+      locale: toOgLocale(locale),
+      alternateLocale: locales.filter((l) => l !== locale).map(toOgLocale),
       url: canonicalUrl,
+    },
+    // Image comes from the file-based opengraph-image route (used for both OG and
+    // Twitter); we only set the textual card fields here.
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
     },
   };
 }
@@ -149,6 +161,41 @@ export function articleJsonLd(
     inLanguage: locale,
     mainEntityOfPage: absoluteUrl(locale, article.pathname),
     author: { "@type": "Organization", name: SITE.name },
+    publisher: { "@type": "Organization", name: SITE.name },
+  };
+}
+
+// schema.org Organization — the global brand identity, rendered once in the
+// layout so it appears site-wide. No `logo` yet (no logo asset — §12); add it
+// here once one exists. `description` is the shared common.footer.description.
+export function organizationJsonLd(description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    email: SITE.email,
+    description,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: SITE.email,
+      telephone: SITE.phone,
+    },
+  };
+}
+
+// schema.org WebSite — global, rendered in the layout. `inLanguage` reflects the
+// rendered locale and `url` points at that locale's home. No SearchAction (the
+// site has no on-site search).
+export function websiteJsonLd(locale: Locale, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: absoluteUrl(locale, "/"),
+    inLanguage: locale,
+    description,
     publisher: { "@type": "Organization", name: SITE.name },
   };
 }

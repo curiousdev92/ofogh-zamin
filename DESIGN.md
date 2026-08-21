@@ -170,25 +170,36 @@ tokens, keep it square, export from `index.ts`, add a row above.
 ## 8. SEO plan
 
 Helpers already exist in [`src/lib/i18n/seo.ts`](src/lib/i18n/seo.ts):
-`buildLocalizedMetadata()` (canonical + hreflang alternates + OpenGraph) and
-`generateHreflangTags()`. Sitemap scaffold in [`src/app/sitemap.ts`](src/app/sitemap.ts).
+`buildLocalizedMetadata()` (canonical + hreflang alternates + OpenGraph + Twitter)
+and `generateHreflangTags()`. Full sitemap in [`src/app/sitemap.ts`](src/app/sitemap.ts)
+and crawler rules in [`src/app/robots.ts`](src/app/robots.ts).
 
 Per-page checklist:
 
-- [ ] `generateMetadata()` via `buildLocalizedMetadata({ locale, pathname, title, description })`.
-- [ ] Semantic landmarks: one `<h1>`, `<nav>`, `<main>`, `<article>`, `<footer>`.
-- [ ] **JSON-LD** (`<script type="application/ld+json">`):
-  - Home/global → `Organization` + `WebSite`
+- [x] `generateMetadata()` via `buildLocalizedMetadata({ locale, pathname, title, description })`
+      on every route (home, products, category, product, blog, post, about, contact).
+- [x] Semantic landmarks: one `<h1>`, `<nav>`, `<main>`, `<article>`, `<footer>`
+      (audited live — every page has exactly one `h1`, no heading-level skips,
+      all links/buttons have accessible names).
+- [x] **JSON-LD** (`<script type="application/ld+json">` via `<JsonLd>`):
+  - Home/global → `Organization` + `WebSite` (rendered once in the layout → present on **every** page)
   - Products/category → `BreadcrumbList` + `ItemList`
-  - Single product → `Product` (+ `Offer` if pricing shown)
-  - Blog post → `Article` / `BlogPosting` + `BreadcrumbList`
-- [ ] OG/Twitter images (consider `opengraph-image` route per section).
-- [ ] `robots.ts` + finish `sitemap.ts` (all locales × routes).
+  - Single product → `Product` (specs as `additionalProperty`; no `Offer` — spec catalogue)
+  - Blog post → `Article` + `BreadcrumbList`
+- [x] OG/Twitter images — one branded dynamic card via [`opengraph-image`](src/app/[locale]/opengraph-image.tsx)
+      (`next/og` `ImageResponse`, 1200×630, navy+gold Latin wordmark, no asset
+      needed). Next injects it into `og:image` **and** `twitter:image` sitewide.
+      `openGraph.locale` uses the underscore form (`en_US`/`fa_IR`/`ar_SA`).
+- [x] `robots.ts` (allow all, `Disallow: /*/styleguide`, `Host`, `Sitemap`) +
+      full `sitemap.ts` (78 URLs = all locales × home/products/category/product/
+      blog/about/contact, each with hreflang alternates incl. `x-default`).
 - [x] Canonical origin centralized in [`src/lib/site.ts`](src/lib/site.ts)
-      (`ofogh-zamin.vercel.app`); `seo.ts`, `sitemap.ts` and layout metadata all
-      read `SITE.url`. `NEXT_PUBLIC_BASE_URL` overrides per-env — **blank is
-      treated as unset** (an empty value once crashed dev via `new URL("")`).
-- [ ] `alt` text on every image; `next/image` with width/height to avoid CLS.
+      (`ofogh-zamin.vercel.app`); `seo.ts`, `sitemap.ts`, `robots.ts` and layout
+      metadata all read `SITE.url`. `NEXT_PUBLIC_BASE_URL` overrides per-env —
+      **blank is treated as unset** (an empty value once crashed dev via `new URL("")`).
+- [x] No `<img>` on the catalogue yet (product/category tiles are CSS
+      `PlaceholderTile`s) — when real images land, use `next/image` with
+      width/height + `alt` to avoid CLS.
 
 ---
 
@@ -303,11 +314,25 @@ live beside their route. Always import via `@/…`.
       **Verified** live: en full form flow (empty → 3 errors, invalid email, success,
       reset, stub log), fa + ar (RTL, localized copy/validation, LTR email/phone);
       `tsc --noEmit` clean, no console/server errors.
-- [ ] **Step 8 — SEO finish** ⚠️ *next* — `robots.ts`, full sitemap (all locales ×
-      routes), OG images, JSON-LD sweep (add `Organization` + `WebSite` on the
-      layout). Fix `openGraph.locale` to the underscore form (`en_US`), and drop the
-      vestigial `fontFamily`/`fontStacks` (Inter/Vazirmatn/Cairo) in `rtl.ts`. Plus
-      an a11y/perf pass.
+- [x] **Step 8 — SEO finish** *(done)*: rendered `Organization` + `WebSite`
+      JSON-LD once in the layout (now on **every** page), added
+      [`robots.ts`](src/app/robots.ts) (allow all, `Disallow: /*/styleguide`,
+      `Host`, `Sitemap`) and expanded [`sitemap.ts`](src/app/sitemap.ts) to the
+      full 78-URL set (all locales × home/products/category/product/blog/about/
+      contact) with hreflang alternates incl. `x-default`. Added a branded
+      dynamic OG card via [`opengraph-image`](src/app/[locale]/opengraph-image.tsx)
+      (`next/og`, 1200×630, navy+gold Latin wordmark — no asset) that Next wires
+      into `og:image` **and** `twitter:image` sitewide, plus a `twitter` block in
+      `buildLocalizedMetadata`. Fixed `openGraph.locale` to the underscore form
+      (`en_US`/`fa_IR`/`ar_SA`) and dropped the vestigial `fontFamily`/`fontStacks`
+      (Inter/Vazirmatn/Cairo) from `config.ts`/`rtl.ts`. **Verified** live:
+      `robots.txt` + `sitemap.xml` (valid XML, 78 `<loc>`, x-default, nothing
+      dropped vs. catalogue data), global + per-page JSON-LD stack correctly
+      (Organization/WebSite/BreadcrumbList/Product), OG route returns a valid
+      1200×630 PNG for every locale, en (LTR) + fa (RTL, `fa_IR`, `inLanguage:fa`)
+      correct; a11y audit clean (one `h1`/page, no heading skips, named
+      links/buttons, `lang`/`dir`); `tsc --noEmit` clean, no console/server errors.
+      **This completes the build roadmap.**
 
 ---
 

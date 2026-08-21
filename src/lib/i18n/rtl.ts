@@ -42,31 +42,3 @@ export function dirClass(locale: Locale, classes: DirectionClasses): string {
 // Example usage:
 // <ChevronIcon className={dirClass(locale, { ltr: 'rotate-0', rtl: 'rotate-180' })} />
 
-// ─────────────────────────────────────────────
-// FONT STACKS
-// ─────────────────────────────────────────────
-// Both fa and ar need their own fonts because:
-//   - Farsi: Vazirmatn, Sahel, IRANSans
-//   - Arabic: Cairo, Noto Naskh Arabic, Tajawal
-// They share the same Unicode block but have different glyph shapes
-// (especially ک vs ك, ی vs ي, ه vs ه variants)
-
-export const fontStacks = {
-  en: "Inter, system-ui, sans-serif",
-  fa: "Vazirmatn, system-ui, sans-serif",
-  ar: "Cairo, system-ui, sans-serif",
-} as const;
-
-// ─────────────────────────────────────────────
-// TAILWIND CONFIG ADDITION (tailwind.config.ts)
-// ─────────────────────────────────────────────
-//
-// import type { Config } from 'tailwindcss'
-//
-// export default {
-//   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
-//   // Enable RTL variant — adds rtl: and ltr: modifiers
-//   plugins: [require('tailwindcss-rtl')],
-//   // Or with Tailwind v3.3+ built-in logical properties,
-//   // just use ms-*, me-*, ps-*, pe-*, start-*, end-* utilities
-// } satisfies Config

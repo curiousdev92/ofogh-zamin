@@ -11,13 +11,14 @@ export function isRTL(locale: Locale): boolean {
   return rtlLocales.includes(locale)
 }
 
-// Per-locale metadata used in <html> and fonts
+// Per-locale metadata used in <html> and Intl formatting.
+// Note: there is no per-locale font — a single local face (Kalameh) is used for
+// every locale (see globals.css / public/fonts). So no `fontFamily` here.
 export const localeConfig: Record<
   Locale,
   {
     dir: 'ltr' | 'rtl'
-    fontFamily: string
-    // BCP 47 tag used for Intl API (dates, numbers, plurals)
+    // BCP 47 tag used for Intl API (dates, numbers, plurals) — hyphenated.
     intlLocale: string
     // hreflang value
     hreflang: string
@@ -25,21 +26,16 @@ export const localeConfig: Record<
 > = {
   en: {
     dir: 'ltr',
-    fontFamily: 'Inter, sans-serif',
     intlLocale: 'en-US',
     hreflang: 'en',
   },
   fa: {
     dir: 'rtl',
-    // Vazirmatn is the best open-source Persian/Farsi web font
-    fontFamily: 'Vazirmatn, sans-serif',
     intlLocale: 'fa-IR',
     hreflang: 'fa',
   },
   ar: {
     dir: 'rtl',
-    // Cairo works well across Arabic scripts on the web
-    fontFamily: 'Cairo, sans-serif',
     intlLocale: 'ar-SA',
     hreflang: 'ar',
   },
