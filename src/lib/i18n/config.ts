@@ -46,5 +46,5 @@ export const localeConfig: Record<
 }
 
 // Namespaces — each maps to a separate JSON file per locale
-export const namespaces = ['common', 'home', 'about', 'blog', 'contact'] as const
+export const namespaces = ['common', 'home', 'products', 'about', 'blog', 'contact'] as const
 export type Namespace = (typeof namespaces)[number]

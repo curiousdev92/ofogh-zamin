@@ -57,3 +57,98 @@ export function buildLocalizedMetadata({
     },
   };
 }
+
+// Absolute, locale-prefixed URL — for structured data (JSON-LD) and canonical use.
+export function absoluteUrl(locale: Locale, pathname: string) {
+  return `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+}
+
+// schema.org BreadcrumbList from an ordered list of crumbs (root → current).
+export function breadcrumbJsonLd(
+  locale: Locale,
+  crumbs: { name: string; pathname: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: absoluteUrl(locale, c.pathname),
+    })),
+  };
+}
+
+// schema.org ItemList from an ordered list of links (categories, products…).
+export function itemListJsonLd(
+  locale: Locale,
+  items: { name: string; pathname: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      url: absoluteUrl(locale, it.pathname),
+    })),
+  };
+}
+
+// schema.org Product for a single catalogue detail page. No `offers` — this is a
+// spec catalogue with no online pricing; specs surface as additionalProperty.
+export function productJsonLd(
+  locale: Locale,
+  product: {
+    name: string;
+    description: string;
+    material: string;
+    category: string;
+    pathname: string;
+    specs: { name: string; value: string }[];
+  },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    category: product.category,
+    material: product.material,
+    brand: { "@type": "Brand", name: SITE.name },
+    url: absoluteUrl(locale, product.pathname),
+    ...(product.specs.length > 0 && {
+      additionalProperty: product.specs.map((s) => ({
+        "@type": "PropertyValue",
+        name: s.name,
+        value: s.value,
+      })),
+    }),
+  };
+}
+
+// schema.org Article for a single blog post. Author/publisher are the company
+// (no individual bylines); dates are ISO 8601.
+export function articleJsonLd(
+  locale: Locale,
+  article: {
+    headline: string;
+    description: string;
+    datePublished: string;
+    pathname: string;
+  },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    inLanguage: locale,
+    mainEntityOfPage: absoluteUrl(locale, article.pathname),
+    author: { "@type": "Organization", name: SITE.name },
+    publisher: { "@type": "Organization", name: SITE.name },
+  };
+}

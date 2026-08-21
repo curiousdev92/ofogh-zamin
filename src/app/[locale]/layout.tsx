@@ -12,15 +12,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import KalamehFont from "../../../public/fonts";
 
-// const inter = Inter({ subsets: ["latin"], variable: "--font-en", display: "swap" });
-// const vazirmatn = Vazirmatn({
-//   subsets: ["arabic", "latin"],
-//   variable: "--font-fa",
-//   display: "swap",
-// });
-// const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-ar", display: "swap" });
-// const FONT_VARS = `${inter.variable} ${vazirmatn.variable} ${cairo.variable}`;
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -59,7 +50,7 @@ export default async function LocaleLayout({
   const messages = (await getDictionary(l, "common")) as unknown as CommonMessages;
 
   return (
-    <html lang={config.hreflang} dir={config.dir} className={KalamehFont.className}>
+    <html lang={config.hreflang} dir={config.dir} className={KalamehFont.variable}>
       <body className="flex min-h-dvh flex-col">
         <Header locale={l} messages={messages} />
         <main className="flex-1">{children}</main>

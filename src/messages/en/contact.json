@@ -1,1 +1,47 @@
-{}
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Get in touch with Ofogh Zamin for brass fittings enquiries, availability and pricing. Send us your requirements and we'll get back to you."
+  },
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "subtitle": "Tell us what you need — sizes, types and quantities — and we'll come back to you with availability and pricing."
+  },
+  "details": {
+    "title": "Contact details",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "hoursLabel": "Hours",
+    "hours": "Sat–Wed, 9:00–17:00"
+  },
+  "form": {
+    "title": "Send an enquiry",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "company": "Company",
+    "companyPlaceholder": "Company (optional)",
+    "message": "Message",
+    "messagePlaceholder": "Tell us the fittings, sizes and quantities you need…",
+    "optional": "optional",
+    "submit": "Send enquiry",
+    "submitting": "Sending…"
+  },
+  "validation": {
+    "nameRequired": "Please enter your name.",
+    "emailRequired": "Please enter your email.",
+    "emailInvalid": "Please enter a valid email address.",
+    "messageRequired": "Please enter a message."
+  },
+  "success": {
+    "title": "Thank you — your enquiry has been received.",
+    "body": "We'll get back to you shortly. For urgent requests, email or call us directly.",
+    "again": "Send another enquiry"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "contact": "Contact"
+  }
+}

@@ -1,1 +1,21 @@
-{}
+{
+  "meta": {
+    "title": "Blog",
+    "description": "Guides, standards and product news from Ofogh Zamin — practical know-how on brass fittings and fluid-system components."
+  },
+  "landing": {
+    "eyebrow": "Journal",
+    "title": "Insights & guides",
+    "subtitle": "Practical articles on brass fittings, standards and installation — straight from the Ofogh Zamin workshop."
+  },
+  "empty": {
+    "title": "Articles coming soon",
+    "subtitle": "We're preparing guides on fittings, standards and best practice. Check back shortly, or contact us with a question in the meantime."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "blog": "Blog"
+  },
+  "readMore": "Read article",
+  "backToBlog": "Back to blog"
+}

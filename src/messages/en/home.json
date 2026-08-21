@@ -1,1 +1,27 @@
-{}
+{
+  "hero": {
+    "eyebrow": "Brass fittings manufacturer",
+    "title": "Precision brass fittings, engineered to spec",
+    "subtitle": "Ofogh Zamin manufactures and supplies brass fittings and fluid-system components for water, gas and industrial pipework — built to tight tolerances and ready to export.",
+    "primaryCta": "Browse products",
+    "secondaryCta": "Request a quote"
+  },
+  "featured": {
+    "eyebrow": "Catalogue",
+    "title": "Product categories",
+    "subtitle": "From compression joints to ball valves — the core of our brass range.",
+    "viewAll": "All categories",
+    "products": "products"
+  },
+  "suggested": {
+    "eyebrow": "Selected",
+    "title": "Suggested products",
+    "subtitle": "A sample of frequently specified fittings from across the range.",
+    "viewAll": "All products"
+  },
+  "cta": {
+    "title": "Need a specific fitting or a bulk quote?",
+    "subtitle": "Tell us your sizes, threads and quantities — we'll come back with availability and pricing.",
+    "button": "Contact our team"
+  }
+}

@@ -8,6 +8,7 @@ const dictionaries: Record<Locale, Record<Namespace, () => Promise<Record<string
   en: {
     common: () => import("../../messages/en/common.json").then((m) => m.default),
     home: () => import("../../messages/en/home.json").then((m) => m.default),
+    products: () => import("../../messages/en/products.json").then((m) => m.default),
     about: () => import("../../messages/en/about.json").then((m) => m.default),
     blog: () => import("../../messages/en/blog.json").then((m) => m.default),
     contact: () => import("../../messages/en/contact.json").then((m) => m.default),
@@ -15,6 +16,7 @@ const dictionaries: Record<Locale, Record<Namespace, () => Promise<Record<string
   fa: {
     common: () => import("../../messages/fa/common.json").then((m) => m.default),
     home: () => import("../../messages/fa/home.json").then((m) => m.default),
+    products: () => import("../../messages/fa/products.json").then((m) => m.default),
     about: () => import("../../messages/fa/about.json").then((m) => m.default),
     blog: () => import("../../messages/fa/blog.json").then((m) => m.default),
     contact: () => import("../../messages/fa/contact.json").then((m) => m.default),
@@ -22,6 +24,7 @@ const dictionaries: Record<Locale, Record<Namespace, () => Promise<Record<string
   ar: {
     common: () => import("../../messages/ar/common.json").then((m) => m.default),
     home: () => import("../../messages/ar/home.json").then((m) => m.default),
+    products: () => import("../../messages/ar/products.json").then((m) => m.default),
     about: () => import("../../messages/ar/about.json").then((m) => m.default),
     blog: () => import("../../messages/ar/blog.json").then((m) => m.default),
     contact: () => import("../../messages/ar/contact.json").then((m) => m.default),

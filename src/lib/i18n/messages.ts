@@ -33,3 +33,187 @@ export type CommonMessages = {
     language: string;
   };
 };
+
+export type HomeMessages = {
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    primaryCta: string;
+    secondaryCta: string;
+  };
+  featured: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewAll: string;
+    /** Unit noun for the per-category product count, e.g. "products". */
+    products: string;
+  };
+  suggested: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewAll: string;
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    button: string;
+  };
+};
+
+export type ProductsMessages = {
+  meta: {
+    title: string;
+    description: string;
+  };
+  landing: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  categories: {
+    title: string;
+    subtitle: string;
+  };
+  suggested: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  breadcrumb: {
+    home: string;
+    products: string;
+  };
+  /** Count noun for per-category product totals, e.g. "products". */
+  productsUnit: string;
+  category: {
+    /** Small label above the product grid on a category page. */
+    overview: string;
+    /** Empty state shown when a category has no products yet. */
+    empty: string;
+  };
+  /** Single-product detail page. */
+  detail: {
+    /** Heading above the specifications table. */
+    specs: string;
+    /** Heading above the related-products grid. */
+    related: string;
+    /** Link to the parent category from the related section. */
+    viewAll: string;
+    /** Closing enquiry CTA band. */
+    enquiry: {
+      title: string;
+      subtitle: string;
+      button: string;
+    };
+  };
+};
+
+export type BlogMessages = {
+  meta: {
+    title: string;
+    description: string;
+  };
+  landing: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  /** Shown on the index while there are no published posts. */
+  empty: {
+    title: string;
+    subtitle: string;
+  };
+  breadcrumb: {
+    home: string;
+    blog: string;
+  };
+  /** Card CTA linking into a post. */
+  readMore: string;
+  /** Back-link from a post to the index. */
+  backToBlog: string;
+};
+
+export type AboutMessages = {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  story: {
+    title: string;
+    /** Ordered body paragraphs. */
+    body: string[];
+  };
+  values: {
+    title: string;
+    items: { title: string; body: string }[];
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    primary: string;
+    secondary: string;
+  };
+  breadcrumb: {
+    home: string;
+    about: string;
+  };
+};
+
+export type ContactMessages = {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  details: {
+    title: string;
+    emailLabel: string;
+    phoneLabel: string;
+    hoursLabel: string;
+    hours: string;
+  };
+  form: {
+    title: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    company: string;
+    companyPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    /** Suffix marking an optional field. */
+    optional: string;
+    submit: string;
+    /** Button label while the (stubbed) submit is in flight. */
+    submitting: string;
+  };
+  validation: {
+    nameRequired: string;
+    emailRequired: string;
+    emailInvalid: string;
+    messageRequired: string;
+  };
+  success: {
+    title: string;
+    body: string;
+    /** Reset link to send another enquiry. */
+    again: string;
+  };
+  breadcrumb: {
+    home: string;
+    contact: string;
+  };
+};

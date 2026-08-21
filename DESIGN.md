@@ -81,6 +81,7 @@ Defined in `@theme` → auto-generate `bg-*`, `text-*`, `border-*`, `ring-*`.
 | `accent` | `bg-accent` | gold-500 | Accent actions/highlights |
 | `accent-foreground` | `text-accent-foreground` | navy-900 | Text on accent |
 | `ring` | `ring-ring` | gold-500 | Focus rings |
+| `danger` | `text-danger` / `border-danger` | `#b42318` | Form validation errors (AA on white) |
 
 ### Scales (`navy-50…950`, `gold-50…900`, `steel-50…950`)
 
@@ -95,21 +96,25 @@ Defined in `@theme` → auto-generate `bg-*`, `text-*`, `border-*`, `ring-*`.
 
 ## 5. Typography
 
-Fonts are loaded per-locale in [`src/app/[locale]/layout.tsx`](src/app/[locale]/layout.tsx)
-as CSS vars: `--font-en` (Inter), `--font-fa` (Vazirmatn), `--font-ar` (Cairo).
+**One local typeface — Kalameh** — across every locale. Loaded with
+`next/font/local` in [`public/fonts/index.ts`](public/fonts/index.ts) (weights
+100/400/700/900) and exposed as the CSS var `--font-kalameh`; the layout puts
+`KalamehFont.variable` on `<html>`.
 
-`globals.css` maps `--font-active` off `<html lang>` and points `--font-sans` /
-`--font-display` at it — so **`font-sans` is always the correct script's font**
-with no per-component logic. Body inherits it automatically.
+`globals.css` aliases `--font-active` to `--font-kalameh` and points `--font-sans`
+/ `--font-display` at it — so **`font-sans` always resolves to Kalameh**, body and
+headings included, with no per-component logic.
 
 - **Scale:** default Tailwind (`text-xs … text-6xl`).
 - **Headings:** `font-display`, weight 700, `line-height 1.15`, navy-900,
   `text-wrap: balance` (set in base layer). Add responsive sizes per use.
-- **Weights:** 400 body · 500 UI/labels · 600 subheads · 700 headings.
+- **Weights:** 400 body · 500 UI/labels · 600 subheads · 700 headings
+  (Kalameh ships Thin/Regular/Bold/Black = 100/400/700/900).
 
-> **Fonts:** all three come from `next/font/google` (self-hosted at build time —
-> no runtime network, nothing to commit to `public/fonts/`). Vazirmatn & Cairo
-> require `subsets: ["arabic", "latin"]`.
+> **Fonts:** Kalameh `.woff2` files live in `public/fonts/`, self-hosted at build
+> time (no runtime network). Kalameh carries both Persian/Arabic **and** Latin
+> glyphs, so the Latin wordmark and English copy also render in Kalameh. The
+> earlier Google fonts (Inter/Vazirmatn/Cairo) were removed.
 
 ---
 
@@ -199,9 +204,8 @@ Per-page checklist:
   direction-specific bits (e.g. chevron rotation) use `dirClass()` from
   [`rtl.ts`](src/lib/i18n/rtl.ts).
 
-> Note: `common.json` (brand, nav, actions, footer) is populated for all three
-> locales — it feeds Header, Footer and Home. The other namespaces
-> (`home`/`about`/`blog`/`contact`) are still empty `{}` — fill as each page is built.
+> Note: all six namespaces (`common`, `home`, `products`, `blog`, `about`,
+> `contact`) are populated for every locale (en/fa/ar). No empty `{}` files remain.
 
 ---
 
@@ -219,8 +223,10 @@ src/
   components/
     ui/                      ← design-system primitives (this doc, §7)
     layout/                  ← Header, Footer, MobileMenu, Logo
+    product/                 ← CategoryCard, ProductCard, PlaceholderTile
   lib/
     site.ts                  ← name, canonical URL, contact — single source
+    products/                ← typed static catalogue: types, data, query helpers
     i18n/                    ← config, dictionaries, seo, rtl, href, messages, LanguageSwitcher
     utils/cn.ts              ← className combiner
   messages/{en,fa,ar}/       ← translation JSON (common.json filled)
@@ -249,28 +255,76 @@ live beside their route. Always import via `@/…`.
       QA page. **Verified** via `next build` and live dev: en (LTR / Inter) and fa
       (RTL / Vazirmatn) render with the navy+gold palette and squared edges;
       locale-aware font switching works off `<html lang>`.
-- [ ] **Step 3 — Home** ⚠️ *next* — hero is done; add featured categories,
-      suggested products, and a CTA band.
-- [ ] **Step 4 — Products landing + Category** (`ProductCard`, `CategoryCard`, grid, filters).
-- [ ] **Step 5 — Single product** (gallery, specs table, enquiry CTA, `Product` JSON-LD).
-- [ ] **Step 6 — Blog** (index + post; `Article` JSON-LD).
-- [ ] **Step 7 — About + Contact** (form with `Input`/`Textarea`/`Label`, validation).
-- [ ] **Step 8 — SEO finish** (`robots.ts`, full sitemap, OG images, JSON-LD sweep) + a11y/perf pass.
+- [x] **Step 3 — Home** *(done)*: hero, featured-categories grid, suggested-products
+      grid, and a navy CTA band. Introduced the **catalogue data layer**
+      (`src/lib/products/` — `types`, `data`, query helpers) and reusable
+      `CategoryCard` / `ProductCard` / `PlaceholderTile`. Home copy added to
+      `home.json` (all 3 locales). **Verified** live: en (LTR) + fa (RTL) render
+      with Kalameh, squared 1px cards, navy/gold palette; `tsc --noEmit` clean.
+- [x] **Step 4 — Products landing + Category** *(done)*: `/products` (header +
+      6-category grid + suggested products) and `/products/[category]`
+      (`generateStaticParams` over categories, `notFound()` on miss, product grid
+      with count, defensive empty state → contact CTA). Added reusable
+      `Breadcrumbs` + `JsonLd` components; `BreadcrumbList` + `ItemList` JSON-LD on
+      both routes via `breadcrumbJsonLd` / `itemListJsonLd` / `absoluteUrl` in
+      `seo.ts`; typed `ProductsMessages` + `products.json` (all 3 locales).
+      **Verified** live: en (LTR) landing + `ball-valves` category, fa (RTL, valid
+      structured data) render clean — no console/server errors; `tsc --noEmit` clean.
+- [x] **Step 5 — Single product** *(done)*: `/products/[category]/[slug]`
+      (`generateStaticParams` over all products, `notFound()` on bad slug/category).
+      Overview band (breadcrumb, category eyebrow, placeholder tile, material badge,
+      summary, quote CTA), squared `<dl>` specs table, related-products grid (same
+      category, current excluded), navy enquiry band. Added `productJsonLd`
+      (`Product` + specs as `additionalProperty`, no `offers`) + `detail` copy to
+      `products.json` (all 3 locales). **Verified** live: en (LTR) + fa (RTL,
+      localized specs/CTA) render clean; JSON-LD valid; 404s on bad slug/category;
+      `tsc --noEmit` clean.
+- [x] **Step 6 — Blog** *(done)*: `/blog` (index) + `/blog/[slug]` (post). Added a
+      blog data layer (`src/lib/blog/` — `types`, empty `data`, query helpers +
+      `formatDate`) mirroring the catalogue. Index shows a **"coming soon"** empty
+      state while `posts` is empty, and auto-switches to a `PostCard` grid once
+      content lands. Post template is ready (breadcrumb, date, body paragraphs,
+      back-link) with `Article` + `BreadcrumbList` JSON-LD (`articleJsonLd` in
+      `seo.ts`); it generates no pages until posts exist and 404s on unknown slugs.
+      `blog.json` populated (all 3 locales). **Verified** live: en + fa (RTL) render
+      the empty state clean; `/blog/<unknown>` → 404; `tsc --noEmit` clean.
+- [x] **Step 7 — About + Contact** *(done)*: `/about` (hero, two-paragraph story,
+      4-item "what we stand for" grid, navy dual-CTA band → products + contact) and
+      `/contact` (contact details from `SITE` — mailto/tel links locked `dir="ltr"`
+      inside RTL — beside a client `ContactForm`). The form (`Input`/`Textarea`/
+      `Label`) does client-side validation (Name*/Email*/Message* required, email
+      shape), shows inline `role="alert"` errors + `aria-invalid`/`aria-describedby`,
+      moves focus to the first invalid field, and on valid submit swaps to a
+      `role="status"` success panel with a reset. **Delivery is intentionally
+      stubbed** ("UI now, wire delivery later" — logs the payload, no backend); wire
+      a provider in `handleSubmit` (see its `TODO(delivery)`). Added a semantic
+      `danger` token (§4), `about.json` + `contact.json` (all 3 locales), and
+      `AboutMessages`/`ContactMessages` types. `BreadcrumbList` JSON-LD on both.
+      **Verified** live: en full form flow (empty → 3 errors, invalid email, success,
+      reset, stub log), fa + ar (RTL, localized copy/validation, LTR email/phone);
+      `tsc --noEmit` clean, no console/server errors.
+- [ ] **Step 8 — SEO finish** ⚠️ *next* — `robots.ts`, full sitemap (all locales ×
+      routes), OG images, JSON-LD sweep (add `Organization` + `WebSite` on the
+      layout). Fix `openGraph.locale` to the underscore form (`en_US`), and drop the
+      vestigial `fontFamily`/`fontStacks` (Inter/Vazirmatn/Cairo) in `rtl.ts`. Plus
+      an a11y/perf pass.
 
 ---
 
 ## 12. Decisions (answered)
 
 1. **Palette** — approved as-is: `navy-900 #0d1a2b` + `gold-500 #c2941f`.
-2. **Fonts** — `next/font/google` (Inter / Vazirmatn / Cairo); **no local font
-   files**. See §5.
+2. **Fonts** — **Kalameh**, a single local `next/font/local` face used for all
+   locales (client swapped it in; Google Inter/Vazirmatn/Cairo removed). See §5.
 3. **Brand** — name **"Ofogh Zamin"**, a Latin wordmark kept Latin in every locale;
    **no logo asset yet** — `Logo` renders a gold tick + the wordmark.
 4. **Domain** — `https://ofogh-zamin.vercel.app` (in [`src/lib/site.ts`](src/lib/site.ts)).
 5. **Product data source** — **typed static data in-repo** (my call, per "you
    choose"; ≤300 products, no CMS). Plan: `src/lib/products/` exporting typed
    `Product[]` + `Category[]`, fully `generateStaticParams`-able → static HTML,
-   strong SEO, and trivial to lift into a CMS later. **Blog:** no content yet
+   strong SEO, and trivial to lift into a CMS later. **Placeholder catalogue now
+   seeded** in [`data.ts`](src/lib/products/data.ts) (6 categories, 16 products,
+   trilingual) — swap for the client's real content later. **Blog:** no content yet
    (being produced) → build index/post with a "coming soon" empty state and wire
    real data when supplied.
 6. **Type case** — keep **uppercase + industrial** for Latin UI (nav / buttons /

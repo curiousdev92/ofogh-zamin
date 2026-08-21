@@ -61,6 +61,8 @@
   --color-accent: var(--color-gold-500);
   --color-accent-foreground: var(--color-navy-900);
   --color-ring: var(--color-gold-500);
+  --color-danger: #b42318; /* form errors — AA-contrast red on white */
+  --color-danger-foreground: #ffffff;
 
   /* ---- Radius · NO soft edges --------------------------------------------- */
   --radius-xs: 0px;
@@ -73,8 +75,8 @@
   --radius-4xl: 0px;
 
   /* ---- Typography ---------------------------------------------------------- */
-  /* --font-active is set per-locale in the base layer below, so `font-sans`
-     always resolves to the correct script's font (Inter / Vazirmatn / Cairo). */
+  /* --font-active is bound to the local Kalameh face in the base layer below,
+     so `font-sans` / `font-display` resolve to it across every locale. */
   --font-sans: var(--font-active), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-active), ui-sans-serif, system-ui, sans-serif;
 
@@ -92,18 +94,12 @@
     color-scheme: light;
   }
 
-  /* Drive the active font off the <html lang> attribute the layout already sets.
-     No layout change required. */
+  /* One local typeface (Kalameh) across all locales. Its CSS variable is set on
+     <html> by the layout (KalamehFont.variable); we alias --font-active to it. */
   html {
-    --font-active: var(--font-en);
+    --font-active: var(--font-kalameh);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-  }
-  html[lang="fa"] {
-    --font-active: var(--font-fa);
-  }
-  html[lang="ar"] {
-    --font-active: var(--font-ar);
   }
 
   body {

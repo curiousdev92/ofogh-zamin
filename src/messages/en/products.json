@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "Products",
+    "description": "Browse Ofogh Zamin's range of precision brass fittings — compression, threaded, push-fit, ball valves, gas and hose fittings, engineered to spec."
+  },
+  "landing": {
+    "eyebrow": "Catalogue",
+    "title": "Brass fittings for every connection",
+    "subtitle": "Explore our full range of precision-machined brass fittings and valves, organised by category. Every part is built to recognised standards for reliable, leak-tight service."
+  },
+  "categories": {
+    "title": "Browse by category",
+    "subtitle": "Find the right fitting family for your application."
+  },
+  "suggested": {
+    "eyebrow": "Popular",
+    "title": "Suggested products",
+    "subtitle": "A selection of our most-requested brass fittings."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "products": "Products"
+  },
+  "productsUnit": "products",
+  "category": {
+    "overview": "Products in this range",
+    "empty": "Products for this category are being added. Please check back soon, or contact us for current availability."
+  },
+  "detail": {
+    "specs": "Specifications",
+    "related": "Related products",
+    "viewAll": "View all",
+    "enquiry": {
+      "title": "Need this fitting?",
+      "subtitle": "Tell us the sizes and quantities you need and we'll get back to you with availability and pricing.",
+      "button": "Request a quote"
+    }
+  }
+}

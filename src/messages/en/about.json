@@ -1,1 +1,49 @@
-{}
+{
+  "meta": {
+    "title": "About",
+    "description": "Ofogh Zamin manufactures and supplies precision brass fittings and fluid-system components — built to recognised standards for reliable, leak-tight service."
+  },
+  "hero": {
+    "eyebrow": "About us",
+    "title": "Precision brass fittings, built to spec",
+    "subtitle": "Ofogh Zamin designs, machines and supplies brass fittings and valves for water, gas and fluid systems — engineered for reliable, leak-tight performance."
+  },
+  "story": {
+    "title": "Who we are",
+    "body": [
+      "Ofogh Zamin is a manufacturer and supplier of precision brass fittings and fluid-system components. From compression and threaded fittings to ball valves and gas fittings, our range is built for the trades and industries that depend on dependable connections.",
+      "Every part is machined from quality brass to tight tolerances and finished to recognised standards, so the ten-thousandth fitting performs exactly as the first."
+    ]
+  },
+  "values": {
+    "title": "What we stand for",
+    "items": [
+      {
+        "title": "Built to standard",
+        "body": "Fittings machined to recognised BSP and NPT standards for consistent, leak-tight joints."
+      },
+      {
+        "title": "Quality materials",
+        "body": "Made from CW617N brass for strength, corrosion resistance and a clean finish."
+      },
+      {
+        "title": "Range & availability",
+        "body": "A broad catalogue of sizes and types, supplied to spec for trade and industry."
+      },
+      {
+        "title": "Responsive supply",
+        "body": "Straight answers on availability and pricing — tell us what you need and we'll respond."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Looking for a specific fitting?",
+    "subtitle": "Browse the catalogue or send us your requirements — we'll help you find the right part.",
+    "primary": "View products",
+    "secondary": "Contact us"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "about": "About"
+  }
+}
