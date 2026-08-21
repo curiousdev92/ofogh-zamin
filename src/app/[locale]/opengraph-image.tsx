@@ -1,3 +1,4 @@
+import { locales } from "@/lib/i18n/config";
 import { SITE } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
@@ -12,6 +13,13 @@ import { ImageResponse } from "next/og";
 export const alt = "Ofogh Zamin — Brass Fittings & Precision Parts";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// Prerender one card per locale at build time so the OG image is a static CDN
+// asset (no on-demand serverless render). Only the three known locales exist.
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+export const dynamicParams = false;
 
 const NAVY = "#0d1a2b";
 const GOLD = "#c2941f";
