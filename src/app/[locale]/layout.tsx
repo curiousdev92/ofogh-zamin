@@ -42,28 +42,27 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
 
-  const l = locale as Locale;
-  const config = localeConfig[l];
-  const messages = (await getDictionary(l, "common")) as unknown as CommonMessages;
+  const config = localeConfig[locale];
+  const messages = (await getDictionary(locale, "common")) as unknown as CommonMessages;
 
   return (
     <html lang={config.hreflang} dir={config.dir} className={KalamehFont.variable}>
-      <body className="flex min-h-dvh flex-col">
+      <body className={`flex min-h-dvh flex-col ${locale}`}>
         {/* Global structured data — brand identity + site, on every page. */}
         <JsonLd
           data={[
             organizationJsonLd(messages.footer.description),
-            websiteJsonLd(l, messages.footer.description),
+            websiteJsonLd(locale, messages.footer.description),
           ]}
         />
-        <Header locale={l} messages={messages} />
+        <Header locale={locale} messages={messages} />
         <main className="flex-1">{children}</main>
-        <Footer locale={l} messages={messages} />
+        <Footer locale={locale} messages={messages} />
         <Analytics />
         <SpeedInsights />
       </body>

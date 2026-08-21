@@ -80,7 +80,7 @@ export function MobileMenu({
               <span className="text-xs uppercase tracking-wide text-muted-foreground">
                 {languageLabel}
               </span>
-              <LanguageSwitcher currentLocale={currentLocale} />
+              <LanguageSwitcher currentLocale={currentLocale} align="start" />
             </div>
             <Link
               href={cta.href}

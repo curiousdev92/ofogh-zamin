@@ -14,7 +14,8 @@ export function Card({ className, interactive = false, ...props }: CardProps) {
     <div
       className={cn(
         "border border-border bg-surface",
-        interactive && "transition-colors hover:border-navy-900 focus-within:border-navy-900",
+        interactive &&
+          "transition hover:border-navy-900 hover:shadow-md focus-within:border-navy-900",
         className,
       )}
       {...props}

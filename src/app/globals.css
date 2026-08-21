@@ -92,8 +92,6 @@
 @layer base {
   :root {
     color-scheme: light;
-    font-variation-settings: "dots" 4;
-    /* font-variant-ligatures: discretionary-ligatures; */
   }
 
   /* One local typeface (Kalameh) across all locales. Its CSS variable is set on
@@ -110,6 +108,11 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  body.fa {
+    font-variation-settings: "dots" 4;
+    font-feature-settings: "ss02";
   }
 
   h1,
