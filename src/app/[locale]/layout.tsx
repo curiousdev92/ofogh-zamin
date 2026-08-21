@@ -1,21 +1,25 @@
 import "../globals.css";
 
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Cairo, Inter, Vazirmatn } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Locale, localeConfig, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import type { CommonMessages } from "@/lib/i18n/messages";
 import { SITE } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Cairo, Inter, Vazirmatn } from "next/font/google";
+import { notFound } from "next/navigation";
 
 // Each script's font is exposed as a CSS variable. globals.css maps --font-active
 // off <html lang>, so `font-sans` resolves to the right font with no per-component logic.
 const inter = Inter({ subsets: ["latin"], variable: "--font-en", display: "swap" });
-const vazirmatn = Vazirmatn({ subsets: ["arabic", "latin"], variable: "--font-fa", display: "swap" });
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
+  variable: "--font-fa",
+  display: "swap",
+});
 const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-ar", display: "swap" });
 const FONT_VARS = `${inter.variable} ${vazirmatn.variable} ${cairo.variable}`;
 
@@ -63,6 +67,7 @@ export default async function LocaleLayout({
         <main className="flex-1">{children}</main>
         <Footer locale={l} messages={messages} />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
