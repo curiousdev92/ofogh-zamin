@@ -1,6 +1,7 @@
+import { SITE } from "@/lib/site";
 import { defaultLocale, Locale, localeConfig, locales } from "./config";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://yoursite.com";
+const BASE_URL = SITE.url;
 
 // Generate hreflang link tags for a given pathname
 // Call this in every page's <head> or generateMetadata()

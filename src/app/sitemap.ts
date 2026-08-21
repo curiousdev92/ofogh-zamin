@@ -1,7 +1,8 @@
 import { locales } from "@/lib/i18n/config";
+import { SITE } from "@/lib/site";
 import { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = SITE.url;
 
 // Static routes — add dynamic routes (blog posts, etc.) alongside these
 const staticRoutes = ["", "/about", "/blog", "/contact"];

@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils/cn";
 import { Locale, locales } from "./config";
 
-// Display names shown in the switcher — always in the target language
+// Display names shown in the switcher — always written in the target language.
 const localeLabels: Record<Locale, string> = {
   en: "English",
   fa: "فارسی",
@@ -12,47 +13,52 @@ const localeLabels: Record<Locale, string> = {
 
 type Props = {
   currentLocale: Locale;
+  // "light" for the dark footer, "dark" (default) for the light header.
+  tone?: "dark" | "light";
+  className?: string;
 };
 
-export function LanguageSwitcher({ currentLocale }: Props) {
+export function LanguageSwitcher({ currentLocale, tone = "dark", className }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
   function switchLocale(nextLocale: Locale) {
     if (nextLocale === currentLocale) return;
 
-    // Replace the current locale segment in the URL
-    // e.g. /fa/blog/my-post → /ar/blog/my-post
+    // Swap the locale segment in place: /fa/blog/x → /ar/blog/x (index 1 is the locale).
     const segments = pathname.split("/");
-    segments[1] = nextLocale; // index 1 is always the locale
-    const nextPath = segments.join("/");
+    segments[1] = nextLocale;
 
-    // Set cookie so middleware respects the user's manual choice
+    // Persist the manual choice so the proxy respects it on later visits.
     document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
 
-    router.push(nextPath);
+    router.push(segments.join("/"));
   }
 
+  const idle =
+    tone === "light" ? "text-steel-300 hover:text-white" : "text-steel-500 hover:text-navy-900";
+  const active = tone === "light" ? "bg-white text-navy-900" : "bg-navy-900 text-white";
+
   return (
-    <nav aria-label="Language switcher">
-      <ul role="list" style={{ display: "flex", gap: "0.75rem", listStyle: "none" }}>
-        {locales.map((locale) => (
-          <li key={locale}>
-            <button
-              onClick={() => switchLocale(locale)}
-              aria-current={locale === currentLocale ? "true" : undefined}
-              lang={locale} // Important: tells screen readers the language of each label
-              style={{
-                fontWeight: locale === currentLocale ? 700 : 400,
-                textDecoration: locale === currentLocale ? "underline" : "none",
-                cursor: locale === currentLocale ? "default" : "pointer",
-              }}
-            >
-              {localeLabels[locale]}
-            </button>
-          </li>
-        ))}
-      </ul>
+    <nav aria-label="Language switcher" className={cn("flex items-center gap-1", className)}>
+      {locales.map((locale) => {
+        const isActive = locale === currentLocale;
+        return (
+          <button
+            key={locale}
+            type="button"
+            onClick={() => switchLocale(locale)}
+            aria-current={isActive ? "true" : undefined}
+            lang={locale}
+            className={cn(
+              "px-2.5 py-1 text-xs font-medium tracking-wide transition-colors",
+              isActive ? active : idle,
+            )}
+          >
+            {localeLabels[locale]}
+          </button>
+        );
+      })}
     </nav>
   );
 }

@@ -1,1 +1,140 @@
 @import "tailwindcss";
+
+/* ============================================================================
+   OFOGH ZAMIN — DESIGN TOKENS
+   Brass fittings catalogue. Palette: Navy (brand) + Gold/Brass (accent).
+   Aesthetic: clean, industrial, NO soft edges (border-radius = 0).
+   Tailwind v4 — tokens below auto-generate utilities (bg-navy-900, text-gold-500,
+   border-border, font-sans, etc.). Full reference: /DESIGN.md
+   ============================================================================ */
+
+@theme {
+  /* ---- Brand · Navy -------------------------------------------------------- */
+  --color-navy-50: #eef3f9;
+  --color-navy-100: #d6e1ef;
+  --color-navy-200: #aec3de;
+  --color-navy-300: #85a3cc;
+  --color-navy-400: #5a7eaf;
+  --color-navy-500: #3c6091;
+  --color-navy-600: #2e4b73;
+  --color-navy-700: #223a59;
+  --color-navy-800: #16273d;
+  --color-navy-900: #0d1a2b; /* signature navy */
+  --color-navy-950: #070f1a;
+
+  /* ---- Accent · Gold / Brass ---------------------------------------------- */
+  --color-gold-50: #fbf6e9;
+  --color-gold-100: #f5e9c4;
+  --color-gold-200: #ecd488;
+  --color-gold-300: #e1bc4e;
+  --color-gold-400: #d6a82a;
+  --color-gold-500: #c2941f; /* signature brass */
+  --color-gold-600: #9e7719;
+  --color-gold-700: #785a16; /* use for gold TEXT on light bg (contrast-safe) */
+  --color-gold-800: #544011;
+  --color-gold-900: #362a0c;
+
+  /* ---- Neutral · Steel (cool gray) ---------------------------------------- */
+  --color-steel-50: #f6f7f9;
+  --color-steel-100: #eceef2;
+  --color-steel-200: #dce0e6;
+  --color-steel-300: #c2c9d3;
+  --color-steel-400: #9aa3b2;
+  --color-steel-500: #6f7a8b;
+  --color-steel-600: #545e6d;
+  --color-steel-700: #3e4652;
+  --color-steel-800: #282e37;
+  --color-steel-900: #171b21;
+  --color-steel-950: #0d1013;
+
+  /* ---- Semantic aliases (prefer these in components) ---------------------- */
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: var(--color-steel-50);
+  --color-foreground: var(--color-navy-900);
+  --color-muted: var(--color-steel-100);
+  --color-muted-foreground: var(--color-steel-500);
+  --color-border: var(--color-steel-200);
+  --color-border-strong: var(--color-navy-900);
+  --color-primary: var(--color-navy-900);
+  --color-primary-foreground: #ffffff;
+  --color-accent: var(--color-gold-500);
+  --color-accent-foreground: var(--color-navy-900);
+  --color-ring: var(--color-gold-500);
+
+  /* ---- Radius · NO soft edges --------------------------------------------- */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  /* ---- Typography ---------------------------------------------------------- */
+  /* --font-active is set per-locale in the base layer below, so `font-sans`
+     always resolves to the correct script's font (Inter / Vazirmatn / Cairo). */
+  --font-sans: var(--font-active), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-active), ui-sans-serif, system-ui, sans-serif;
+
+  /* ---- Elevation · tight, navy-tinted, used sparingly (prefer borders) ---- */
+  --shadow-sm: 0 1px 2px 0 rgb(13 26 43 / 0.06);
+  --shadow-md: 0 2px 8px -2px rgb(13 26 43 / 0.1);
+  --shadow-lg: 0 8px 24px -6px rgb(13 26 43 / 0.14);
+}
+
+/* ============================================================================
+   BASE LAYER
+   ============================================================================ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  /* Drive the active font off the <html lang> attribute the layout already sets.
+     No layout change required. */
+  html {
+    --font-active: var(--font-en);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  html[lang="fa"] {
+    --font-active: var(--font-fa);
+  }
+  html[lang="ar"] {
+    --font-active: var(--font-ar);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-navy-900);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-300);
+    color: var(--color-navy-900);
+  }
+
+  /* Accessible focus ring everywhere — sharp, brass-colored. */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
