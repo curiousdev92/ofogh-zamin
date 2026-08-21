@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Locale, localeConfig, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { generateHreflangTags } from "@/lib/i18n/seo";
+import { Analytics } from "@vercel/analytics/next";
 import { Cairo, Inter, Vazirmatn } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-en" });
@@ -41,6 +42,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         ))}
       </head>
       <body style={{ fontFamily: config.fontFamily }}>{children}</body>
+
+      <Analytics />
     </html>
   );
 }
