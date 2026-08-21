@@ -14,8 +14,7 @@ export function Card({ className, interactive = false, ...props }: CardProps) {
     <div
       className={cn(
         "border border-border bg-surface",
-        interactive &&
-          "transition-colors hover:border-navy-900 focus-within:border-navy-900",
+        interactive && "transition-colors hover:border-navy-900 focus-within:border-navy-900",
         className,
       )}
       {...props}
@@ -28,12 +27,7 @@ export function CardHeader({ className, ...props }: React.ComponentProps<"div">)
 }
 
 export function CardTitle({ className, ...props }: React.ComponentProps<"h3">) {
-  return (
-    <h3
-      className={cn("text-lg font-semibold text-foreground", className)}
-      {...props}
-    />
-  );
+  return <h3 className={cn("text-lg font-semibold text-foreground", className)} {...props} />;
 }
 
 export function CardBody({ className, ...props }: React.ComponentProps<"div">) {

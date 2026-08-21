@@ -65,7 +65,9 @@ const STEEL = [
 function Swatches({ title, classes }: { title: string; classes: string[] }) {
   return (
     <div>
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-widest text-steel-600">{title}</h3>
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-widest text-steel-600">
+        {title}
+      </h3>
       <div className="flex flex-wrap gap-2">
         {classes.map((c) => (
           <div key={c} className="w-24">
@@ -83,7 +85,7 @@ function Swatches({ title, classes }: { title: string; classes: string[] }) {
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="border-t border-border pt-10">
-      <h2 className="mb-6 text-xl font-bold uppercase tracking-wide text-navy-900">{title}</h2>
+      <h2 className="mb-6 text-xl  uppercase tracking-wide text-navy-900">{title}</h2>
       {children}
     </section>
   );
@@ -95,7 +97,7 @@ export default function StyleGuidePage() {
       <Container className="space-y-14">
         <header>
           <Badge variant="accent">Design System</Badge>
-          <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight">Ofogh Zamin Style Guide</h1>
+          <h1 className="mt-4 text-4xl  uppercase tracking-tight">Ofogh Zamin Style Guide</h1>
           <p className="mt-3 max-w-2xl text-steel-600">
             Navy + brass, squared edges, industrial. Visual QA for every design token and primitive.
           </p>
@@ -111,15 +113,15 @@ export default function StyleGuidePage() {
 
         <Block title="Typography">
           <div className="space-y-3">
-            <h1 className="text-5xl font-bold uppercase tracking-tight">Heading 1</h1>
-            <h2 className="text-4xl font-bold uppercase tracking-tight">Heading 2</h2>
+            <h1 className="text-5xl  uppercase tracking-tight">Heading 1</h1>
+            <h2 className="text-4xl  uppercase tracking-tight">Heading 2</h2>
             <h3 className="text-3xl font-bold">Heading 3</h3>
             <h4 className="text-2xl font-bold">Heading 4</h4>
             <h5 className="text-xl font-semibold">Heading 5</h5>
             <h6 className="text-lg font-semibold">Heading 6</h6>
             <p className="max-w-2xl text-base text-steel-700">
-              Body text. Precision brass fittings and fluid-system components, engineered to spec and
-              built to last. The quick brown fox jumps over the lazy dog.
+              Body text. Precision brass fittings and fluid-system components, engineered to spec
+              and built to last. The quick brown fox jumps over the lazy dog.
             </p>
             <p className="max-w-2xl text-sm text-muted-foreground">
               Muted / small text — used for captions, metadata, and secondary detail.
@@ -149,7 +151,9 @@ export default function StyleGuidePage() {
               </div>
             ))}
             <div className="flex flex-wrap items-center gap-4">
-              <span className="w-20 text-xs uppercase tracking-widest text-muted-foreground">link</span>
+              <span className="w-20 text-xs uppercase tracking-widest text-muted-foreground">
+                link
+              </span>
               <Button variant="link">Text link button</Button>
               <a href="#" className={buttonVariants({ variant: "accent" })}>
                 Link as button

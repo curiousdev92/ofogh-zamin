@@ -101,9 +101,7 @@ export default async function ProductPage({ params }: Props) {
               >
                 {categoryName}
               </Link>
-              <h1 className="mt-2 text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-                {name}
-              </h1>
+              <h1 className="mt-2 text-3xl  uppercase tracking-tight sm:text-4xl">{name}</h1>
               <Badge variant="muted" className="mt-4 self-start">
                 {material}
               </Badge>
@@ -148,9 +146,7 @@ export default async function ProductPage({ params }: Props) {
         <Section spacing="lg">
           <Container>
             <div className="flex items-baseline justify-between gap-4">
-              <h2 className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
-                {t.detail.related}
-              </h2>
+              <h2 className="text-2xl  uppercase tracking-tight sm:text-3xl">{t.detail.related}</h2>
               <Link
                 href={localeHref(l, categoryPath)}
                 className={buttonVariants({ variant: "link", className: "whitespace-nowrap" })}
@@ -172,7 +168,7 @@ export default async function ProductPage({ params }: Props) {
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+              <h2 className="text-2xl  uppercase tracking-tight text-white sm:text-3xl">
                 {t.detail.enquiry.title}
               </h2>
               <p className="mt-3 text-steel-300">{t.detail.enquiry.subtitle}</p>

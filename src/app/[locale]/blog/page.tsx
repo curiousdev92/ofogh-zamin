@@ -4,12 +4,12 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge, buttonVariants, Card, Container, Section } from "@/components/ui";
+import { formatDate, getPosts, localize, type Post } from "@/lib/blog";
+import { Locale } from "@/lib/i18n/config";
 import { getDictionaries } from "@/lib/i18n/getDictionary";
 import { localeHref } from "@/lib/i18n/href";
-import { Locale } from "@/lib/i18n/config";
 import type { BlogMessages, CommonMessages } from "@/lib/i18n/messages";
 import { breadcrumbJsonLd, buildLocalizedMetadata } from "@/lib/i18n/seo";
-import { formatDate, getPosts, localize, type Post } from "@/lib/blog";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -35,7 +35,10 @@ function PostCard({ post, locale, readMore }: { post: Post; locale: Locale; read
       className="group block focus-visible:outline-none"
     >
       <Card interactive className="flex h-full flex-col p-6 group-focus-visible:border-navy-900">
-        <time dateTime={post.date} className="text-xs uppercase tracking-wide text-muted-foreground">
+        <time
+          dateTime={post.date}
+          className="text-xs uppercase tracking-wide text-muted-foreground"
+        >
           {formatDate(post.date, locale)}
         </time>
         <h2 className="mt-3 text-lg font-semibold text-foreground">{title}</h2>
@@ -77,7 +80,7 @@ export default async function BlogPage({ params }: Props) {
             <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
               {t.landing.eyebrow}
             </span>
-            <h1 className="mt-2 text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+            <h1 className="mt-2 text-4xl  uppercase tracking-tight sm:text-5xl">
               {t.landing.title}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-steel-600">{t.landing.subtitle}</p>
@@ -99,7 +102,7 @@ export default async function BlogPage({ params }: Props) {
               <Badge variant="outline" className="mx-auto">
                 {t.landing.eyebrow}
               </Badge>
-              <h2 className="mt-5 text-2xl font-bold uppercase tracking-tight">{t.empty.title}</h2>
+              <h2 className="mt-5 text-2xl  uppercase tracking-tight">{t.empty.title}</h2>
               <p className="mt-4 text-steel-600">{t.empty.subtitle}</p>
               <Link
                 href={localeHref(l, "/contact")}

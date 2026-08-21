@@ -21,8 +21,8 @@ export function generateStaticParams() {
 }
 export const dynamicParams = false;
 
-const NAVY = "#0d1a2b";
-const GOLD = "#c2941f";
+const NAVY = "#0b1c33";
+const GOLD = "#f2b705";
 const STEEL = "#94a3b8";
 
 export default function OpengraphImage() {

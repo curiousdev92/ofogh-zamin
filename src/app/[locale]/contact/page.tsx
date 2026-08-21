@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container, Section } from "@/components/ui";
 import { Locale } from "@/lib/i18n/config";
@@ -67,9 +67,7 @@ export default async function ContactPage({ params }: Props) {
             <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
               {t.hero.eyebrow}
             </span>
-            <h1 className="mt-2 text-4xl font-bold uppercase tracking-tight sm:text-5xl">
-              {t.hero.title}
-            </h1>
+            <h1 className="mt-2 text-4xl uppercase tracking-tight sm:text-5xl">{t.hero.title}</h1>
             <p className="mt-6 text-lg leading-relaxed text-steel-600">{t.hero.subtitle}</p>
           </div>
         </Container>

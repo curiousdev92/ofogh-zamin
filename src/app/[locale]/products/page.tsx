@@ -57,7 +57,7 @@ export default async function ProductsPage({ params }: Props) {
             <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
               {t.landing.eyebrow}
             </span>
-            <h1 className="mt-2 text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+            <h1 className="mt-2 text-4xl  uppercase tracking-tight sm:text-5xl">
               {t.landing.title}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-steel-600">{t.landing.subtitle}</p>
@@ -69,9 +69,7 @@ export default async function ProductsPage({ params }: Props) {
       <Section spacing="lg" className="bg-surface-muted">
         <Container>
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
-              {t.categories.title}
-            </h2>
+            <h2 className="text-2xl  uppercase tracking-tight sm:text-3xl">{t.categories.title}</h2>
             <p className="mt-3 text-steel-600">{t.categories.subtitle}</p>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -89,7 +87,7 @@ export default async function ProductsPage({ params }: Props) {
             <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
               {t.suggested.eyebrow}
             </span>
-            <h2 className="mt-2 text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+            <h2 className="mt-2 text-2xl  uppercase tracking-tight sm:text-3xl">
               {t.suggested.title}
             </h2>
             <p className="mt-3 text-steel-600">{t.suggested.subtitle}</p>

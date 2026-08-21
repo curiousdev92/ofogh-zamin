@@ -53,7 +53,7 @@ function SectionHeader({
         <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
           {eyebrow}
         </span>
-        <h2 className="mt-2 text-2xl font-bold uppercase tracking-tight sm:text-3xl">{title}</h2>
+        <h2 className="mt-2 text-2xl  uppercase tracking-tight sm:text-3xl">{title}</h2>
         <p className="mt-3 text-steel-600">{subtitle}</p>
       </div>
       <Link
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <Badge variant="outline">{home.hero.eyebrow}</Badge>
-            <h1 className="mt-6 text-4xl font-bold uppercase tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl  uppercase tracking-tight sm:text-5xl lg:text-6xl">
               {home.hero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-600">
@@ -151,14 +151,18 @@ export default async function HomePage({ params }: Props) {
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+              <h2 className="text-2xl  uppercase tracking-tight text-white sm:text-3xl">
                 {home.cta.title}
               </h2>
               <p className="mt-3 text-steel-300">{home.cta.subtitle}</p>
             </div>
             <Link
               href={localeHref(l, "/contact")}
-              className={buttonVariants({ variant: "accent", size: "lg", className: "whitespace-nowrap" })}
+              className={buttonVariants({
+                variant: "accent",
+                size: "lg",
+                className: "whitespace-nowrap",
+              })}
             >
               {home.cta.button}
             </Link>

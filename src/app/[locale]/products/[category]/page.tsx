@@ -11,12 +11,7 @@ import { getDictionaries } from "@/lib/i18n/getDictionary";
 import { localeHref } from "@/lib/i18n/href";
 import type { CommonMessages, ProductsMessages } from "@/lib/i18n/messages";
 import { breadcrumbJsonLd, buildLocalizedMetadata, itemListJsonLd } from "@/lib/i18n/seo";
-import {
-  getCategories,
-  getCategoryBySlug,
-  getProductsByCategory,
-  localize,
-} from "@/lib/products";
+import { getCategories, getCategoryBySlug, getProductsByCategory, localize } from "@/lib/products";
 
 type Props = { params: Promise<{ locale: string; category: string }> };
 
@@ -82,7 +77,7 @@ export default async function CategoryPage({ params }: Props) {
             ]}
           />
           <div className="mt-6 max-w-3xl">
-            <h1 className="text-4xl font-bold uppercase tracking-tight sm:text-5xl">{name}</h1>
+            <h1 className="text-4xl  uppercase tracking-tight sm:text-5xl">{name}</h1>
             <p className="mt-6 text-lg leading-relaxed text-steel-600">{description}</p>
           </div>
         </Container>

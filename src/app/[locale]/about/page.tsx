@@ -53,9 +53,7 @@ export default async function AboutPage({ params }: Props) {
             <span className="text-xs font-semibold uppercase tracking-widest text-gold-700">
               {t.hero.eyebrow}
             </span>
-            <h1 className="mt-2 text-4xl font-bold uppercase tracking-tight sm:text-5xl">
-              {t.hero.title}
-            </h1>
+            <h1 className="mt-2 text-4xl  uppercase tracking-tight sm:text-5xl">{t.hero.title}</h1>
             <p className="mt-6 text-lg leading-relaxed text-steel-600">{t.hero.subtitle}</p>
           </div>
         </Container>
@@ -65,9 +63,7 @@ export default async function AboutPage({ params }: Props) {
       <Section spacing="lg">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
-              {t.story.title}
-            </h2>
+            <h2 className="text-2xl  uppercase tracking-tight sm:text-3xl">{t.story.title}</h2>
             <div className="mt-6 space-y-6 text-base leading-relaxed text-steel-700">
               {t.story.body.map((para, i) => (
                 <p key={i}>{para}</p>
@@ -80,9 +76,7 @@ export default async function AboutPage({ params }: Props) {
       {/* Values */}
       <Section spacing="lg" className="bg-surface-muted">
         <Container>
-          <h2 className="text-2xl font-bold uppercase tracking-tight sm:text-3xl">
-            {t.values.title}
-          </h2>
+          <h2 className="text-2xl  uppercase tracking-tight sm:text-3xl">{t.values.title}</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {t.values.items.map((item, i) => (
               <div key={i} className="border border-border bg-surface p-6">
@@ -102,7 +96,7 @@ export default async function AboutPage({ params }: Props) {
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+              <h2 className="text-2xl  uppercase tracking-tight text-white sm:text-3xl">
                 {t.cta.title}
               </h2>
               <p className="mt-3 text-steel-300">{t.cta.subtitle}</p>
@@ -110,7 +104,11 @@ export default async function AboutPage({ params }: Props) {
             <div className="flex flex-wrap gap-4">
               <Link
                 href={localeHref(l, "/products")}
-                className={buttonVariants({ variant: "accent", size: "lg", className: "whitespace-nowrap" })}
+                className={buttonVariants({
+                  variant: "accent",
+                  size: "lg",
+                  className: "whitespace-nowrap",
+                })}
               >
                 {t.cta.primary}
               </Link>
@@ -119,7 +117,8 @@ export default async function AboutPage({ params }: Props) {
                 className={buttonVariants({
                   variant: "outline",
                   size: "lg",
-                  className: "whitespace-nowrap border-white text-white hover:bg-white hover:text-navy-900",
+                  className:
+                    "whitespace-nowrap border-white text-white hover:bg-white hover:text-navy-900",
                 })}
               >
                 {t.cta.secondary}

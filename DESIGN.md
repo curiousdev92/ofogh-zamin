@@ -85,10 +85,10 @@ Defined in `@theme` → auto-generate `bg-*`, `text-*`, `border-*`, `ring-*`.
 
 ### Scales (`navy-50…950`, `gold-50…900`, `steel-50…950`)
 
-- **Navy** — signature `navy-900 #0d1a2b`. Backgrounds, primary buttons, headings.
-- **Gold/Brass** — signature `gold-500 #c2941f`.
+- **Navy** — signature `navy-900 #0b1c33` (deep, bluish). Backgrounds, primary buttons, headings.
+- **Gold** — signature `gold-500 #f2b705` (bright, yellow, shiny).
   - **Fills / accents on navy:** `gold-400`/`gold-500`.
-  - ⚠️ **Gold text on light bg:** use **`gold-700 #785a16`** — `gold-500` fails
+  - ⚠️ **Gold text on light bg:** use **`gold-700 #8a6500`** — `gold-500` fails
     contrast for small text on white. `gold-300` for accents on dark navy.
 - **Steel** — cool neutral for borders, dividers, secondary text.
 
@@ -338,7 +338,10 @@ live beside their route. Always import via `@/…`.
 
 ## 12. Decisions (answered)
 
-1. **Palette** — approved as-is: `navy-900 #0d1a2b` + `gold-500 #c2941f`.
+1. **Palette** — `navy-900 #0b1c33` (deep bluish navy) + `gold-500 #f2b705`
+   (bright, yellow, shining gold). Revised from the earlier brass `#c2941f` /
+   navy `#0d1a2b` per client direction: a more yellow, eye-catching gold and a
+   bluer navy.
 2. **Fonts** — **Kalameh**, a single local `next/font/local` face used for all
    locales (client swapped it in; Google Inter/Vazirmatn/Cairo removed). See §5.
 3. **Brand** — name **"Ofogh Zamin"**, a Latin wordmark kept Latin in every locale;

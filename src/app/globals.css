@@ -2,37 +2,37 @@
 
 /* ============================================================================
    OFOGH ZAMIN — DESIGN TOKENS
-   Brass fittings catalogue. Palette: Navy (brand) + Gold/Brass (accent).
+   Brass fittings catalogue. Palette: Navy (brand, bluish) + Gold (accent, bright).
    Aesthetic: clean, industrial, NO soft edges (border-radius = 0).
    Tailwind v4 — tokens below auto-generate utilities (bg-navy-900, text-gold-500,
    border-border, font-sans, etc.). Full reference: /DESIGN.md
    ============================================================================ */
 
 @theme {
-  /* ---- Brand · Navy -------------------------------------------------------- */
-  --color-navy-50: #eef3f9;
-  --color-navy-100: #d6e1ef;
-  --color-navy-200: #aec3de;
-  --color-navy-300: #85a3cc;
-  --color-navy-400: #5a7eaf;
-  --color-navy-500: #3c6091;
-  --color-navy-600: #2e4b73;
-  --color-navy-700: #223a59;
-  --color-navy-800: #16273d;
-  --color-navy-900: #0d1a2b; /* signature navy */
-  --color-navy-950: #070f1a;
+  /* ---- Brand · Navy (bluish) ---------------------------------------------- */
+  --color-navy-50: #edf3fb;
+  --color-navy-100: #d3e2f3;
+  --color-navy-200: #a8c5e8;
+  --color-navy-300: #79a3d8;
+  --color-navy-400: #4c7ec2;
+  --color-navy-500: #2f61a6;
+  --color-navy-600: #254e88;
+  --color-navy-700: #1d3c69;
+  --color-navy-800: #132849;
+  --color-navy-900: #0b1c33; /* signature navy — deep, bluish */
+  --color-navy-950: #060f1e;
 
-  /* ---- Accent · Gold / Brass ---------------------------------------------- */
-  --color-gold-50: #fbf6e9;
-  --color-gold-100: #f5e9c4;
-  --color-gold-200: #ecd488;
-  --color-gold-300: #e1bc4e;
-  --color-gold-400: #d6a82a;
-  --color-gold-500: #c2941f; /* signature brass */
-  --color-gold-600: #9e7719;
-  --color-gold-700: #785a16; /* use for gold TEXT on light bg (contrast-safe) */
-  --color-gold-800: #544011;
-  --color-gold-900: #362a0c;
+  /* ---- Accent · Gold (bright, yellow, shiny) ------------------------------ */
+  --color-gold-50: #fef9e7;
+  --color-gold-100: #fdefb9;
+  --color-gold-200: #fbe075;
+  --color-gold-300: #f8ce3c;
+  --color-gold-400: #f5bf16;
+  --color-gold-500: #f2b705; /* signature gold — bright & shining */
+  --color-gold-600: #c19000;
+  --color-gold-700: #8a6500; /* use for gold TEXT on light bg (contrast-safe) */
+  --color-gold-800: #5e4600;
+  --color-gold-900: #3b2c00;
 
   /* ---- Neutral · Steel (cool gray) ---------------------------------------- */
   --color-steel-50: #f6f7f9;
@@ -81,9 +81,9 @@
   --font-display: var(--font-active), ui-sans-serif, system-ui, sans-serif;
 
   /* ---- Elevation · tight, navy-tinted, used sparingly (prefer borders) ---- */
-  --shadow-sm: 0 1px 2px 0 rgb(13 26 43 / 0.06);
-  --shadow-md: 0 2px 8px -2px rgb(13 26 43 / 0.1);
-  --shadow-lg: 0 8px 24px -6px rgb(13 26 43 / 0.14);
+  --shadow-sm: 0 1px 2px 0 rgb(11 28 51 / 0.06);
+  --shadow-md: 0 2px 8px -2px rgb(11 28 51 / 0.1);
+  --shadow-lg: 0 8px 24px -6px rgb(11 28 51 / 0.14);
 }
 
 /* ============================================================================
@@ -92,6 +92,8 @@
 @layer base {
   :root {
     color-scheme: light;
+    font-variation-settings: "dots" 4;
+    /* font-variant-ligatures: discretionary-ligatures; */
   }
 
   /* One local typeface (Kalameh) across all locales. Its CSS variable is set on
@@ -118,7 +120,7 @@
   h6 {
     font-family: var(--font-display);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.15 !important;
     color: var(--color-navy-900);
     text-wrap: balance;
   }
@@ -128,7 +130,7 @@
     color: var(--color-navy-900);
   }
 
-  /* Accessible focus ring everywhere — sharp, brass-colored. */
+  /* Accessible focus ring everywhere — sharp, gold-colored. */
   :focus-visible {
     outline: 2px solid var(--color-ring);
     outline-offset: 2px;
