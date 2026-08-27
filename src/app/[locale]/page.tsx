@@ -121,7 +121,7 @@ export default async function HomePage({ params }: Props) {
       </Section>
 
       {/* Featured categories */}
-      <Section spacing="lg" className="bg-surface-muted">
+      {/* <Section spacing="lg" className="bg-surface-muted">
         <Container>
           <SectionHeader
             eyebrow={home.featured.eyebrow}
@@ -141,10 +141,10 @@ export default async function HomePage({ params }: Props) {
             ))}
           </div>
         </Container>
-      </Section>
+      </Section> */}
 
       {/* Suggested products */}
-      <Section spacing="lg">
+      {/* <Section spacing="lg">
         <Container>
           <SectionHeader
             eyebrow={home.suggested.eyebrow}
@@ -159,7 +159,7 @@ export default async function HomePage({ params }: Props) {
             ))}
           </div>
         </Container>
-      </Section>
+      </Section> */}
 
       {/* CTA band */}
       <Section spacing="lg" className="bg-navy-900">
