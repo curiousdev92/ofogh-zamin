@@ -29,11 +29,28 @@ export async function generateMetadata({ params }: MetadataTypes): Promise<Metad
 
   return {
     metadataBase: new URL(SITE.url),
+    applicationName: t.brand.seoName,
     title: {
       default: `${t.brand.seoName} — ${t.brand.tagline}`,
       template: `%s | ${t.brand.seoName}`,
     },
     description: t.footer.description,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
   };
 }
 

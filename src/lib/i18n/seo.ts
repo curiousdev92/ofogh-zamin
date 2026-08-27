@@ -7,6 +7,17 @@ const BASE_URL = SITE.url;
 // is the hyphenated BCP-47 form (en-US) used by the Intl.* APIs — convert for OG.
 const toOgLocale = (locale: Locale) => localeConfig[locale].intlLocale.replace("-", "_");
 
+function localePath(locale: Locale, pathname: string) {
+  return `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+}
+
+function localizedAlternates(pathname: string) {
+  return {
+    ...Object.fromEntries(locales.map((l) => [localeConfig[l].hreflang, localePath(l, pathname)])),
+    "x-default": localePath(defaultLocale, pathname),
+  };
+}
+
 // Generate hreflang link tags for a given pathname
 // Call this in every page's <head> or generateMetadata()
 export function generateHreflangTags(pathname: string) {
@@ -14,12 +25,12 @@ export function generateHreflangTags(pathname: string) {
     // One tag per locale
     ...locales.map((locale) => ({
       hreflang: localeConfig[locale].hreflang,
-      href: `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`,
+      href: localePath(locale, pathname),
     })),
     // x-default points to your canonical fallback (English)
     {
       hreflang: "x-default",
-      href: `${BASE_URL}/${defaultLocale}${pathname === "/" ? "" : pathname}`,
+      href: localePath(defaultLocale, pathname),
     },
   ];
 }
@@ -37,19 +48,14 @@ export function buildLocalizedMetadata({
   title: string;
   description: string;
 }) {
-  const canonicalUrl = `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+  const canonicalUrl = localePath(locale, pathname);
 
   return {
     title,
     description,
     alternates: {
       canonical: canonicalUrl,
-      languages: Object.fromEntries(
-        locales.map((l) => [
-          localeConfig[l].hreflang,
-          `${BASE_URL}/${l}${pathname === "/" ? "" : pathname}`,
-        ]),
-      ),
+      languages: localizedAlternates(pathname),
     },
     openGraph: {
       title,
@@ -72,7 +78,7 @@ export function buildLocalizedMetadata({
 
 // Absolute, locale-prefixed URL — for structured data (JSON-LD) and canonical use.
 export function absoluteUrl(locale: Locale, pathname: string) {
-  return `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+  return localePath(locale, pathname);
 }
 
 // schema.org BreadcrumbList from an ordered list of crumbs (root → current).
