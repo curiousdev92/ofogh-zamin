@@ -7,7 +7,13 @@
 
 export type CommonMessages = {
   brand: {
+    /** Latin wordmark — rendered in the Logo, copyright, and Header aria-label. */
     name: string;
+    /**
+     * Brand name for page `<title>` tags and SEO. Native script per locale
+     * (fa: «افق زمین») so titles rank for Persian-script searches; en/ar keep Latin.
+     */
+    seoName: string;
     tagline: string;
   };
   nav: {
@@ -29,6 +35,8 @@ export type CommonMessages = {
       company: string;
       contact: string;
     };
+    /** Label for the WhatsApp contact line in the footer. */
+    whatsapp: string;
     rights: string;
     language: string;
   };
@@ -181,6 +189,10 @@ export type ContactMessages = {
     title: string;
     emailLabel: string;
     phoneLabel: string;
+    mobileLabel: string;
+    whatsappLabel: string;
+    /** Note that the WhatsApp number is also on Rubika, Eitaa and Bale. */
+    messagingNote: string;
     hoursLabel: string;
     hours: string;
   };

@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Ofogh Zamin",
+    "seoName": "Ofogh Zamin",
     "tagline": "Brass Fittings & Precision Parts"
   },
   "nav": {
@@ -22,6 +23,7 @@
       "company": "Company",
       "contact": "Contact"
     },
+    "whatsapp": "WhatsApp",
     "rights": "All rights reserved.",
     "language": "Language"
   }

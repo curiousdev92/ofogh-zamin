@@ -4,35 +4,39 @@
     "description": "Ofogh Zamin manufactures and supplies precision brass fittings and fluid-system components — built to recognised standards for reliable, leak-tight service."
   },
   "hero": {
-    "eyebrow": "About us",
-    "title": "Precision brass fittings, built to spec",
-    "subtitle": "Ofogh Zamin designs, machines and supplies brass fittings and valves for water, gas and fluid systems — engineered for reliable, leak-tight performance."
+    "eyebrow": "Precision brass fittings",
+    "title": "About Ofogh Zamin",
+    "subtitle": "Since 1976, Ofogh Zamin has designed, machined and supplied brass fittings and valves for water, gas and fluid systems — engineered for reliable, leak-tight performance."
   },
   "story": {
     "title": "Who we are",
     "body": [
-      "Ofogh Zamin is a manufacturer and supplier of precision brass fittings and fluid-system components. From compression and threaded fittings to ball valves and gas fittings, our range is built for the trades and industries that depend on dependable connections.",
-      "Every part is machined from quality brass to tight tolerances and finished to recognised standards, so the ten-thousandth fitting performs exactly as the first."
+      "Since 1976, Ofogh Zamin has worked in the manufacture of brass valves and fittings, drawing on years of experience and expertise to deliver products that are high in quality, durable and matched to the needs of diverse industries. Building on technical knowledge, specialist experience and precise production and quality-control processes, the company has consistently advanced the quality and development of its products.",
+      "At Ofogh Zamin, we see quality as the sum of many factors — from selecting a standard, high-grade brass alloy and quality raw materials, to precise design, sound manufacturing and continuous quality control at every stage. The result is products with high corrosion resistance, long life and durability, and dependable performance.",
+      "With the capability to produce a diverse range of brass valves, fittings and components, Ofogh Zamin serves many different projects and industries, and can manufacture products tailored to customers' specifications and requirements.",
+      "Our commitment is not limited to producing quality products; customer satisfaction, fast delivery, product variety, adherence to quality standards and reliable service are all an inseparable part of how we work.",
+      "Backed by experience, specialist knowledge and a capable team, we at Ofogh Zamin always look to the future — striving, through continuous product development and higher production standards, to make a meaningful contribution to the progress of the industry and to the needs of the market.",
+      "Ofogh Zamin — quality you can trust."
     ]
   },
   "values": {
     "title": "What we stand for",
     "items": [
       {
-        "title": "Built to standard",
-        "body": "Fittings machined to recognised BSP and NPT standards for consistent, leak-tight joints."
+        "title": "Customer satisfaction",
+        "body": "Your satisfaction guides everything we do — backed by dependable service you can rely on."
       },
       {
-        "title": "Quality materials",
-        "body": "Made from CW617N brass for strength, corrosion resistance and a clean finish."
+        "title": "Fast delivery",
+        "body": "Orders fulfilled promptly, so the parts you need arrive when you need them."
       },
       {
-        "title": "Range & availability",
-        "body": "A broad catalogue of sizes and types, supplied to spec for trade and industry."
+        "title": "Product variety",
+        "body": "A diverse range of brass valves, fittings and components for many projects and industries."
       },
       {
-        "title": "Responsive supply",
-        "body": "Straight answers on availability and pricing — tell us what you need and we'll respond."
+        "title": "Quality standards",
+        "body": "Consistent quality control at every stage, so each part meets the same standard."
       }
     ]
   },

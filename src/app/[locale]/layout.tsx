@@ -18,11 +18,11 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
+type MetadataTypes = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: MetadataTypes): Promise<Metadata> {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) return {};
   const t = (await getDictionary(locale as Locale, "common")) as unknown as CommonMessages;
@@ -30,20 +30,19 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE.url),
     title: {
-      default: `${SITE.name} — ${t.brand.tagline}`,
-      template: `%s | ${SITE.name}`,
+      default: `${t.brand.seoName} — ${t.brand.tagline}`,
+      template: `%s | ${t.brand.seoName}`,
     },
     description: t.footer.description,
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+type PropTypes = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}) {
+};
+
+export default async function LocaleLayout({ children, params }: PropTypes) {
   const { locale: rawLocale } = await params;
   if (!locales.includes(rawLocale as Locale)) notFound();
   const locale = rawLocale as Locale;

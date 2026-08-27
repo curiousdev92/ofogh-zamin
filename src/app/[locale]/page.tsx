@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildLocalizedMetadata({
     locale: l,
     pathname: "/",
-    title: `${common.brand.name} — ${common.brand.tagline}`,
+    title: `${common.brand.seoName} — ${common.brand.tagline}`,
     description: home.hero.subtitle,
   });
 }

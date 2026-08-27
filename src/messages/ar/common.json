@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Ofogh Zamin",
+    "seoName": "Ofogh Zamin",
     "tagline": "وصلات نحاسية وقطع دقيقة"
   },
   "nav": {
@@ -22,6 +23,7 @@
       "company": "الشركة",
       "contact": "اتصل"
     },
+    "whatsapp": "واتساب",
     "rights": "جميع الحقوق محفوظة.",
     "language": "اللغة"
   }

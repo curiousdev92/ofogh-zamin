@@ -12,6 +12,9 @@
     "title": "Contact details",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
+    "mobileLabel": "Mobile",
+    "whatsappLabel": "WhatsApp",
+    "messagingNote": "Also on Rubika, Eitaa & Bale",
     "hoursLabel": "Hours",
     "hours": "Sat–Wed, 9:00–17:00"
   },

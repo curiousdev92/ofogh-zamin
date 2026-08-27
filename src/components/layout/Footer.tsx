@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui";
 import { localeHref } from "@/lib/i18n/href";
 import { SITE } from "@/lib/site";
+import { localizeDigits } from "@/lib/utils/digits";
 import type { Locale } from "@/lib/i18n/config";
 import type { CommonMessages } from "@/lib/i18n/messages";
 import { Logo } from "./Logo";
@@ -14,6 +15,9 @@ export function Footer({ locale, messages }: { locale: Locale; messages: CommonM
     { href: localeHref(locale, "/blog"), label: messages.nav.blog },
     { href: localeHref(locale, "/contact"), label: messages.nav.contact },
   ];
+
+  const phoneLines = [...SITE.phones.landline, ...SITE.phones.mobile];
+  const { whatsapp } = SITE.phones;
 
   return (
     <footer className="border-t border-navy-800 bg-navy-950 text-steel-300">
@@ -55,13 +59,26 @@ export function Footer({ locale, messages }: { locale: Locale; messages: CommonM
                   {SITE.email}
                 </a>
               </li>
+              {phoneLines.map((p) => (
+                <li key={p.tel}>
+                  <a
+                    href={`tel:${p.tel}`}
+                    dir="ltr"
+                    className="inline-block text-steel-300 transition-colors hover:text-gold-400"
+                  >
+                    {localizeDigits(p.display, locale)}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
-                  href={`tel:${SITE.phone.replace(/\s+/g, "")}`}
-                  dir="ltr"
+                  href={whatsapp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-steel-300 transition-colors hover:text-gold-400"
                 >
-                  {SITE.phone}
+                  {messages.footer.whatsapp}:{" "}
+                  <span dir="ltr">{localizeDigits(whatsapp.display, locale)}</span>
                 </a>
               </li>
             </ul>

@@ -9,6 +9,7 @@ import { getDictionary } from "@/lib/i18n/getDictionary";
 import type { ContactMessages } from "@/lib/i18n/messages";
 import { breadcrumbJsonLd, buildLocalizedMetadata } from "@/lib/i18n/seo";
 import { SITE } from "@/lib/site";
+import { localizeDigits } from "@/lib/utils/digits";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -40,12 +41,21 @@ function DetailRow({ label, children }: { label: string; children: React.ReactNo
   );
 }
 
+/** A tel: link whose visible number is localised, but whose href stays E.164. */
+function PhoneLink({ tel, display, locale }: { tel: string; display: string; locale: Locale }) {
+  return (
+    <a href={`tel:${tel}`} dir="ltr" className="inline-block hover:text-gold-700">
+      {localizeDigits(display, locale)}
+    </a>
+  );
+}
+
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   const l = locale as Locale;
   const t = await loadCopy(l);
 
-  const telHref = `tel:${SITE.phone.replace(/\s+/g, "")}`;
+  const { landline, mobile, whatsapp } = SITE.phones;
 
   const breadcrumb = breadcrumbJsonLd(l, [
     { name: t.breadcrumb.home, pathname: "/" },
@@ -91,9 +101,30 @@ export default async function ContactPage({ params }: Props) {
                   </a>
                 </DetailRow>
                 <DetailRow label={t.details.phoneLabel}>
-                  <a href={telHref} dir="ltr" className="inline-block hover:text-gold-700">
-                    {SITE.phone}
+                  <div className="flex flex-col gap-1">
+                    {landline.map((p) => (
+                      <PhoneLink key={p.tel} tel={p.tel} display={p.display} locale={l} />
+                    ))}
+                  </div>
+                </DetailRow>
+                <DetailRow label={t.details.mobileLabel}>
+                  <div className="flex flex-col gap-1">
+                    {mobile.map((p) => (
+                      <PhoneLink key={p.tel} tel={p.tel} display={p.display} locale={l} />
+                    ))}
+                  </div>
+                </DetailRow>
+                <DetailRow label={t.details.whatsappLabel}>
+                  <a
+                    href={whatsapp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    dir="ltr"
+                    className="inline-block hover:text-gold-700"
+                  >
+                    {localizeDigits(whatsapp.display, l)}
                   </a>
+                  <p className="mt-1 text-xs text-muted-foreground">{t.details.messagingNote}</p>
                 </DetailRow>
                 <DetailRow label={t.details.hoursLabel}>{t.details.hours}</DetailRow>
               </dl>

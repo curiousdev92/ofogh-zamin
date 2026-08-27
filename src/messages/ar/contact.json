@@ -12,6 +12,9 @@
     "title": "بيانات الاتصال",
     "emailLabel": "البريد الإلكتروني",
     "phoneLabel": "الهاتف",
+    "mobileLabel": "الجوال",
+    "whatsappLabel": "واتساب",
+    "messagingNote": "متوفّر أيضًا على روبيكا وإيتا وبله",
     "hoursLabel": "ساعات العمل",
     "hours": "السبت–الأربعاء، ٩:٠٠–١٧:٠٠"
   },

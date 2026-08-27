@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Ofogh Zamin",
+    "seoName": "افق زمین",
     "tagline": "اتصالات برنجی و قطعات دقیق"
   },
   "nav": {
@@ -22,6 +23,7 @@
       "company": "شرکت",
       "contact": "تماس"
     },
+    "whatsapp": "واتساپ",
     "rights": "تمامی حقوق محفوظ است.",
     "language": "زبان"
   }

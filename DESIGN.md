@@ -344,8 +344,15 @@ live beside their route. Always import via `@/…`.
    bluer navy.
 2. **Fonts** — **Kalameh**, a single local `next/font/local` face used for all
    locales (client swapped it in; Google Inter/Vazirmatn/Cairo removed). See §5.
-3. **Brand** — name **"Ofogh Zamin"**, a Latin wordmark kept Latin in every locale;
-   **no logo asset yet** — `Logo` renders a gold tick + the wordmark.
+3. **Brand** — name **"Ofogh Zamin"**. The **wordmark/`Logo`, `SITE.name`, and
+   `common.brand.name`** (Logo + footer copyright + Header aria-label) **stay
+   Latin in every locale**, as does the **OG image**. Persian-*facing* text goes
+   native **«افق زمین»**: body copy, meta descriptions, **and page `<title>` tags**
+   — the last driven by **`common.brand.seoName`** (en/ar = "Ofogh Zamin",
+   fa = «افق زمین»), wired into the layout title `default`/`template` and the home
+   title. `Organization` JSON-LD carries **`alternateName: "افق زمین"`**
+   (`SITE.altName`) so search engines link the two. Arabic keeps Latin — no
+   established Arabic-script name. `Logo` renders a gold tick + the Latin wordmark.
 4. **Domain** — `https://ofogh-zamin.vercel.app` (in [`src/lib/site.ts`](src/lib/site.ts)).
 5. **Product data source** — **typed static data in-repo** (my call, per "you
    choose"; ≤300 products, no CMS). Plan: `src/lib/products/` exporting typed
@@ -357,4 +364,12 @@ live beside their route. Always import via `@/…`.
    real data when supplied.
 6. **Type case** — keep **uppercase + industrial** for Latin UI (nav / buttons /
    badges); Persian/Arabic scripts are unaffected by `uppercase`.
+7. **Contact numbers** — the real lines live in [`src/lib/site.ts`](src/lib/site.ts)
+   as **`SITE.phones`** (`landline[]`, `mobile[]`, `whatsapp`). Each entry pairs a
+   `tel` (E.164 — used for `tel:`/`wa.me` hrefs and the `Organization` JSON-LD
+   `contactPoint`s) with a Western-digit `display`; visible text is localised to
+   Persian numerals for `fa` via **`localizeDigits`** in
+   [`src/lib/utils/digits.ts`](src/lib/utils/digits.ts) (en/ar keep Western digits).
+   WhatsApp links to `wa.me`; Rubika/Eitaa/Bale are noted as copy (no reliable web
+   deep-link). Rendered as grouped rows on the Contact page and listed in the Footer.
 ```

@@ -169,19 +169,28 @@ export function articleJsonLd(
 // layout so it appears site-wide. No `logo` yet (no logo asset — §12); add it
 // here once one exists. `description` is the shared common.footer.description.
 export function organizationJsonLd(description: string) {
+  // Every reachable line becomes a ContactPoint so search engines surface them all.
+  const salesLines = [
+    ...SITE.phones.landline,
+    ...SITE.phones.mobile,
+    SITE.phones.whatsapp,
+  ];
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE.name,
+    alternateName: SITE.altName,
     url: SITE.url,
     email: SITE.email,
+    telephone: SITE.phones.landline[0].tel,
     description,
-    contactPoint: {
+    contactPoint: salesLines.map((p) => ({
       "@type": "ContactPoint",
       contactType: "sales",
+      telephone: p.tel,
       email: SITE.email,
-      telephone: SITE.phone,
-    },
+      availableLanguage: ["fa", "en", "ar"],
+    })),
   };
 }
 
