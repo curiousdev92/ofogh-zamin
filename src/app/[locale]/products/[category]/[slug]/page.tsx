@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -93,7 +94,20 @@ export default async function ProductPage({ params }: Props) {
             ]}
           />
           <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-12">
-            <PlaceholderTile initial={name.charAt(0)} className="border" />
+            {product.image ? (
+              <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
+                <Image
+                  src={product.image}
+                  alt={name}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            ) : (
+              <PlaceholderTile initial={name.charAt(0)} className="border" />
+            )}
             <div className="flex flex-col">
               <Link
                 href={localeHref(l, categoryPath)}

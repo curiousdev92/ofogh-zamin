@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Long brass fitting 1/2 placeholder">
+  <rect width="1200" height="900" fill="#f8fafc"/>
+  <rect x="96" y="96" width="1008" height="708" fill="#0b1c33"/>
+  <circle cx="600" cy="450" r="170" fill="#d8a31a"/>
+  <rect x="260" y="390" width="680" height="120" rx="12" fill="#f2b705"/>
+  <text x="600" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#f8fafc">1/2 LONG</text>
+</svg>

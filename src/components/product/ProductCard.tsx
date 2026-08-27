@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { Badge, Card } from "@/components/ui";
 import type { Locale } from "@/lib/i18n/config";
@@ -19,7 +20,19 @@ export function ProductCard({ product, locale }: { product: Product; locale: Loc
   return (
     <Link href={href} className="group block focus-visible:outline-none">
       <Card interactive className="flex h-full flex-col group-focus-visible:border-navy-900">
-        <PlaceholderTile initial={name.charAt(0)} />
+        {product.image ? (
+          <div className="relative aspect-4/3 overflow-hidden border-b border-border bg-surface-muted">
+            <Image
+              src={product.image}
+              alt={name}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <PlaceholderTile initial={name.charAt(0)} />
+        )}
         <div className="flex flex-1 flex-col p-6">
           <Badge variant="muted" className="self-start">
             {material}

@@ -31,6 +31,8 @@ export type Product = {
   slug: string;
   /** Slug of the owning {@link Category}. */
   categorySlug: string;
+  /** Public image path, replaceable under /public. */
+  image?: string;
   name: LocalizedText;
   /** Short description for cards and meta descriptions. */
   summary: LocalizedText;

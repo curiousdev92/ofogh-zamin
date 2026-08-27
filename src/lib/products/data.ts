@@ -1,393 +1,263 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// PLACEHOLDER CATALOGUE DATA
-//
-// Representative brass-fittings content so the site renders end-to-end. Structure
-// is final; the actual product list/copy is supplied by the client later (≤300
-// products). To swap in real data, edit only this file — types & query helpers
-// (./types, ./index) stay the same, and pages regenerate statically.
-// ─────────────────────────────────────────────────────────────────────────────
+import type { Category, Product } from "./types";
 
-import type { Category, LocalizedText, Product } from "./types";
+const brassFittingsDescriptionFa =
+  "فیتینگ‌های برنجی از اتصالات پرکاربرد در نصب و تجهیز انواع مخازن و سیستم‌های انتقال سیالات هستند. این قطعات برای ایجاد یک اتصال رزوه‌ای روی دیواره مخزن استفاده می‌شوند و امکان اتصال انواع شیرآلات، لوله‌ها، شیلنگ‌ها و سایر اتصالات را فراهم می‌کنند.\n\n" +
+  "فیتینگ‌های برنجی افق زمین (پرورده) از بدنه رزوه‌دار، مهره نگهدارنده و واشر آب‌بندی تشکیل شده‌اند. بدنه فیتینگ از سوراخ ایجادشده روی دیواره مخزن عبور داده می‌شود و با قرار گرفتن واشر و بستن مهره، اتصال روی بدنه ثابت می‌شود. واشر در محل اتصال قرار می‌گیرد تا از خروج و نشت سیال از اطراف فیتینگ جلوگیری شود.\n\n" +
+  "برنج به‌عنوان ماده اولیه این قطعات، به دلیل استحکام مناسب، مقاومت در برابر خوردگی و قابلیت ماشین‌کاری، گزینه مناسبی برای تولید اتصالات مورد استفاده در سیستم‌های انتقال آب و سایر سیالات است. رزوه‌های ایجادشده روی فیتینگ نیز امکان اتصال ساده و مطمئن آن به تجهیزات رزوه‌ای را فراهم می‌کند.\n\n" +
+  "این فیتینگ‌ها بیشتر در مخازن آب و پلی‌اتیلن، تجهیزات تأسیساتی، سیستم‌های لوله‌کشی و مجموعه‌هایی که نیاز به ایجاد ورودی یا خروجی روی بدنه مخزن دارند استفاده می‌شوند. بسته به سایز رزوه، می‌توان انواع شیر، رابط، زانو، نیپل و دیگر اتصالات رزوه‌ای را به آن متصل کرد.\n\n" +
+  "هنگام انتخاب فیتینگ برنجی باید به سایز رزوه، قطر سوراخ محل نصب، ضخامت دیواره مخزن و نوع اتصال مورد نیاز توجه شود. انتخاب سایز مناسب باعث می‌شود فیتینگ به‌درستی روی مخزن قرار گرفته و اتصال نهایی از استحکام و آب‌بندی مناسبی برخوردار باشد.\n\n" +
+  "فیتینگ‌های برنجی افق زمین (پرورده) در سایزها و مشخصات مختلف قابل تولید هستند و در صورت نیاز، امکان تولید بر اساس ابعاد، نوع رزوه و مشخصات فنی مورد نظر مشتری نیز وجود دارد.";
 
-// Shared spec labels — referenced by products so translations live in one place.
-const L = {
-  material: { en: "Material", fa: "جنس", ar: "المادة" },
-  size: { en: "Size", fa: "سایز", ar: "المقاس" },
-  thread: { en: "Thread", fa: "نوع دنده", ar: "نوع اللولب" },
-  connection: { en: "Connection", fa: "نوع اتصال", ar: "نوع الوصلة" },
-  pressure: { en: "Pressure rating", fa: "فشار کاری", ar: "ضغط التشغيل" },
-  temperature: { en: "Temperature range", fa: "محدوده دما", ar: "نطاق الحرارة" },
-  standard: { en: "Standard", fa: "استاندارد", ar: "المعيار" },
-  finish: { en: "Finish", fa: "پرداخت سطح", ar: "التشطيب" },
-} satisfies Record<string, LocalizedText>;
+const brassFittingsDescriptionEn =
+  "Brass fittings are widely used connections for installing and equipping tanks and fluid-transfer systems. These parts create a threaded connection on the wall of a tank and make it possible to connect valves, pipes, hoses and other fittings.\n\n" +
+  "Ofogh Zamin (Parvarde) brass fittings are made of a threaded body, retaining nut and sealing washer. The fitting body passes through the hole made in the tank wall, and with the washer positioned and the nut tightened, the connection is fixed to the body. The washer sits at the connection point to prevent fluid from leaking around the fitting.\n\n" +
+  "Brass is a suitable raw material for these parts because of its strength, corrosion resistance and machinability, making it appropriate for connections used in water-transfer systems and other fluids. The threads machined on the fitting also allow simple and reliable connection to threaded equipment.\n\n" +
+  "These fittings are mostly used in water and polyethylene tanks, facility equipment, piping systems and assemblies that need an inlet or outlet on the tank body. Depending on the thread size, different valves, connectors, elbows, nipples and other threaded fittings can be connected to them.\n\n" +
+  "When choosing a brass fitting, the thread size, installation-hole diameter, tank-wall thickness and required connection type should be considered. Selecting the proper size helps the fitting sit correctly on the tank and gives the final connection suitable strength and sealing.\n\n" +
+  "Ofogh Zamin (Parvarde) brass fittings can be produced in different sizes and specifications, and if needed, production based on the customer's required dimensions, thread type and technical specifications is also possible.";
 
-// Common material value, reused across most products.
-const BRASS: LocalizedText = { en: "CW617N brass", fa: "برنج CW617N", ar: "نحاس CW617N" };
+const brassFittingsDescriptionAr =
+  "تُعد الفيتنغات النحاسية من الوصلات واسعة الاستخدام في تركيب وتجهيز الخزانات وأنظمة نقل السوائل. تُستخدم هذه القطع لإنشاء وصلة ملولبة على جدار الخزان، وتتيح توصيل أنواع مختلفة من الصمامات والأنابيب والخراطيم والوصلات الأخرى.\n\n" +
+  "تتكوّن الفيتنغات النحاسية من أفق زمين (پرورده) من جسم ملولب، وصامولة تثبيت، وحلقة إحكام. يمر جسم الفيتنغ من الفتحة الموجودة في جدار الخزان، ومع وضع حلقة الإحكام وشد الصامولة، تثبت الوصلة على الجسم. توضع حلقة الإحكام عند موضع الاتصال لمنع خروج السائل أو تسربه حول الفيتنغ.\n\n" +
+  "يُعد النحاس مادة مناسبة لهذه القطع بفضل متانته المناسبة ومقاومته للتآكل وقابليته للتشغيل الآلي، مما يجعله خيارا مناسبا لإنتاج الوصلات المستخدمة في أنظمة نقل المياه والسوائل الأخرى. كما تتيح القلاوظ المصنوعة على الفيتنغ توصيله بسهولة وموثوقية بالمعدات الملولبة.\n\n" +
+  "تُستخدم هذه الفيتنغات غالبا في خزانات المياه والبولي إيثيلين، ومعدات المرافق، وأنظمة الأنابيب، والمجموعات التي تحتاج إلى إنشاء مدخل أو مخرج على جسم الخزان. وبحسب مقاس القلاوظ، يمكن توصيل أنواع مختلفة من الصمامات والوصلات والأكواع والنبلات وغيرها من الوصلات الملولبة بها.\n\n" +
+  "عند اختيار فيتنغ نحاسي، يجب الانتباه إلى مقاس القلاوظ، وقطر فتحة التركيب، وسماكة جدار الخزان، ونوع الوصلة المطلوبة. يساعد اختيار المقاس المناسب على تثبيت الفيتنغ بشكل صحيح على الخزان، وعلى أن تتمتع الوصلة النهائية بمتانة وإحكام مناسبين.\n\n" +
+  "يمكن إنتاج الفيتنغات النحاسية من أفق زمين (پرورده) بمقاسات ومواصفات مختلفة، كما يمكن عند الحاجة الإنتاج وفقا للأبعاد ونوع القلاوظ والمواصفات الفنية التي يطلبها العميل.";
+
+const heavyBrassFloatValveDescriptionFa =
+  "فلوتر برنجی تمام برنجی سنگین، قطعه‌ای مقاوم و کاربردی برای کنترل خودکار سطح آب داخل مخزن است. عملکرد این فلوتر به گونه‌ای است که با تغییر سطح آب، جریان ورودی را کنترل می‌کند؛ با پایین آمدن سطح آب مسیر ورود آب باز شده و پس از رسیدن آب به سطح مشخص، مسیر ورودی بسته می‌شود و از سرریز شدن و هدررفت آب مخزن جلوگیری می‌کند.\n\n" +
+  "فلوتر تمام برنجی سنگین افق زمین (پرورده) با ساختار مستحکم و استفاده از اجزای برنجی، وزن بالاتر و مقاومت بیشتری نسبت به مدل اکونومی دارد. این مدل برای استفاده در مخازن آب، فلوتر افقی، سیستم‌های آبرسانی، تأسیسات و کاربردهای صنعتی مناسب است.\n\n" +
+  "ساختار تمام برنجی این مدل، آن را به انتخابی مناسب برای پروژه‌هایی تبدیل کرده است که استحکام، دوام، وزن مناسب و کیفیت ساخت بالا اهمیت بیشتری دارد.";
+
+const heavyBrassFloatValveDescriptionEn =
+  "The heavy all-brass float valve is a durable and practical component for automatic water-level control inside a tank. It controls the inlet flow as the water level changes: when the level drops, the inlet opens, and once the water reaches the set level, the inlet closes to prevent overflow and water waste.\n\n" +
+  "The Ofogh Zamin (Parvarde) heavy all-brass float valve has a robust structure and brass components, giving it greater weight and higher resistance compared with the economy model. This model is suitable for water tanks, horizontal float applications, water-supply systems, facilities and industrial uses.\n\n" +
+  "The all-brass structure makes this model a suitable choice for projects where strength, durability, proper weight and high build quality matter most.";
+
+const heavyBrassFloatValveDescriptionAr =
+  "صمام العوامة الثقيل المصنوع بالكامل من النحاس هو قطعة متينة وعملية للتحكم التلقائي في مستوى الماء داخل الخزان. يعمل هذا العوامة بحيث يتحكم في تدفق الماء الداخل مع تغير مستوى الماء؛ فعند انخفاض مستوى الماء يُفتح مسار الدخول، وبعد وصول الماء إلى المستوى المحدد يُغلق مسار الدخول لمنع فيضان الخزان وهدر الماء.\n\n" +
+  "يتميز صمام العوامة الثقيل المصنوع بالكامل من النحاس من أفق زمين (پرورده) ببنية قوية واستخدام مكونات نحاسية، مما يمنحه وزنا أعلى ومقاومة أكبر مقارنة بالموديل الاقتصادي. هذا الموديل مناسب لخزانات المياه، وتطبيقات العوامة الأفقية، وأنظمة إمداد المياه، والمرافق، والاستخدامات الصناعية.\n\n" +
+  "تجعل البنية النحاسية الكاملة هذا الموديل خيارا مناسبا للمشاريع التي تكون فيها القوة والمتانة والوزن المناسب وجودة التصنيع العالية أكثر أهمية.";
 
 export const categories: Category[] = [
   {
-    slug: "compression-fittings",
+    slug: "brass-fittings",
     featured: true,
-    name: { en: "Compression Fittings", fa: "اتصالات فشاری", ar: "وصلات الضغط" },
+    name: {
+      en: "Brass Fittings",
+      fa: "فیتینگ‌های برنجی",
+      ar: "فيتنغات نحاسية",
+    },
     tagline: {
-      en: "Tool-free, leak-tight joints for copper and plastic pipe.",
-      fa: "اتصال بدون ابزار و آب‌بند برای لوله‌های مسی و پلاستیکی.",
-      ar: "وصلات محكمة بلا أدوات لأنابيب النحاس والبلاستيك.",
+      en: "Threaded brass tank fittings for reliable fluid connections.",
+      fa: "اتصالات برنجی رزوه‌ای برای ایجاد ورودی و خروجی مطمئن روی مخازن.",
+      ar: "فيتنغات نحاسية ملولبة لإنشاء وصلات موثوقة للسوائل على الخزانات.",
     },
     description: {
-      en: "Brass compression couplings, elbows and tees that seal on an olive ring — no soldering, no threads to seal. Ideal for water and low-pressure fluid systems.",
-      fa: "بوشن، زانویی و سه‌راهی برنجی فشاری که با رینگ زیتونی آب‌بندی می‌شوند؛ بدون لحیم‌کاری و بدون نیاز به آب‌بندی دنده. مناسب برای سیستم‌های آب و سیالات کم‌فشار.",
-      ar: "وصلات وأكواع ووصلات تي نحاسية تعمل بالضغط عبر حلقة زيتونية — دون لحام أو حاجة لإحكام اللولب. مثالية لأنظمة المياه والسوائل منخفضة الضغط.",
+      en: brassFittingsDescriptionEn,
+      fa: brassFittingsDescriptionFa,
+      ar: brassFittingsDescriptionAr,
     },
   },
   {
-    slug: "threaded-fittings",
+    slug: "heavy-brass-float-valve",
     featured: true,
-    name: { en: "Threaded Fittings", fa: "اتصالات دنده‌ای", ar: "وصلات ملولبة" },
+    name: {
+      en: "Heavy All-Brass Float Valve",
+      fa: "شیر فلوتر تمام برنجی سنگین",
+      ar: "صمام عوامة ثقيل من النحاس بالكامل",
+    },
     tagline: {
-      en: "BSP & NPT nipples, bushes and elbows machined to spec.",
-      fa: "نیپل، تبدیل و زانوی دنده‌ای BSP و NPT، ماشین‌کاری‌شده مطابق استاندارد.",
-      ar: "نبل وجلب وأكواع ملولبة BSP و NPT مُصنّعة حسب المواصفات.",
+      en: "Heavy all-brass valve for automatic tank water-level control.",
+      fa: "شیر فلوتر تمام برنجی سنگین برای کنترل خودکار سطح آب مخزن.",
+      ar: "صمام عوامة ثقيل من النحاس بالكامل للتحكم التلقائي في مستوى ماء الخزان.",
     },
     description: {
-      en: "Precision brass threaded fittings in BSP and NPT, cut to tight tolerances for reliable pipework and equipment connections.",
-      fa: "اتصالات دنده‌ای برنجی دقیق در استاندارد BSP و NPT، با تلورانس پایین برای اتصال مطمئن لوله‌کشی و تجهیزات.",
-      ar: "وصلات نحاسية ملولبة دقيقة بمعايير BSP و NPT، مقطوعة بتفاوتات ضيقة لتوصيل موثوق للأنابيب والمعدات.",
-    },
-  },
-  {
-    slug: "ball-valves",
-    featured: true,
-    name: { en: "Ball Valves", fa: "شیرهای توپی", ar: "الصمامات الكروية" },
-    tagline: {
-      en: "Full-bore brass valves for quarter-turn shut-off.",
-      fa: "شیر توپی برنجی تمام‌گذر برای قطع جریان با چرخش ربع‌دور.",
-      ar: "صمامات كروية نحاسية كاملة الفتحة للإغلاق بربع لفة.",
-    },
-    description: {
-      en: "Lever-operated brass ball valves with a chrome-plated ball and PTFE seats — smooth quarter-turn operation and dependable isolation for water and gas lines.",
-      fa: "شیر توپی برنجی اهرمی با توپ آبکاری‌کروم و نشیمن PTFE؛ عملکرد نرم ربع‌دور و قطع مطمئن جریان برای خطوط آب و گاز.",
-      ar: "صمامات كروية نحاسية بذراع مع كرة مطلية بالكروم ومقاعد PTFE — تشغيل سلس بربع لفة وعزل موثوق لخطوط المياه والغاز.",
-    },
-  },
-  {
-    slug: "push-fit-fittings",
-    featured: true,
-    name: { en: "Push-Fit Fittings", fa: "اتصالات سریع", ar: "وصلات الدفع السريع" },
-    tagline: {
-      en: "Push-to-connect brass fittings — connect in seconds.",
-      fa: "اتصالات برنجی جفت‌شونده؛ اتصال در چند ثانیه.",
-      ar: "وصلات نحاسية بالدفع — توصيل في ثوانٍ.",
-    },
-    description: {
-      en: "Demountable push-fit brass connectors with a stainless grab ring and O-ring seal for fast, repeatable joints on copper, PEX and PB pipe.",
-      fa: "رابط‌های برنجی جفت‌شونده و قابل‌بازکردن با گیره فولادی و آب‌بند O-ring برای اتصال سریع و تکرارپذیر روی لوله‌های مسی، PEX و PB.",
-      ar: "موصلات نحاسية بالدفع قابلة للفك مع حلقة إمساك من الستانلس وحلقة O للإحكام، لوصلات سريعة وقابلة للتكرار على أنابيب النحاس و PEX و PB.",
-    },
-  },
-  {
-    slug: "gas-fittings",
-    name: { en: "Gas Fittings", fa: "اتصالات گاز", ar: "وصلات الغاز" },
-    tagline: {
-      en: "Brass cocks and unions rated for gas service.",
-      fa: "شیر و مهره‌ماسوره برنجی مناسب سرویس گاز.",
-      ar: "صنابير واتحادات نحاسية معتمدة لخدمة الغاز.",
-    },
-    description: {
-      en: "Brass gas cocks and unions built for domestic and commercial gas installations, with secure sealing faces and clear on/off indication.",
-      fa: "شیر و مهره‌ماسوره گاز برنجی برای تأسیسات گاز خانگی و تجاری، با سطوح آب‌بندی مطمئن و نشانگر روشن/خاموش واضح.",
-      ar: "صنابير واتحادات غاز نحاسية للتركيبات المنزلية والتجارية، بأسطح إحكام آمنة ومؤشر تشغيل/إيقاف واضح.",
-    },
-  },
-  {
-    slug: "hose-barb-fittings",
-    name: { en: "Hose & Barb Fittings", fa: "اتصالات شلنگی", ar: "وصلات الخراطيم" },
-    tagline: {
-      en: "Barbed brass tails and tees to grip flexible hose.",
-      fa: "سرشلنگی و سه‌راهی برنجی خاردار برای مهار شلنگ انعطاف‌پذیر.",
-      ar: "أذيال ووصلات تي نحاسية مسننة لتثبيت الخراطيم المرنة.",
-    },
-    description: {
-      en: "Brass hose tails and barbed tees with a ribbed shank that grips flexible hose under a clamp — for air, water and irrigation lines.",
-      fa: "سرشلنگی و سه‌راهی خاردار برنجی با ساقهٔ آج‌دار که شلنگ را زیر بست مهار می‌کند؛ برای خطوط هوا، آب و آبیاری.",
-      ar: "أذيال خراطيم ووصلات تي مسننة نحاسية بساق مضلعة تمسك الخرطوم المرن تحت المشبك — لخطوط الهواء والمياه والري.",
+      en: heavyBrassFloatValveDescriptionEn,
+      fa: heavyBrassFloatValveDescriptionFa,
+      ar: heavyBrassFloatValveDescriptionAr,
     },
   },
 ];
 
+const specLabels = {
+  material: { en: "Material", fa: "جنس", ar: "المادة" },
+  size: { en: "Size", fa: "سایز", ar: "المقاس" },
+  connection: { en: "Connection", fa: "نوع اتصال", ar: "نوع الوصلة" },
+};
+
+const brass = {
+  en: "Brass",
+  fa: "برنج",
+  ar: "نحاس",
+};
+
+const brassFittingSummary = {
+  en: "Threaded brass tank fitting for creating a reliable inlet or outlet on tank walls.",
+  fa: "فیتینگ برنجی رزوه‌ای برای ایجاد ورودی یا خروجی مطمئن روی دیواره مخزن.",
+  ar: "فيتنغ نحاسي ملولب لإنشاء مدخل أو مخرج موثوق على جدار الخزان.",
+};
+
 export const products: Product[] = [
-  // ── Compression fittings ────────────────────────────────────────────────
   {
-    slug: "straight-coupling",
-    categorySlug: "compression-fittings",
+    slug: "brass-fitting-1-2",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-2.jpg",
+    featured: true,
+    name: { en: 'Brass Fitting 1/2"', fa: "فیتینگ برنجی ۱/۲", ar: 'فيتنغ نحاسي 1/2"' },
+    summary: brassFittingSummary,
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2"' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
+    ],
+  },
+  {
+    slug: "brass-fitting-1-2-long",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-2-long.jpg",
     featured: true,
     name: {
-      en: "Straight Compression Coupling",
-      fa: "بوشن فشاری مستقیم",
-      ar: "وصلة ضغط مستقيمة",
+      en: 'Long Brass Fitting 1/2"',
+      fa: "فیتینگ برنجی ۱/۲ بلند",
+      ar: 'فيتنغ نحاسي طويل 1/2"',
     },
-    summary: {
-      en: "Joins two equal pipes in a straight run with a tool-free olive seal.",
-      fa: "اتصال دو لولهٔ هم‌قطر در مسیر مستقیم با آب‌بند زیتونی و بدون ابزار.",
-      ar: "توصل أنبوبين متساويين في خط مستقيم بإحكام زيتوني بلا أدوات.",
-    },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '15 mm · 1/2"' },
-      { label: L.connection, value: "Compression × Compression" },
-      { label: L.pressure, value: "16 bar" },
-      { label: L.temperature, value: "-20…120 °C" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2" Long' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "elbow-90",
-    categorySlug: "compression-fittings",
+    slug: "brass-fitting-3-4",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-3-4.jpg",
     featured: true,
-    name: { en: "90° Compression Elbow", fa: "زانویی فشاری ۹۰ درجه", ar: "كوع ضغط 90°" },
-    summary: {
-      en: "Turns a pipe run through a right angle without soldering.",
-      fa: "تغییر مسیر لوله با زاویهٔ قائم، بدون لحیم‌کاری.",
-      ar: "يحوّل مسار الأنبوب بزاوية قائمة دون لحام.",
-    },
-    material: BRASS,
+    name: { en: 'Brass Fitting 3/4"', fa: "فیتینگ برنجی ۳/۴", ar: 'فيتنغ نحاسي 3/4"' },
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '22 mm · 3/4"' },
-      { label: L.connection, value: "Compression × Compression" },
-      { label: L.pressure, value: "16 bar" },
-      { label: L.temperature, value: "-20…120 °C" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4"' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "equal-tee",
-    categorySlug: "compression-fittings",
-    name: { en: "Equal Compression Tee", fa: "سه‌راهی فشاری مساوی", ar: "وصلة تي ضغط متساوية" },
-    summary: {
-      en: "Branches a run into three equal outlets on one fitting.",
-      fa: "انشعاب یک مسیر به سه خروجی هم‌قطر در یک اتصال.",
-      ar: "تفرّع الخط إلى ثلاثة مخارج متساوية في وصلة واحدة.",
+    slug: "brass-fitting-3-4-long",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-3-4-long.jpg",
+    name: {
+      en: 'Long Brass Fitting 3/4"',
+      fa: "فیتینگ برنجی ۳/۴ بلند",
+      ar: 'فيتنغ نحاسي طويل 3/4"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '15 mm · 1/2"' },
-      { label: L.connection, value: "Compression (3-way)" },
-      { label: L.pressure, value: "16 bar" },
-    ],
-  },
-  // ── Threaded fittings ───────────────────────────────────────────────────
-  {
-    slug: "hex-nipple",
-    categorySlug: "threaded-fittings",
-    featured: true,
-    name: { en: "Hex Nipple, BSP", fa: "نیپل شش‌گوش BSP", ar: "نبل سداسي BSP" },
-    summary: {
-      en: "Male-to-male connector with a central hex for wrench tightening.",
-      fa: "رابط نر به نر با شش‌گوش میانی برای بستن با آچار.",
-      ar: "موصل ذكري إلى ذكري بسداسي مركزي للربط بالمفتاح.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.thread, value: 'BSP 1/2" × 1/2"' },
-      { label: L.connection, value: "Male × Male" },
-      { label: L.pressure, value: "20 bar" },
-      { label: L.standard, value: "ISO 228" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4" Long' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "reducing-bush",
-    categorySlug: "threaded-fittings",
-    name: { en: "Reducing Bush", fa: "تبدیل دنده‌ای", ar: "جلبة تخفيض" },
-    summary: {
-      en: "Steps a larger female thread down to a smaller male thread.",
-      fa: "تبدیل دندهٔ مادگی بزرگ‌تر به دندهٔ نری کوچک‌تر.",
-      ar: "يخفّض لولبًا أنثويًا أكبر إلى لولب ذكري أصغر.",
-    },
-    material: BRASS,
+    slug: "brass-fitting-1-inch",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-inch.jpg",
+    name: { en: 'Brass Fitting 1"', fa: "فیتینگ برنجی ۱ اینچ", ar: 'فيتنغ نحاسي 1"' },
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.thread, value: 'BSP 3/4" → 1/2"' },
-      { label: L.connection, value: "Male × Female" },
-      { label: L.standard, value: "ISO 228" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1"' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "male-elbow",
-    categorySlug: "threaded-fittings",
-    name: { en: "Male Threaded Elbow", fa: "زانو دنده‌ای نر", ar: "كوع ملولب ذكري" },
-    summary: {
-      en: "90° change of direction between a male and a female thread.",
-      fa: "تغییر مسیر ۹۰ درجه بین دندهٔ نر و مادگی.",
-      ar: "تغيير اتجاه بزاوية 90° بين لولب ذكري وأنثوي.",
+    slug: "brass-fitting-1-inch-long",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-inch-long.jpg",
+    name: {
+      en: 'Long Brass Fitting 1"',
+      fa: "فیتینگ برنجی ۱ اینچ بلند",
+      ar: 'فيتنغ نحاسي طويل 1"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.thread, value: 'BSP 1/2"' },
-      { label: L.connection, value: "Male × Female" },
-      { label: L.pressure, value: "20 bar" },
-    ],
-  },
-  // ── Ball valves ─────────────────────────────────────────────────────────
-  {
-    slug: "full-bore-valve",
-    categorySlug: "ball-valves",
-    featured: true,
-    name: { en: "Full-Bore Ball Valve", fa: "شیر توپی تمام‌گذر", ar: "صمام كروي كامل الفتحة" },
-    summary: {
-      en: "Unrestricted bore for maximum flow; lever shut-off in a quarter turn.",
-      fa: "مجرای کامل برای حداکثر دبی؛ قطع جریان اهرمی با ربع‌دور.",
-      ar: "فتحة كاملة لأقصى تدفق؛ إغلاق بالذراع بربع لفة.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N, chrome-plated ball" },
-      { label: L.size, value: '1/2" – 2"' },
-      { label: L.thread, value: "BSP female × female" },
-      { label: L.pressure, value: "PN25" },
-      { label: L.temperature, value: "-20…150 °C" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1" Long' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "mini-ball-valve",
-    categorySlug: "ball-valves",
-    name: { en: "Mini Ball Valve", fa: "شیر توپی مینی", ar: "صمام كروي مصغّر" },
-    summary: {
-      en: "Compact isolation valve for gauges, drops and tight spaces.",
-      fa: "شیر قطع فشرده برای گیج‌ها، انشعاب‌ها و فضاهای محدود.",
-      ar: "صمام عزل مدمج للمقاييس والتفرعات والأماكن الضيقة.",
+    slug: "brass-fitting-1-1-4",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-1-4.jpg",
+    name: {
+      en: 'Brass Fitting 1 1/4"',
+      fa: "فیتینگ برنجی ۱ و ۱/۴",
+      ar: 'فيتنغ نحاسي 1 1/4"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '1/4" – 1/2"' },
-      { label: L.pressure, value: "PN16" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1 1/4"' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "lockable-ball-valve",
-    categorySlug: "ball-valves",
-    name: { en: "Lockable Ball Valve", fa: "شیر توپی قفل‌شونده", ar: "صمام كروي قابل للقفل" },
-    summary: {
-      en: "Padlockable lever holds the valve open or closed for safe isolation.",
-      fa: "اهرم قابل‌قفل که شیر را باز یا بسته نگه می‌دارد؛ برای قطع ایمن.",
-      ar: "ذراع قابل للقفل يبقي الصمام مفتوحًا أو مغلقًا لعزل آمن.",
+    slug: "brass-fitting-1-1-2",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-1-1-2.jpg",
+    name: {
+      en: 'Brass Fitting 1 1/2"',
+      fa: "فیتینگ برنجی ۱ و ۱/۲",
+      ar: 'فيتنغ نحاسي 1 1/2"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '1/2" – 1"' },
-      { label: L.thread, value: "BSP female × female" },
-      { label: L.pressure, value: "PN25" },
-    ],
-  },
-  // ── Push-fit fittings ───────────────────────────────────────────────────
-  {
-    slug: "push-straight-connector",
-    categorySlug: "push-fit-fittings",
-    featured: true,
-    name: { en: "Push-Fit Straight Connector", fa: "رابط سریع مستقیم", ar: "وصلة دفع مستقيمة" },
-    summary: {
-      en: "Push the pipe home for an instant, demountable seal — no tools.",
-      fa: "لوله را جا بزنید تا آب‌بندی فوری و قابل‌بازکردن ایجاد شود؛ بدون ابزار.",
-      ar: "ادفع الأنبوب حتى يستقر لإحكام فوري قابل للفك — دون أدوات.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N, stainless grab ring" },
-      { label: L.size, value: "15 mm · 22 mm" },
-      { label: L.connection, value: "Push-fit × Push-fit" },
-      { label: L.pressure, value: "10 bar" },
-      { label: L.temperature, value: "0…70 °C" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1 1/2"' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "push-elbow",
-    categorySlug: "push-fit-fittings",
-    name: { en: "Push-Fit Elbow", fa: "زانو سریع", ar: "كوع دفع سريع" },
-    summary: {
-      en: "Right-angle push-fit turn for copper, PEX and PB pipe.",
-      fa: "تغییر مسیر قائم جفت‌شونده برای لولهٔ مسی، PEX و PB.",
-      ar: "كوع بالدفع بزاوية قائمة لأنابيب النحاس و PEX و PB.",
+    slug: "brass-fitting-inner-2-inch",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-inner-2-inch.jpg",
+    name: {
+      en: 'Inner Brass Fitting 2"',
+      fa: "فیتینگ برنجی داخل ۲ اینچ",
+      ar: 'فيتنغ نحاسي داخلي 2"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: "15 mm" },
-      { label: L.connection, value: "Push-fit × Push-fit" },
-      { label: L.pressure, value: "10 bar" },
-    ],
-  },
-  // ── Gas fittings ────────────────────────────────────────────────────────
-  {
-    slug: "gas-cock",
-    categorySlug: "gas-fittings",
-    featured: true,
-    name: { en: "Brass Gas Cock", fa: "شیر گاز برنجی", ar: "صنبور غاز نحاسي" },
-    summary: {
-      en: "Lever gas isolation cock with clear open/closed indication.",
-      fa: "شیر قطع گاز اهرمی با نشانگر واضح باز/بسته.",
-      ar: "صنبور عزل غاز بذراع مع مؤشر واضح للفتح/الإغلاق.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '1/2" – 1"' },
-      { label: L.thread, value: "BSP" },
-      { label: L.standard, value: "EN 331" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '2" Inner' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
   {
-    slug: "gas-union",
-    categorySlug: "gas-fittings",
-    name: { en: "Gas Union", fa: "مهره‌ماسوره گاز", ar: "اتحاد الغاز" },
-    summary: {
-      en: "Demountable union joint for servicing gas appliances.",
-      fa: "اتصال مهره‌ماسورهٔ قابل‌بازکردن برای سرویس لوازم گازسوز.",
-      ar: "وصلة اتحاد قابلة للفك لصيانة أجهزة الغاز.",
+    slug: "brass-fitting-outer-3-inch",
+    categorySlug: "brass-fittings",
+    image: "/images/categories/brass-fittings/brass-fitting-outer-3-inch.jpg",
+    name: {
+      en: 'Outer Brass Fitting 3"',
+      fa: "فیتینگ برنجی بیرون ۳ اینچ",
+      ar: 'فيتنغ نحاسي خارجي 3"',
     },
-    material: BRASS,
+    summary: brassFittingSummary,
+    material: brass,
     specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: '3/4"' },
-      { label: L.thread, value: "BSP female × female" },
-      { label: L.standard, value: "EN 331" },
-    ],
-  },
-  // ── Hose & barb fittings ────────────────────────────────────────────────
-  {
-    slug: "hose-tail",
-    categorySlug: "hose-barb-fittings",
-    name: { en: "Brass Hose Tail", fa: "سرشلنگی برنجی", ar: "ذيل خرطوم نحاسي" },
-    summary: {
-      en: "Ribbed barb on a male thread grips flexible hose under a clip.",
-      fa: "خار آج‌دار روی دندهٔ نری که شلنگ را زیر بست مهار می‌کند.",
-      ar: "سن مضلع على لولب ذكري يمسك الخرطوم المرن تحت مشبك.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.thread, value: 'BSP 1/2"' },
-      { label: L.size, value: "12 mm barb" },
-      { label: L.connection, value: "Male thread × barb" },
-    ],
-  },
-  {
-    slug: "barbed-tee",
-    categorySlug: "hose-barb-fittings",
-    name: { en: "Barbed Hose Tee", fa: "سه‌راهی شلنگی خاردار", ar: "وصلة تي خرطوم مسننة" },
-    summary: {
-      en: "Three-way barbed junction for splitting flexible hose lines.",
-      fa: "اتصال سه‌راههٔ خاردار برای تقسیم خطوط شلنگ انعطاف‌پذیر.",
-      ar: "وصلة ثلاثية مسننة لتقسيم خطوط الخراطيم المرنة.",
-    },
-    material: BRASS,
-    specs: [
-      { label: L.material, value: "CW617N" },
-      { label: L.size, value: "10 mm barb" },
-      { label: L.connection, value: "Barb (3-way)" },
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3" Outer' },
+      { label: specLabels.connection, value: "Threaded tank fitting" },
     ],
   },
 ];
