@@ -4,6 +4,7 @@ import { Card } from "@/components/ui";
 import type { Locale } from "@/lib/i18n/config";
 import { localeHref } from "@/lib/i18n/href";
 import { countProductsInCategory, localize, type Category } from "@/lib/products";
+import Image from "next/image";
 import { PlaceholderTile } from "./PlaceholderTile";
 
 /**
@@ -27,7 +28,19 @@ export function CategoryCard({
   return (
     <Link href={href} className="group block focus-visible:outline-none">
       <Card interactive className="flex h-full flex-col group-focus-visible:border-navy-900">
-        <PlaceholderTile initial={name.charAt(0)} />
+        {category.image ? (
+          <div className="relative aspect-4/3 overflow-hidden border-b border-border bg-surface-muted">
+            <Image
+              src={category.image}
+              alt={name}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <PlaceholderTile initial={name.charAt(0)} />
+        )}
         <div className="flex flex-1 flex-col p-6">
           <div className="flex items-baseline justify-between gap-3">
             <h3 className="text-lg font-semibold text-foreground">{name}</h3>

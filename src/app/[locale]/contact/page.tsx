@@ -90,7 +90,7 @@ export default async function ContactPage({ params }: Props) {
             {/* Contact details */}
             <div className="lg:col-span-2">
               <h2 className="text-lg font-semibold uppercase tracking-tight">{t.details.title}</h2>
-              <dl className="mt-6 divide-y divide-border border-y border-border">
+              <dl className="mt-6 divide-y divide-border border-border">
                 <DetailRow label={t.details.emailLabel}>
                   <a
                     href={`mailto:${SITE.email}`}

@@ -58,6 +58,7 @@ export const categories: Category[] = [
       fa: brassFittingsDescriptionFa,
       ar: brassFittingsDescriptionAr,
     },
+    image: "/images/categories/brass-fittings/brass-fitting-1-2.jpg",
   },
   {
     slug: "heavy-brass-float-valve",
@@ -77,6 +78,7 @@ export const categories: Category[] = [
       fa: heavyBrassFloatValveDescriptionFa,
       ar: heavyBrassFloatValveDescriptionAr,
     },
+    image: "",
   },
 ];
 

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Badge, Card } from "@/components/ui";
 import type { Locale } from "@/lib/i18n/config";
