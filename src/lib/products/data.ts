@@ -111,6 +111,21 @@ const allBrassFittingsDescriptionAr =
   "تُستخدم الأكواع النحاسية لتغيير مسار الأنبوب، والوصلات الثلاثية النحاسية لإنشاء تفرع، والأكواع القصيرة النحاسية لإنشاء اتصال وتغيير الاتجاه على مسار الأنابيب. وبحسب نوع النظام واحتياج المستخدم، يمكن استخدام هذه الوصلات في أجزاء مختلفة من إمداد المياه والمرافق.\n\n" +
   "تركز أفق زمين (پرورده) على جودة السبيكة، ودقة التصنيع، ومتانة الاتصال، لإنتاج هذه المنتجات بمقاسات مختلفة، كما توفر إمكانية تصنيع أبعاد ومواصفات مخصصة وفقا لاحتياج العميل.";
 
+const brassQuarterTurnValveDescriptionFa =
+  "شیر تک‌ضرب برنجی افق زمین (پرورده) یکی از شیرآلات کاربردی برای قطع و وصل جریان آب در سیستم‌های لوله‌کشی و آبرسانی است. این شیر با طراحی ساده و کاربردی، امکان کنترل سریع جریان آب را فراهم کرده و برای استفاده در بخش‌های مختلف تأسیسات، آبرسانی و مصارف عمومی مناسب می‌باشد.\n\n" +
+  "این محصول در سایزهای ۱/۲ و ۳/۴ اینچ تولید می‌شود و به دلیل ساختار برنجی، از استحکام و دوام مناسبی در شرایط کاری برخوردار است.\n\n" +
+  "شیر تک‌ضرب افق زمین (پرورده) با هدف ارائه محصولی مقاوم، کاربردی و مطمئن برای استفاده در سیستم‌های مختلف آبرسانی و تأسیسات تولید می‌شود و انتخابی مناسب برای کنترل جریان آب در مسیر لوله‌کشی است.";
+
+const brassQuarterTurnValveDescriptionEn =
+  "The Ofogh Zamin (Parvarde) brass quarter-turn valve is a practical valve for shutting off and turning on water flow in piping and water-supply systems. With its simple, functional design, this valve allows quick control of water flow and is suitable for use in various parts of facility installations, water supply and general applications.\n\n" +
+  'This product is manufactured in 1/2" and 3/4" sizes, and thanks to its brass construction, it offers suitable strength and durability under working conditions.\n\n' +
+  "The Ofogh Zamin (Parvarde) quarter-turn valve is manufactured to provide a durable, practical and reliable product for use in various water-supply and facility systems, and is a suitable choice for controlling water flow along a piping route.";
+
+const brassQuarterTurnValveDescriptionAr =
+  "صمام أفق زمين (پرورده) النحاسي ربع اللفة هو صمام عملي لقطع ووصل تدفق الماء في أنظمة الأنابيب وإمداد المياه. بفضل تصميمه البسيط والعملي، يتيح هذا الصمام التحكم السريع في تدفق الماء، وهو مناسب للاستخدام في مختلف أجزاء المرافق وإمداد المياه والاستخدامات العامة.\n\n" +
+  'يُصنع هذا المنتج بمقاسي 1/2" و3/4"، وبفضل بنيته النحاسية، يتمتع بمتانة ومقاومة مناسبتين في ظروف التشغيل.\n\n' +
+  "يُصنع صمام أفق زمين (پرورده) ربع اللفة بهدف تقديم منتج متين وعملي وموثوق للاستخدام في مختلف أنظمة إمداد المياه والمرافق، وهو خيار مناسب للتحكم في تدفق الماء على مسار الأنابيب.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -226,6 +241,25 @@ export const categories: Category[] = [
       ar: allBrassFittingsDescriptionAr,
     },
   },
+  {
+    slug: "brass-quarter-turn-valve",
+    featured: true,
+    name: {
+      en: "Brass Quarter-Turn Valve",
+      fa: "شیر تک‌ضرب برنجی",
+      ar: "صمام نحاسي ربع لفة",
+    },
+    tagline: {
+      en: "Brass quarter-turn valve for quick water shut-off in piping systems.",
+      fa: "شیر تک‌ضرب برنجی برای قطع و وصل سریع جریان آب در سیستم‌های لوله‌کشی.",
+      ar: "صمام نحاسي ربع لفة لقطع ووصل سريع لتدفق الماء في أنظمة الأنابيب.",
+    },
+    description: {
+      en: brassQuarterTurnValveDescriptionEn,
+      fa: brassQuarterTurnValveDescriptionFa,
+      ar: brassQuarterTurnValveDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -295,6 +329,14 @@ function allBrassFittingPlaceholder(n: number): Product {
       { label: specLabels.connection, value: "TBD" },
     ],
     draft: true,
+  };
+}
+
+function quarterTurnValveSummary(size: { en: string; fa: string; ar: string }) {
+  return {
+    en: `${size.en} brass quarter-turn valve for quick water shut-off in piping systems.`,
+    fa: `شیر تک‌ضرب برنجی ${size.fa} برای قطع و وصل سریع جریان آب.`,
+    ar: `صمام نحاسي ربع لفة مقاس ${size.ar} لقطع ووصل سريع لتدفق الماء.`,
   };
 }
 
@@ -656,4 +698,39 @@ export const products: Product[] = [
     ],
   },
   ...Array.from({ length: 14 }, (_, i) => allBrassFittingPlaceholder(i + 1)),
+  {
+    slug: "brass-quarter-turn-valve-1-2",
+    categorySlug: "brass-quarter-turn-valve",
+    image: "/images/categories/brass-quarter-turn-valve/brass-quarter-turn-valve-1-2.jpg",
+    featured: true,
+    name: {
+      en: 'Brass Quarter-Turn Valve 1/2"',
+      fa: "شیر تک‌ضرب برنجی ۱/۲",
+      ar: 'صمام نحاسي ربع لفة 1/2"',
+    },
+    summary: quarterTurnValveSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2"' },
+      { label: specLabels.connection, value: "Threaded shut-off valve" },
+    ],
+  },
+  {
+    slug: "brass-quarter-turn-valve-3-4",
+    categorySlug: "brass-quarter-turn-valve",
+    image: "/images/categories/brass-quarter-turn-valve/brass-quarter-turn-valve-3-4.jpg",
+    name: {
+      en: 'Brass Quarter-Turn Valve 3/4"',
+      fa: "شیر تک‌ضرب برنجی ۳/۴",
+      ar: 'صمام نحاسي ربع لفة 3/4"',
+    },
+    summary: quarterTurnValveSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4"' },
+      { label: specLabels.connection, value: "Threaded shut-off valve" },
+    ],
+  },
 ];
