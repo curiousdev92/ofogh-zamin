@@ -14,14 +14,16 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
+      <div className="flex relative aspect-4/3 overflow-hidden border border-border bg-surface-muted">
         <Image
           src={images[active]}
           alt={alt}
-          fill
+          // fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className="max-h-full object-contain"
           priority
+          width={1200}
+          height={900}
         />
       </div>
       {images.length > 1 && (

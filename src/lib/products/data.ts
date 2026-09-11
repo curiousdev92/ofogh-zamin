@@ -39,6 +39,21 @@ const heavyBrassFloatValveDescriptionAr =
   "يتميز صمام العوامة الثقيل المصنوع بالكامل من النحاس من أفق زمين (پرورده) ببنية قوية واستخدام مكونات نحاسية، مما يمنحه وزنا أعلى ومقاومة أكبر مقارنة بالموديل الاقتصادي. هذا الموديل مناسب لخزانات المياه، وتطبيقات العوامة الأفقية، وأنظمة إمداد المياه، والمرافق، والاستخدامات الصناعية.\n\n" +
   "تجعل البنية النحاسية الكاملة هذا الموديل خيارا مناسبا للمشاريع التي تكون فيها القوة والمتانة والوزن المناسب وجودة التصنيع العالية أكثر أهمية.";
 
+const economyFloatValveDescriptionFa =
+  "فلوتر برنجی اکونومی، قطعه‌ای کاربردی برای کنترل خودکار سطح آب داخل مخزن است. این فلوتر با تغییر سطح آب، مسیر ورود آب را به‌صورت خودکار کنترل می‌کند؛ به‌طوری‌که با پایین آمدن سطح آب، جریان ورودی باز شده و با رسیدن آب به سطح تعیین‌شده، مسیر ورود آب بسته می‌شود و از پر شدن بیش از حد و سرریز شدن مخزن جلوگیری می‌کند.\n\n" +
+  "در این مدل از مهره‌های پلاستیکی در قسمت شناور استفاده شده است که باعث کاهش وزن فلوتر و اقتصادی‌تر شدن آن می‌شود. فلوتر برنجی اکونومی افق زمین (پرورده) گزینه‌ای سبک و مقرون‌به‌صرفه برای استفاده در مخازن آب، فلوتر افقی و سیستم‌های آبرسانی و تأسیساتی است و برای مصارف مختلف خانگی و صنعتی قابل استفاده می‌باشد.\n\n" +
+  "این مدل با توجه به ساختار اقتصادی خود، انتخابی مناسب برای پروژه‌هایی است که در کنار عملکرد مناسب، وزن کمتر و قیمت اقتصادی‌تر اهمیت دارد.";
+
+const economyFloatValveDescriptionEn =
+  "The economy brass float valve is a practical component for automatic water-level control inside a tank. It automatically controls the inlet flow as the water level changes: when the level drops, the inlet opens, and once the water reaches the set level, the inlet closes to prevent the tank from overfilling and overflowing.\n\n" +
+  "This model uses plastic components in the float section, which reduces the valve's weight and makes it more economical. The Ofogh Zamin (Parvarde) economy brass float valve is a light and affordable option for water tanks, horizontal float applications, water-supply systems and facility installations, suitable for both household and industrial use.\n\n" +
+  "Given its economical structure, this model is a suitable choice for projects where, alongside proper performance, lower weight and a more economical price matter.";
+
+const economyFloatValveDescriptionAr =
+  "صمام العوامة النحاسي الاقتصادي هو قطعة عملية للتحكم التلقائي في مستوى الماء داخل الخزان. يتحكم هذا الصمام تلقائيا في مسار دخول الماء مع تغير مستوى الماء؛ فعند انخفاض مستوى الماء يُفتح مسار الدخول، وبعد وصول الماء إلى المستوى المحدد يُغلق مسار الدخول لمنع امتلاء الخزان الزائد وفيضانه.\n\n" +
+  "يستخدم هذا الموديل مكونات بلاستيكية في جزء العوامة، مما يقلل من وزن الصمام ويجعله أكثر اقتصادا. صمام العوامة النحاسي الاقتصادي من أفق زمين (پرورده) خيار خفيف الوزن واقتصادي لاستخدامه في خزانات المياه، وتطبيقات العوامة الأفقية، وأنظمة إمداد المياه والمرافق، ويصلح للاستخدامات المنزلية والصناعية المختلفة.\n\n" +
+  "نظرا لبنيته الاقتصادية، يُعد هذا الموديل خيارا مناسبا للمشاريع التي يكون فيها، إلى جانب الأداء المناسب، الوزن الأقل والسعر الأكثر اقتصادا أمرين مهمين.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -78,6 +93,25 @@ export const categories: Category[] = [
       ar: heavyBrassFloatValveDescriptionAr,
     },
   },
+  {
+    slug: "economy-float-valve",
+    featured: true,
+    name: {
+      en: "Economy Brass Float Valve",
+      fa: "شیر فلوتر برنجی اکونومی",
+      ar: "صمام عوامة نحاسي اقتصادي",
+    },
+    tagline: {
+      en: "Light, economical all-brass float valve for tank water-level control.",
+      fa: "فلوتر برنجی اکونومی، سبک و مقرون‌به‌صرفه برای کنترل سطح آب مخزن.",
+      ar: "صمام عوامة نحاسي اقتصادي وخفيف للتحكم في مستوى ماء الخزان.",
+    },
+    description: {
+      en: economyFloatValveDescriptionEn,
+      fa: economyFloatValveDescriptionFa,
+      ar: economyFloatValveDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -105,6 +139,14 @@ function floatValveSummary(size: { en: string; fa: string; ar: string }) {
     en: `${size.en} heavy all-brass float valve for automatic tank water-level control.`,
     fa: `فلوتر تمام برنجی سنگین ${size.fa} برای کنترل خودکار سطح آب مخزن.`,
     ar: `صمام عوامة ثقيل من النحاس بالكامل مقاس ${size.ar} للتحكم التلقائي في مستوى ماء الخزان.`,
+  };
+}
+
+function economyFloatValveSummary(size: { en: string; fa: string; ar: string }) {
+  return {
+    en: `${size.en} economy brass float valve, light and affordable for automatic tank water-level control.`,
+    fa: `فلوتر برنجی اکونومی ${size.fa}، سبک و مقرون‌به‌صرفه برای کنترل خودکار سطح آب مخزن.`,
+    ar: `صمام عوامة نحاسي اقتصادي مقاس ${size.ar}، خفيف الوزن واقتصادي للتحكم التلقائي في مستوى ماء الخزان.`,
   };
 }
 
@@ -332,6 +374,51 @@ export const products: Product[] = [
     specs: [
       { label: specLabels.material, value: "Brass" },
       { label: specLabels.size, value: '1"' },
+      { label: specLabels.connection, value: "Threaded float valve" },
+    ],
+  },
+  {
+    slug: "economy-float-valve-1-2",
+    categorySlug: "economy-float-valve",
+    image: "/images/categories/economy/economy-float-valve-1-2-1.jpg",
+    images: [
+      "/images/categories/economy/economy-float-valve-1-2-1.jpg",
+      "/images/categories/economy/economy-float-valve-1-2-2.jpg",
+      "/images/categories/economy/economy-float-valve-1-2-3.jpg",
+    ],
+    featured: true,
+    name: {
+      en: 'Economy Brass Float Valve 1/2"',
+      fa: "فلوتر اکونومی ۱/۲",
+      ar: 'صمام عوامة نحاسي اقتصادي 1/2"',
+    },
+    summary: economyFloatValveSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2"' },
+      { label: specLabels.connection, value: "Threaded float valve" },
+    ],
+  },
+  {
+    slug: "economy-float-valve-3-4",
+    categorySlug: "economy-float-valve",
+    image: "/images/categories/economy/economy-float-valve-3-4-1.jpg",
+    images: [
+      "/images/categories/economy/economy-float-valve-3-4-1.jpg",
+      "/images/categories/economy/economy-float-valve-3-4-2.jpg",
+      "/images/categories/economy/economy-float-valve-3-4-3.jpg",
+    ],
+    name: {
+      en: 'Economy Brass Float Valve 3/4"',
+      fa: "فلوتر اکونومی ۳/۴",
+      ar: 'صمام عوامة نحاسي اقتصادي 3/4"',
+    },
+    summary: economyFloatValveSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4"' },
       { label: specLabels.connection, value: "Threaded float valve" },
     ],
   },
