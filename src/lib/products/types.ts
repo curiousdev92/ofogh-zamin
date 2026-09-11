@@ -42,4 +42,6 @@ export type Product = {
   specs: Spec[];
   /** Surface on the home page's suggested grid. */
   featured?: boolean;
+  /** Placeholder content pending real data — noindex'd and excluded from the sitemap. */
+  draft?: boolean;
 };

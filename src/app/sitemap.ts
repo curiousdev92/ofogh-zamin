@@ -56,8 +56,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Single-product detail pages.
-  for (const product of getProducts()) {
+  // Single-product detail pages. Draft (placeholder) products are noindex'd and
+  // excluded here too — no point listing a page we're telling crawlers to skip.
+  for (const product of getProducts().filter((p) => !p.draft)) {
     routes.push({
       path: `/products/${product.categorySlug}/${product.slug}`,
       priority: 0.7,

@@ -93,6 +93,24 @@ const brassRefrigeratorNutDescriptionAr =
   "تُصنع صامولة الثلاجة النحاسية من أفق زمين (پرورده) بهدف توفير وصلة قوية وموثوقة ومتينة للاستخدام في أنظمة التبريد والتجميد، وهي مناسبة للاستخدام في الثلاجات والفريزرات ومختلف معدات التبريد والتجميد.\n\n" +
   "جودة السبيكة، ودقة التصنيع، ومتانة الاتصال؛ ثلاثة مبادئ مهمة في تصنيع صامولة ثلاجة قياسية.";
 
+const allBrassFittingsDescriptionFa =
+  "اتصالات تمام برنجی افق زمین (پرورده) شامل انواع سه‌راهی، زانویی و چپقی هستند که برای ایجاد اتصال، تغییر مسیر و انشعاب در سیستم‌های مختلف لوله‌کشی مورد استفاده قرار می‌گیرند. این اتصالات با توجه به نوع طراحی و سایز، در سیستم‌های آبرسانی، تأسیسات، لوله‌کشی آب و سایر کاربردهای صنعتی و فنی قابل استفاده هستند.\n\n" +
+  "این محصولات به‌صورت تمام برنجی تولید شده و در سایزهای پرکاربرد ۱/۴، ۳/۸، ۱/۲ و ۳/۴ اینچ عرضه می‌شوند. استفاده از آلیاژ برنج مناسب و ماشین‌کاری دقیق، موجب ایجاد اتصال مستحکم و عملکرد مطمئن قطعه در محل نصب می‌شود.\n\n" +
+  "زانویی‌های برنجی برای تغییر مسیر لوله، سه‌راهی‌های برنجی برای ایجاد انشعاب و چپقی‌های برنجی برای ایجاد اتصال و تغییر جهت در مسیر لوله‌کشی کاربرد دارند. بسته به نوع سیستم و نیاز مصرف‌کننده، این اتصالات می‌توانند در بخش‌های مختلف آبرسانی و تأسیسات مورد استفاده قرار گیرند.\n\n" +
+  "افق زمین (پرورده) با تمرکز بر کیفیت آلیاژ، دقت ساخت و استحکام اتصال، این محصولات را در سایزهای مختلف تولید می‌کند و امکان تولید ابعاد و مشخصات سفارشی متناسب با نیاز مشتری نیز فراهم است.";
+
+const allBrassFittingsDescriptionEn =
+  "Ofogh Zamin (Parvarde) all-brass fittings include tees, elbows and street elbows, used to create connections, redirect flow and branch off within various piping systems. Depending on their design and size, these fittings can be used in water-supply systems, facility installations, water piping and other industrial and technical applications.\n\n" +
+  'These products are manufactured entirely from brass and are available in the widely used sizes of 1/4", 3/8", 1/2" and 3/4". Using a suitable brass alloy along with precise machining results in a strong connection and reliable performance at the installation point.\n\n' +
+  "Brass elbows are used to change the direction of a pipe, brass tees to create a branch, and brass street elbows to create a connection and change direction along the piping route. Depending on the system type and the user's needs, these fittings can be used in different parts of water-supply and facility installations.\n\n" +
+  "Ofogh Zamin (Parvarde) focuses on alloy quality, manufacturing precision and connection strength to produce these products in different sizes, and can also manufacture custom dimensions and specifications to match customer requirements.";
+
+const allBrassFittingsDescriptionAr =
+  "تشمل الوصلات النحاسية الكاملة من أفق زمين (پرورده) أنواع الوصلات الثلاثية (تي) والكوع والكوع القصير (چپقی)، وتُستخدم لإنشاء الاتصال وتغيير المسار والتفرع في مختلف أنظمة الأنابيب. وبحسب نوع التصميم والمقاس، يمكن استخدام هذه الوصلات في أنظمة إمداد المياه والمرافق وأنابيب المياه وغيرها من التطبيقات الصناعية والفنية.\n\n" +
+  'تُصنع هذه المنتجات بالكامل من النحاس، وتُطرح بالمقاسات الشائعة 1/4" و3/8" و1/2" و3/4". يؤدي استخدام سبيكة نحاس مناسبة مع التشغيل الآلي الدقيق إلى إنشاء اتصال قوي وأداء موثوق في موضع التركيب.\n\n' +
+  "تُستخدم الأكواع النحاسية لتغيير مسار الأنبوب، والوصلات الثلاثية النحاسية لإنشاء تفرع، والأكواع القصيرة النحاسية لإنشاء اتصال وتغيير الاتجاه على مسار الأنابيب. وبحسب نوع النظام واحتياج المستخدم، يمكن استخدام هذه الوصلات في أجزاء مختلفة من إمداد المياه والمرافق.\n\n" +
+  "تركز أفق زمين (پرورده) على جودة السبيكة، ودقة التصنيع، ومتانة الاتصال، لإنتاج هذه المنتجات بمقاسات مختلفة، كما توفر إمكانية تصنيع أبعاد ومواصفات مخصصة وفقا لاحتياج العميل.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -189,6 +207,25 @@ export const categories: Category[] = [
       ar: brassRefrigeratorNutDescriptionAr,
     },
   },
+  {
+    slug: "all-brass-fittings",
+    featured: true,
+    name: {
+      en: "All-Brass Fittings",
+      fa: "اتصالات تمام برنجی",
+      ar: "وصلات نحاسية كاملة",
+    },
+    tagline: {
+      en: "All-brass elbows, tees and street elbows for reliable piping connections.",
+      fa: "زانویی، سه‌راهی و چپقی تمام برنجی برای اتصال مطمئن در سیستم‌های لوله‌کشی.",
+      ar: "أكواع ووصلات ثلاثية وأكواع قصيرة نحاسية كاملة لوصلات أنابيب موثوقة.",
+    },
+    description: {
+      en: allBrassFittingsDescriptionEn,
+      fa: allBrassFittingsDescriptionFa,
+      ar: allBrassFittingsDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -232,6 +269,32 @@ function insertBushingSummary(size: { en: string; fa: string; ar: string }) {
     en: `${size.en} all-brass insert bushing for a reliable, durable threaded connection.`,
     fa: `بوشن تمام برنجی اینزرتی ${size.fa} برای ایجاد اتصال مطمئن و مقاوم.`,
     ar: `بوشة نحاسية إدخالية كاملة مقاس ${size.ar} لإنشاء وصلة موثوقة ومقاومة.`,
+  };
+}
+
+// Titles/sizes/types (elbow, tee, street elbow) are not yet assigned per photo —
+// placeholder names to be replaced once the catalogue specifics are provided.
+function allBrassFittingPlaceholder(n: number): Product {
+  return {
+    slug: `all-brass-fitting-${n}`,
+    categorySlug: "all-brass-fittings",
+    image: `/images/categories/all-brass-fittings/all-brass-fitting-${n}.jpg`,
+    name: {
+      en: `All-Brass Fitting — Item ${n}`,
+      fa: `اتصال تمام برنجی — مورد ${n}`,
+      ar: `وصلة نحاسية كاملة — العنصر ${n}`,
+    },
+    summary: {
+      en: "All-brass fitting — type and size to be confirmed.",
+      fa: "اتصال تمام برنجی — نوع و سایز به‌زودی تکمیل می‌شود.",
+      ar: "وصلة نحاسية كاملة — سيتم تحديد النوع والمقاس لاحقا.",
+    },
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.connection, value: "TBD" },
+    ],
+    draft: true,
   };
 }
 
@@ -592,4 +655,5 @@ export const products: Product[] = [
       { label: specLabels.connection, value: "Copper pipe flare connection" },
     ],
   },
+  ...Array.from({ length: 14 }, (_, i) => allBrassFittingPlaceholder(i + 1)),
 ];

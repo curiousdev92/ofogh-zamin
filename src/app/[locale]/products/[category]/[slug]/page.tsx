@@ -34,12 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const l = locale as Locale;
   const product = getProductBySlug(category, slug);
   if (!product) return {};
-  return buildLocalizedMetadata({
-    locale: l,
-    pathname: `/products/${category}/${slug}`,
-    title: localize(product.name, l),
-    description: localize(product.summary, l),
-  });
+  return {
+    ...buildLocalizedMetadata({
+      locale: l,
+      pathname: `/products/${category}/${slug}`,
+      title: localize(product.name, l),
+      description: localize(product.summary, l),
+    }),
+    ...(product.draft && { robots: { index: false, follow: false } }),
+  };
 }
 
 export default async function ProductPage({ params }: Props) {
