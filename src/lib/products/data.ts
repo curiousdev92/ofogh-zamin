@@ -380,11 +380,11 @@ export const products: Product[] = [
   {
     slug: "economy-float-valve-1-2",
     categorySlug: "economy-float-valve",
-    image: "/images/categories/economy/economy-float-valve-1-2-1.jpg",
+    image: "/images/categories/economy-float-valve/economy-float-valve-1-2-1.jpg",
     images: [
-      "/images/categories/economy/economy-float-valve-1-2-1.jpg",
-      "/images/categories/economy/economy-float-valve-1-2-2.jpg",
-      "/images/categories/economy/economy-float-valve-1-2-3.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-1-2-1.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-1-2-2.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-1-2-3.jpg",
     ],
     featured: true,
     name: {
@@ -403,11 +403,11 @@ export const products: Product[] = [
   {
     slug: "economy-float-valve-3-4",
     categorySlug: "economy-float-valve",
-    image: "/images/categories/economy/economy-float-valve-3-4-1.jpg",
+    image: "/images/categories/economy-float-valve/economy-float-valve-3-4-1.jpg",
     images: [
-      "/images/categories/economy/economy-float-valve-3-4-1.jpg",
-      "/images/categories/economy/economy-float-valve-3-4-2.jpg",
-      "/images/categories/economy/economy-float-valve-3-4-3.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-3-4-1.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-3-4-2.jpg",
+      "/images/categories/economy-float-valve/economy-float-valve-3-4-3.jpg",
     ],
     name: {
       en: 'Economy Brass Float Valve 3/4"',
