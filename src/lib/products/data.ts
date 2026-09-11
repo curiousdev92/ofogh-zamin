@@ -162,6 +162,27 @@ const brassValveHeadDescriptionAr =
   "يُعد رأس الصمام النحاسي من أفق زمين (پرورده) خيارا مناسبا لتصنيع وإصلاح واستبدال أجزاء الصمامات، ويُستخدم في مختلف تطبيقات إمداد المياه والمرافق.\n\n" +
   "يُصنع ويُطرح هذا المنتج مع التركيز على جودة السبيكة، ودقة التصنيع، والأداء الموثوق، كما يمكن تصنيعه وفقا للمواصفات والأبعاد التي يطلبها العميل.";
 
+const customMadeDescriptionFa =
+  "افق زمین (پرورده) علاوه بر تولید انواع شیرآلات و اتصالات برنجی، در زمینه تولید قطعات برنجی صنعتی، تأسیساتی، برقی و اتصالات الکتریکی نیز فعالیت دارد. این قطعات با توجه به نیاز هر صنعت و مشخصات موردنظر مشتری، در ابعاد و مدل‌های مختلف تولید و عرضه می‌شوند.\n\n" +
+  "از جمله محصولات قابل تولید می‌توان به قطعات و اتصالات برقی برنجی، قطعات مورد استفاده در تجهیزات الکتریکی، انواع مهره و واشر، قطعات تبدیلی، قطعات چندسوراخ، قطعات شیرآلات و سایر قطعات برنجی خاص و صنعتی اشاره کرد.\n\n" +
+  "یکی از توانمندی‌های افق زمین (پرورده)، تولید قطعات سفارشی بر اساس نمونه، عکس، نقشه یا مشخصات فنی مشتری است. حتی اگر قطعه موردنظر نام مشخصی نداشته باشد یا صرفاً برای یک دستگاه یا کاربرد خاص طراحی شده باشد، امکان بررسی و تولید آن مطابق نمونه و مشخصات ارائه‌شده وجود دارد.\n\n" +
+  "در صورت نیاز به تولید قطعات جدید، اختصاصی یا سفارشی برنجی، مشتری می‌تواند نمونه، عکس، نقشه یا ابعاد موردنظر خود را ارائه دهد تا پس از بررسی، امکان تولید و مشخصات فنی آن بررسی و در صورت تأیید، فرآیند ساخت انجام شود.\n\n" +
+  "افق زمین (پرورده) | تولید قطعات برنجی صنعتی، برقی، تأسیساتی و سفارشی";
+
+const customMadeDescriptionEn =
+  "In addition to manufacturing various brass valves and fittings, Ofogh Zamin (Parvarde) is also active in producing industrial, facility, electrical and electrical-connector brass parts. These parts are manufactured and supplied in different dimensions and models to match the needs of each industry and the customer's required specifications.\n\n" +
+  "Products that can be manufactured include brass electrical parts and connectors, parts used in electrical equipment, various nuts and washers, adapter parts, multi-hole parts, valve components and other specialized industrial brass parts.\n\n" +
+  "One of Ofogh Zamin's (Parvarde) capabilities is manufacturing custom parts based on a sample, photo, drawing or the customer's technical specifications. Even if the desired part has no specific name or was designed solely for a particular machine or application, it can be reviewed and produced to match the provided sample and specifications.\n\n" +
+  "If you need new, dedicated or custom brass parts manufactured, you can provide your sample, photo, drawing or required dimensions; after review, the feasibility and technical specifications will be assessed, and upon approval the manufacturing process will proceed.\n\n" +
+  "Ofogh Zamin (Parvarde) | Manufacturing industrial, electrical, facility and custom brass parts";
+
+const customMadeDescriptionAr =
+  "إلى جانب تصنيع أنواع الصمامات والوصلات النحاسية، تنشط أفق زمين (پرورده) أيضا في مجال تصنيع القطع النحاسية الصناعية والمرافقية والكهربائية ووصلات التوصيل الكهربائي. تُصنع هذه القطع وتُطرح بأبعاد وموديلات مختلفة بحسب احتياج كل صناعة والمواصفات التي يطلبها العميل.\n\n" +
+  "من بين المنتجات القابلة للتصنيع: القطع والوصلات الكهربائية النحاسية، القطع المستخدمة في المعدات الكهربائية، أنواع الصواميل والحلقات (الواشر)، قطع التحويل، القطع متعددة الثقوب، قطع الصمامات وغيرها من القطع النحاسية الخاصة والصناعية.\n\n" +
+  "من قدرات أفق زمين (پرورده) تصنيع قطع مخصصة بناءً على عينة أو صورة أو مخطط أو مواصفات فنية من العميل. وحتى لو لم يكن للقطعة المطلوبة اسم محدد أو كانت مصممة خصيصا لجهاز أو استخدام معين، فمن الممكن دراستها وتصنيعها وفقا للعينة والمواصفات المقدمة.\n\n" +
+  "في حال الحاجة إلى تصنيع قطع نحاسية جديدة أو خاصة أو مخصصة، يمكن للعميل تقديم عينة أو صورة أو مخطط أو الأبعاد المطلوبة، وبعد الدراسة يتم تقييم إمكانية التصنيع والمواصفات الفنية، وفي حال الموافقة تبدأ عملية التصنيع.\n\n" +
+  "أفق زمين (پرورده) | تصنيع قطع نحاسية صناعية وكهربائية ومرافقية ومخصصة";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -334,6 +355,25 @@ export const categories: Category[] = [
       ar: brassValveHeadDescriptionAr,
     },
   },
+  {
+    slug: "custom-made",
+    featured: true,
+    name: {
+      en: "Custom & Industrial Brass Parts Manufacturing",
+      fa: "تولید قطعات برنجی سفارشی و صنعتی",
+      ar: "تصنيع قطع نحاسية مخصصة وصناعية",
+    },
+    tagline: {
+      en: "Custom and industrial brass parts manufactured to your sample, drawing or spec.",
+      fa: "تولید قطعات برنجی سفارشی و صنعتی بر اساس نمونه، نقشه یا مشخصات شما.",
+      ar: "تصنيع قطع نحاسية مخصصة وصناعية وفقا لعينتك أو مخططك أو مواصفاتك.",
+    },
+    description: {
+      en: customMadeDescriptionEn,
+      fa: customMadeDescriptionFa,
+      ar: customMadeDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -430,6 +470,32 @@ function brassValveHeadPlaceholder(n: number): Product {
       en: "Brass valve head — size and model to be confirmed.",
       fa: "بالا تنه برنجی — سایز و مدل به‌زودی تکمیل می‌شود.",
       ar: "رأس صمام نحاسي — سيتم تحديد المقاس والموديل لاحقا.",
+    },
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.connection, value: "TBD" },
+    ],
+    draft: true,
+  };
+}
+
+// Names/specs are not yet assigned per photo — placeholder names to be
+// replaced once the customer/catalogue specifics are provided.
+function customMadePlaceholder(n: number): Product {
+  return {
+    slug: `custom-made-${n}`,
+    categorySlug: "custom-made",
+    image: `/images/categories/custom-made/custom-made-${n}.jpg`,
+    name: {
+      en: `Custom Brass Part — Sample ${n}`,
+      fa: `قطعه برنجی سفارشی — نمونه ${n}`,
+      ar: `قطعة نحاسية مخصصة — عينة ${n}`,
+    },
+    summary: {
+      en: "Example of a custom-manufactured brass part — details to be confirmed.",
+      fa: "نمونه‌ای از قطعه برنجی تولید سفارشی — جزئیات به‌زودی تکمیل می‌شود.",
+      ar: "نموذج لقطعة نحاسية مُصنّعة حسب الطلب — سيتم تحديد التفاصيل لاحقا.",
     },
     material: brass,
     specs: [
@@ -857,4 +923,5 @@ export const products: Product[] = [
     ],
   },
   ...Array.from({ length: 3 }, (_, i) => brassValveHeadPlaceholder(i + 1)),
+  ...Array.from({ length: 14 }, (_, i) => customMadePlaceholder(i + 1)),
 ];
