@@ -72,6 +72,27 @@ const insertBushingsDescriptionAr =
   "نظرا للمتانة المناسبة لسبيكة النحاس، تُعد البوشات النحاسية الإدخالية خيارا عمليا للاستخدام في الأنظمة التي تهم فيها قوة الاتصال والمتانة وجودة التصنيع.\n\n" +
   "توفر أفق زمين (پرورده) إمكانية تصنيع البوشات النحاسية الإدخالية الكاملة بمقاسات مختلفة، وكذلك بأبعاد ومواصفات مخصصة حسب طلب العميل.";
 
+const brassRefrigeratorNutDescriptionFa =
+  "مهره یخچالی یکی از قطعات مهم و پرکاربرد در سیستم‌های تبرید، سرمایش و تجهیزات برودتی است که برای ایجاد اتصال مطمئن در مسیر لوله‌کشی، به‌ویژه در اتصال با لوله‌های مسی مورد استفاده قرار می‌گیرد. این قطعه در انواع یخچال‌ها، فریزرها، کولرها و سایر تجهیزات سرمایشی و برودتی کاربرد دارد.\n\n" +
+  "مهره یخچالی افق زمین (پرورده) با استفاده از آلیاژ برنج مناسب و استاندارد تولید می‌شود. انتخاب صحیح آلیاژ و کنترل کیفیت مواد اولیه در این قطعه اهمیت بسیار زیادی دارد؛ زیرا مهره یخچالی در زمان نصب، اتصال و کارکرد مداوم سیستم باید در برابر فشار، تنش، حرارت و تغییرات دمایی مقاومت کافی داشته باشد.\n\n" +
+  "کیفیت پایین آلیاژ یا استفاده از برنج نامناسب می‌تواند باعث کاهش استحکام قطعه و ایجاد مشکلاتی مانند ترک‌خوردگی، شکستگی، نشتی یا حتی ترکیدن قطعه در شرایط کاری شود. به همین دلیل، استفاده از مواد اولیه مناسب و رعایت اصول تولید و ماشین‌کاری در ساخت مهره یخچالی از اهمیت ویژه‌ای برخوردار است.\n\n" +
+  "مهره یخچالی برنجی افق زمین (پرورده) با هدف ارائه اتصالی مقاوم، مطمئن و بادوام برای استفاده در سیستم‌های سرمایشی و برودتی تولید می‌شود و برای کاربرد در یخچال، فریزر و تجهیزات مختلف تبرید و سرمایش مناسب است.\n\n" +
+  "کیفیت آلیاژ، دقت ساخت و استحکام اتصال؛ سه اصل مهم در تولید مهره یخچالی استاندارد.";
+
+const brassRefrigeratorNutDescriptionEn =
+  "The refrigerator nut is one of the important and widely used components in refrigeration, cooling and freezing systems, used to create a reliable connection in piping lines — especially connections with copper pipes. This part is used in various refrigerators, freezers, coolers and other refrigeration and cooling equipment.\n\n" +
+  "The Ofogh Zamin (Parvarde) refrigerator nut is manufactured using a suitable, standard brass alloy. Choosing the right alloy and controlling the quality of raw materials is extremely important for this part, since the refrigerator nut must withstand sufficient pressure, stress, heat and temperature changes during installation, connection and continuous system operation.\n\n" +
+  "Low alloy quality or the use of unsuitable brass can reduce the part's strength and cause problems such as cracking, breakage, leakage or even bursting under working conditions. For this reason, using proper raw materials and following correct production and machining principles in manufacturing the refrigerator nut is of special importance.\n\n" +
+  "The Ofogh Zamin (Parvarde) brass refrigerator nut is manufactured to provide a strong, reliable and durable connection for use in cooling and refrigeration systems, and is suitable for use in refrigerators, freezers and various refrigeration and cooling equipment.\n\n" +
+  "Alloy quality, manufacturing precision and connection strength — three key principles in producing a standard refrigerator nut.";
+
+const brassRefrigeratorNutDescriptionAr =
+  "صامولة الثلاجة هي أحد القطع المهمة وواسعة الاستخدام في أنظمة التبريد والتجميد ومعدات التبريد، وتُستخدم لإنشاء وصلة موثوقة في مسار الأنابيب، خاصة في الاتصال بالأنابيب النحاسية. تُستخدم هذه القطعة في أنواع الثلاجات والفريزرات والمكيفات وغيرها من معدات التبريد والتجميد.\n\n" +
+  "تُصنع صامولة الثلاجة من أفق زمين (پرورده) باستخدام سبيكة نحاس مناسبة وقياسية. يُعد الاختيار الصحيح للسبيكة والتحكم في جودة المواد الخام أمرا بالغ الأهمية لهذه القطعة؛ إذ يجب أن تتحمل صامولة الثلاجة أثناء التركيب والاتصال والتشغيل المستمر للنظام ضغطا وإجهادا وحرارة وتغيرات في درجة الحرارة بشكل كافٍ.\n\n" +
+  "يمكن أن تؤدي رداءة جودة السبيكة أو استخدام نحاس غير مناسب إلى ضعف متانة القطعة وظهور مشاكل مثل التشقق أو الكسر أو التسرب أو حتى انفجار القطعة أثناء ظروف التشغيل. لهذا السبب، يُعد استخدام المواد الخام المناسبة والالتزام بأصول التصنيع والتشغيل الآلي في صناعة صامولة الثلاجة أمرا ذا أهمية خاصة.\n\n" +
+  "تُصنع صامولة الثلاجة النحاسية من أفق زمين (پرورده) بهدف توفير وصلة قوية وموثوقة ومتينة للاستخدام في أنظمة التبريد والتجميد، وهي مناسبة للاستخدام في الثلاجات والفريزرات ومختلف معدات التبريد والتجميد.\n\n" +
+  "جودة السبيكة، ودقة التصنيع، ومتانة الاتصال؛ ثلاثة مبادئ مهمة في تصنيع صامولة ثلاجة قياسية.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -149,6 +170,25 @@ export const categories: Category[] = [
       ar: insertBushingsDescriptionAr,
     },
   },
+  {
+    slug: "brass-refrigerator-nut",
+    featured: true,
+    name: {
+      en: "Brass Refrigerator Nut",
+      fa: "مهره یخچالی برنجی",
+      ar: "صامولة ثلاجة نحاسية",
+    },
+    tagline: {
+      en: "Brass refrigerator nut for reliable copper-pipe connections in cooling systems.",
+      fa: "مهره یخچالی برنجی برای اتصال مطمئن لوله‌های مسی در سیستم‌های سرمایشی.",
+      ar: "صامولة ثلاجة نحاسية لوصلات موثوقة للأنابيب النحاسية في أنظمة التبريد.",
+    },
+    description: {
+      en: brassRefrigeratorNutDescriptionEn,
+      fa: brassRefrigeratorNutDescriptionFa,
+      ar: brassRefrigeratorNutDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -194,6 +234,12 @@ function insertBushingSummary(size: { en: string; fa: string; ar: string }) {
     ar: `بوشة نحاسية إدخالية كاملة مقاس ${size.ar} لإنشاء وصلة موثوقة ومقاومة.`,
   };
 }
+
+const brassRefrigeratorNutSummary = {
+  en: "Brass refrigerator nut for a reliable connection to copper pipes in cooling and refrigeration systems.",
+  fa: "مهره یخچالی برنجی برای اتصال مطمئن به لوله‌های مسی در سیستم‌های سرمایشی و برودتی.",
+  ar: "صامولة ثلاجة نحاسية لوصلة موثوقة بالأنابيب النحاسية في أنظمة التبريد والتجميد.",
+};
 
 export const products: Product[] = [
   {
@@ -519,6 +565,31 @@ export const products: Product[] = [
       { label: specLabels.material, value: "Brass" },
       { label: specLabels.size, value: '2"' },
       { label: specLabels.connection, value: "Threaded insert bushing" },
+    ],
+  },
+  {
+    slug: "brass-refrigerator-nut",
+    categorySlug: "brass-refrigerator-nut",
+    image: "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-1.jpg",
+    images: [
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-1.jpg",
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-2.jpg",
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-3.jpg",
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-4.jpg",
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-5.jpg",
+      "/images/categories/brass-refrigerator-nut/brass-refrigerator-nut-7.jpg",
+    ],
+    featured: true,
+    name: {
+      en: "Brass Refrigerator Nut",
+      fa: "مهره یخچالی برنجی",
+      ar: "صامولة ثلاجة نحاسية",
+    },
+    summary: brassRefrigeratorNutSummary,
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.connection, value: "Copper pipe flare connection" },
     ],
   },
 ];
