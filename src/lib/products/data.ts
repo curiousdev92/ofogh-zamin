@@ -54,6 +54,24 @@ const economyFloatValveDescriptionAr =
   "يستخدم هذا الموديل مكونات بلاستيكية في جزء العوامة، مما يقلل من وزن الصمام ويجعله أكثر اقتصادا. صمام العوامة النحاسي الاقتصادي من أفق زمين (پرورده) خيار خفيف الوزن واقتصادي لاستخدامه في خزانات المياه، وتطبيقات العوامة الأفقية، وأنظمة إمداد المياه والمرافق، ويصلح للاستخدامات المنزلية والصناعية المختلفة.\n\n" +
   "نظرا لبنيته الاقتصادية، يُعد هذا الموديل خيارا مناسبا للمشاريع التي يكون فيها، إلى جانب الأداء المناسب، الوزن الأقل والسعر الأكثر اقتصادا أمرين مهمين.";
 
+const insertBushingsDescriptionFa =
+  "بوشن‌های تمام برنجی اینزرتی افق زمین (پرورده) با استفاده از آلیاژ برنج باکیفیت تولید می‌شوند و برای ایجاد اتصال مطمئن و مقاوم در سیستم‌های لوله‌کشی، آبرسانی، تأسیسات و اتصالات صنعتی مورد استفاده قرار می‌گیرند.\n\n" +
+  "این بوشن‌ها در سایزهای استاندارد ۱/۲ اینچ تا ۲ اینچ تولید می‌شوند و با توجه به نوع کاربرد، امکان تولید در ابعاد و مشخصات سفارشی نیز وجود دارد. ابعاد، طول، رزوه و مشخصات فنی محصول می‌تواند مطابق با نیاز و سفارش مشتری تولید شود.\n\n" +
+  "بوشن‌های اینزرتی برنجی با توجه به مقاومت مناسب آلیاژ برنج، گزینه‌ای کاربردی برای استفاده در سیستم‌هایی هستند که استحکام اتصال، دوام و کیفیت ساخت اهمیت دارد.\n\n" +
+  "افق زمین (پرورده) امکان تولید بوشن‌های تمام برنجی اینزرتی را در سایزهای مختلف و همچنین ابعاد و مشخصات سفارشی مورد درخواست مشتری فراهم کرده است.";
+
+const insertBushingsDescriptionEn =
+  "Ofogh Zamin (Parvarde) all-brass insert bushings are manufactured from high-quality brass alloy and used to create a reliable, durable connection in piping, water-supply, facility and industrial-connection systems.\n\n" +
+  "These bushings are produced in standard sizes from 1/2\" to 2\", and depending on the application, production in custom dimensions and specifications is also possible. The product's dimensions, length, thread and technical specifications can be manufactured to match the customer's requirements and order.\n\n" +
+  "Given the brass alloy's suitable strength, insert bushings are a practical choice for systems where connection strength, durability and build quality matter.\n\n" +
+  "Ofogh Zamin (Parvarde) offers production of all-brass insert bushings in different sizes, as well as in custom dimensions and specifications requested by the customer.";
+
+const insertBushingsDescriptionAr =
+  "تُصنع البوشات النحاسية الإدخالية (اينزرتي) من أفق زمين (پرورده) باستخدام سبيكة نحاس عالية الجودة، وتُستخدم لإنشاء وصلة موثوقة ومقاومة في أنظمة الأنابيب وإمداد المياه والمرافق والوصلات الصناعية.\n\n" +
+  "تُنتج هذه البوشات بمقاسات قياسية من 1/2\" إلى 2\"، وبحسب نوع الاستخدام، يمكن أيضا إنتاجها بأبعاد ومواصفات مخصصة. يمكن تصنيع الأبعاد والطول والقلاووظ والمواصفات الفنية للمنتج وفقا لاحتياج وطلب العميل.\n\n" +
+  "نظرا للمتانة المناسبة لسبيكة النحاس، تُعد البوشات النحاسية الإدخالية خيارا عمليا للاستخدام في الأنظمة التي تهم فيها قوة الاتصال والمتانة وجودة التصنيع.\n\n" +
+  "توفر أفق زمين (پرورده) إمكانية تصنيع البوشات النحاسية الإدخالية الكاملة بمقاسات مختلفة، وكذلك بأبعاد ومواصفات مخصصة حسب طلب العميل.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -112,6 +130,25 @@ export const categories: Category[] = [
       ar: economyFloatValveDescriptionAr,
     },
   },
+  {
+    slug: "insert-bushings",
+    featured: true,
+    name: {
+      en: "Brass Insert Bushings",
+      fa: "بوشن‌های برنجی اینزرتی",
+      ar: "بوشات نحاسية إدخالية",
+    },
+    tagline: {
+      en: 'All-brass insert bushings for reliable threaded connections, 1/2" to 2".',
+      fa: "بوشن تمام برنجی اینزرتی برای اتصال مطمئن رزوه‌ای، سایز ۱/۲ تا ۲ اینچ.",
+      ar: 'بوشات نحاسية إدخالية كاملة لوصلات ملولبة موثوقة، من 1/2" إلى 2".',
+    },
+    description: {
+      en: insertBushingsDescriptionEn,
+      fa: insertBushingsDescriptionFa,
+      ar: insertBushingsDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -147,6 +184,14 @@ function economyFloatValveSummary(size: { en: string; fa: string; ar: string }) 
     en: `${size.en} economy brass float valve, light and affordable for automatic tank water-level control.`,
     fa: `فلوتر برنجی اکونومی ${size.fa}، سبک و مقرون‌به‌صرفه برای کنترل خودکار سطح آب مخزن.`,
     ar: `صمام عوامة نحاسي اقتصادي مقاس ${size.ar}، خفيف الوزن واقتصادي للتحكم التلقائي في مستوى ماء الخزان.`,
+  };
+}
+
+function insertBushingSummary(size: { en: string; fa: string; ar: string }) {
+  return {
+    en: `${size.en} all-brass insert bushing for a reliable, durable threaded connection.`,
+    fa: `بوشن تمام برنجی اینزرتی ${size.fa} برای ایجاد اتصال مطمئن و مقاوم.`,
+    ar: `بوشة نحاسية إدخالية كاملة مقاس ${size.ar} لإنشاء وصلة موثوقة ومقاومة.`,
   };
 }
 
@@ -420,6 +465,60 @@ export const products: Product[] = [
       { label: specLabels.material, value: "Brass" },
       { label: specLabels.size, value: '3/4"' },
       { label: specLabels.connection, value: "Threaded float valve" },
+    ],
+  },
+  {
+    slug: "insert-bushing-1-2",
+    categorySlug: "insert-bushings",
+    image: "/images/categories/insert-bushings/insert-bushing-1-2.jpg",
+    featured: true,
+    name: { en: 'Brass Insert Bushing 1/2"', fa: "بوشن برنجی اینزرتی ۱/۲", ar: 'بوشة نحاسية إدخالية 1/2"' },
+    summary: insertBushingSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2"' },
+      { label: specLabels.connection, value: "Threaded insert bushing" },
+    ],
+  },
+  {
+    slug: "insert-bushing-3-4",
+    categorySlug: "insert-bushings",
+    image: "/images/categories/insert-bushings/insert-bushing-3-4.jpg",
+    featured: true,
+    name: { en: 'Brass Insert Bushing 3/4"', fa: "بوشن برنجی اینزرتی ۳/۴", ar: 'بوشة نحاسية إدخالية 3/4"' },
+    summary: insertBushingSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4"' },
+      { label: specLabels.connection, value: "Threaded insert bushing" },
+    ],
+  },
+  {
+    slug: "insert-bushing-1-inch",
+    categorySlug: "insert-bushings",
+    image: "/images/categories/insert-bushings/insert-bushing-1-inch.jpg",
+    name: { en: 'Brass Insert Bushing 1"', fa: "بوشن برنجی اینزرتی ۱ اینچ", ar: 'بوشة نحاسية إدخالية 1"' },
+    summary: insertBushingSummary({ en: '1"', fa: "۱ اینچ", ar: '1"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1"' },
+      { label: specLabels.connection, value: "Threaded insert bushing" },
+    ],
+  },
+  {
+    slug: "insert-bushing-2-inch",
+    categorySlug: "insert-bushings",
+    image: "/images/categories/insert-bushings/insert-bushing-2-inch.jpg",
+    name: { en: 'Brass Insert Bushing 2"', fa: "بوشن برنجی اینزرتی ۲ اینچ", ar: 'بوشة نحاسية إدخالية 2"' },
+    summary: insertBushingSummary({ en: '2"', fa: "۲ اینچ", ar: '2"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '2"' },
+      { label: specLabels.connection, value: "Threaded insert bushing" },
     ],
   },
 ];
