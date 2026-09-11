@@ -195,6 +195,7 @@ export type ContactMessages = {
     messagingNote: string;
     hoursLabel: string;
     hours: string;
+    addressLabel: string;
   };
   form: {
     title: string;

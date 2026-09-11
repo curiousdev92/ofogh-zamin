@@ -16,7 +16,8 @@
     "whatsappLabel": "WhatsApp",
     "messagingNote": "Also on Rubika, Eitaa & Bale",
     "hoursLabel": "Hours",
-    "hours": "Sat–Wed, 9:00–17:00"
+    "hours": "Sat–Wed, 9:00–17:00",
+    "addressLabel": "Address"
   },
   "form": {
     "title": "Send an enquiry",

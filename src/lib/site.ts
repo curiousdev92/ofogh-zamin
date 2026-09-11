@@ -6,6 +6,11 @@ export const SITE = {
   altName: "افق زمین",
   url: (envUrl && envUrl.length > 0 ? envUrl : DEFAULT_URL).replace(/\/+$/, ""),
   email: "ofoghzamin@gmail.com",
+  address: {
+    fa: "تهران - جاده خاوران - شهرک صنعتی خاوران - سایت آهنکاران - کوچه نهم شرقی - پلاک 5014",
+    en: "Tehran - Kavaran Road - Kavaran Industrial Town - Ahankaran Site - 9th Eastern Alley - No. 5014",
+    ar: "طهران - طريق كافاران - مدينة كافاران الصناعية - موقع آهن‌کاران - زقاق التاسع الشرقي - رقم 5014",
+  },
   // Contact numbers. `tel` is the E.164 form (used for `tel:` hrefs and JSON-LD);
   // `display` is the human, Western-digit form (localised to Persian digits at
   // render time for `fa` via `localizeDigits`). Keep the two in sync.
