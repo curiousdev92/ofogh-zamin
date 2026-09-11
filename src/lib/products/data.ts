@@ -126,6 +126,42 @@ const brassQuarterTurnValveDescriptionAr =
   'يُصنع هذا المنتج بمقاسي 1/2" و3/4"، وبفضل بنيته النحاسية، يتمتع بمتانة ومقاومة مناسبتين في ظروف التشغيل.\n\n' +
   "يُصنع صمام أفق زمين (پرورده) ربع اللفة بهدف تقديم منتج متين وعملي وموثوق للاستخدام في مختلف أنظمة إمداد المياه والمرافق، وهو خيار مناسب للتحكم في تدفق الماء على مسار الأنابيب.";
 
+const pump5WayConnectorDescriptionFa =
+  "پنج‌راهی پمپ برنجی افق زمین (پرورده) یکی از اتصالات کاربردی در سیستم‌های پمپاژ، آبرسانی و تأسیسات است که برای ایجاد چند مسیر اتصال در مجموعه پمپ مورد استفاده قرار می‌گیرد. این قطعه امکان اتصال و هماهنگی بین بخش‌های مختلف سیستم، از جمله پمپ، مخزن، لوله‌کشی و تجهیزات کنترلی را فراهم می‌کند.\n\n" +
+  "پنج‌راهی پمپ معمولاً در مجموعه‌های آبرسانی و بوسترهای کوچک برای نصب تجهیزاتی مانند پمپ، منبع تحت فشار، گیج فشار و تجهیزات کنترلی مورد استفاده قرار می‌گیرد و به منظم‌تر شدن مسیرهای اتصال در مجموعه پمپ کمک می‌کند.\n\n" +
+  "ساختار برنجی این قطعه، استحکام و دوام مناسبی برای استفاده در سیستم‌های آبرسانی و تأسیسات فراهم می‌کند. دقت در ماشین‌کاری و رزوه‌کاری نیز از عوامل مهم در ایجاد اتصالی مطمئن و جلوگیری از نشتی در محل نصب است.\n\n" +
+  "پنج‌راهی پمپ افق زمین (پرورده) با هدف ارائه محصولی مقاوم و کاربردی برای استفاده در سیستم‌های مختلف آبرسانی، پمپاژ و تأسیسات ساختمانی تولید می‌شود و می‌تواند متناسب با نوع سیستم، در مجموعه‌های مختلف پمپ مورد استفاده قرار گیرد.";
+
+const pump5WayConnectorDescriptionEn =
+  "The Ofogh Zamin (Parvarde) brass pump 5-way connector is a practical fitting used in pumping, water-supply and facility systems to create multiple connection paths within a pump assembly. This part enables connection and coordination between different parts of the system, including the pump, tank, piping and control equipment.\n\n" +
+  "The pump 5-way connector is typically used in water-supply assemblies and small booster sets to mount equipment such as the pump, pressure tank, pressure gauge and control devices, helping to organize the connection paths within the pump assembly.\n\n" +
+  "The brass construction of this part provides suitable strength and durability for use in water-supply and facility systems. Precision in machining and threading is also an important factor in creating a reliable connection and preventing leaks at the installation point.\n\n" +
+  "The Ofogh Zamin (Parvarde) pump 5-way connector is manufactured to provide a durable and practical product for use in various water-supply, pumping and building-facility systems, and can be used in different pump assemblies depending on the type of system.";
+
+const pump5WayConnectorDescriptionAr =
+  "موزع المضخة الخماسي النحاسي من أفق زمين (پرورده) هو وصلة عملية تُستخدم في أنظمة الضخ وإمداد المياه والمرافق لإنشاء عدة مسارات اتصال ضمن مجموعة المضخة. تتيح هذه القطعة الاتصال والتنسيق بين الأجزاء المختلفة للنظام، بما في ذلك المضخة والخزان والأنابيب ومعدات التحكم.\n\n" +
+  "يُستخدم موزع المضخة الخماسي عادة في مجموعات إمداد المياه ومعززات الضغط الصغيرة (البوستر) لتركيب معدات مثل المضخة وخزان الضغط ومقياس الضغط ومعدات التحكم، مما يساعد على تنظيم مسارات الاتصال داخل مجموعة المضخة.\n\n" +
+  "توفر البنية النحاسية لهذه القطعة متانة ومقاومة مناسبتين للاستخدام في أنظمة إمداد المياه والمرافق. كما تُعد الدقة في التشغيل الآلي والتسنين (القلاووظ) من العوامل المهمة لإنشاء اتصال موثوق ومنع التسرب في موضع التركيب.\n\n" +
+  "يُصنع موزع المضخة الخماسي من أفق زمين (پرورده) بهدف تقديم منتج متين وعملي للاستخدام في مختلف أنظمة إمداد المياه والضخ ومرافق المباني، ويمكن استخدامه في مجموعات مضخات مختلفة وفقا لنوع النظام.";
+
+const brassValveHeadDescriptionFa =
+  "بالا تنه برنجی افق زمین (پرورده) یکی از قطعات کاربردی در انواع شیرآلات و سیستم‌های لوله‌کشی، آبرسانی و تأسیسات است که به‌عنوان بخش کنترلی شیر مورد استفاده قرار می‌گیرد. این محصول شامل قسمت برنجی و فلکه بوده و برای نصب و جایگزینی در شیرهای متناسب با آن طراحی شده است.\n\n" +
+  "استفاده از آلیاژ برنج مناسب در ساخت بالا تنه، موجب ایجاد استحکام، دوام و مقاومت مناسب در برابر شرایط کاری و استفاده مداوم می‌شود. دقت در ماشین‌کاری، رزوه‌کاری و ساخت قطعات داخلی نیز نقش مهمی در عملکرد صحیح و آب‌بندی مناسب شیر دارد.\n\n" +
+  "بالا تنه برنجی افق زمین (پرورده) گزینه‌ای مناسب برای تولید، تعمیر و تعویض قطعات شیرآلات بوده و در کاربردهای مختلف آبرسانی و تأسیسات مورد استفاده قرار می‌گیرد.\n\n" +
+  "این محصول با تمرکز بر کیفیت آلیاژ، دقت ساخت و عملکرد مطمئن تولید و عرضه می‌شود و امکان تولید در مشخصات و ابعاد مورد نیاز مشتری نیز وجود دارد.";
+
+const brassValveHeadDescriptionEn =
+  "The Ofogh Zamin (Parvarde) brass valve head is a practical component used in various valves and piping, water-supply and facility systems, serving as the control section of the valve. This product consists of the brass body and handwheel, and is designed for installation and replacement in compatible valves.\n\n" +
+  "Using a suitable brass alloy in manufacturing the valve head results in proper strength, durability and resistance under working conditions and continuous use. Precision in machining, threading and manufacturing the internal parts also plays an important role in the valve's correct operation and proper sealing.\n\n" +
+  "The Ofogh Zamin (Parvarde) brass valve head is a suitable option for manufacturing, repairing and replacing valve parts, and is used in various water-supply and facility applications.\n\n" +
+  "This product is manufactured and supplied with a focus on alloy quality, manufacturing precision and reliable performance, and can also be produced to the customer's required specifications and dimensions.";
+
+const brassValveHeadDescriptionAr =
+  "رأس الصمام النحاسي من أفق زمين (پرورده) هو قطعة عملية تُستخدم في مختلف الصمامات وأنظمة الأنابيب وإمداد المياه والمرافق، وتُستخدم كجزء التحكم في الصمام. يتكون هذا المنتج من الجسم النحاسي والعجلة اليدوية، وهو مصمم للتركيب والاستبدال في الصمامات المتوافقة معه.\n\n" +
+  "يؤدي استخدام سبيكة نحاس مناسبة في تصنيع رأس الصمام إلى توفير متانة ومقاومة مناسبتين في ظروف التشغيل والاستخدام المستمر. كما تلعب الدقة في التشغيل الآلي والتسنين وتصنيع الأجزاء الداخلية دورا مهما في الأداء الصحيح للصمام والإحكام المناسب.\n\n" +
+  "يُعد رأس الصمام النحاسي من أفق زمين (پرورده) خيارا مناسبا لتصنيع وإصلاح واستبدال أجزاء الصمامات، ويُستخدم في مختلف تطبيقات إمداد المياه والمرافق.\n\n" +
+  "يُصنع ويُطرح هذا المنتج مع التركيز على جودة السبيكة، ودقة التصنيع، والأداء الموثوق، كما يمكن تصنيعه وفقا للمواصفات والأبعاد التي يطلبها العميل.";
+
 export const categories: Category[] = [
   {
     slug: "brass-fittings",
@@ -260,6 +296,44 @@ export const categories: Category[] = [
       ar: brassQuarterTurnValveDescriptionAr,
     },
   },
+  {
+    slug: "pump-5-way-connector",
+    featured: true,
+    name: {
+      en: "Brass Pump 5-Way Connector",
+      fa: "پنج‌راهی پمپ برنجی",
+      ar: "موزع نحاسي خماسي للمضخة",
+    },
+    tagline: {
+      en: "Brass 5-way connector for organizing pump, tank and gauge connections.",
+      fa: "پنج‌راهی برنجی پمپ برای سازمان‌دهی اتصالات پمپ، منبع تحت فشار و گیج فشار.",
+      ar: "موزع نحاسي خماسي لتنظيم اتصالات المضخة والخزان ومقياس الضغط.",
+    },
+    description: {
+      en: pump5WayConnectorDescriptionEn,
+      fa: pump5WayConnectorDescriptionFa,
+      ar: pump5WayConnectorDescriptionAr,
+    },
+  },
+  {
+    slug: "brass-valve-head",
+    featured: true,
+    name: {
+      en: "Brass Valve Head",
+      fa: "بالا تنه برنجی",
+      ar: "رأس صمام نحاسي",
+    },
+    tagline: {
+      en: "Brass valve head for repairing and replacing valve control sections.",
+      fa: "بالا تنه برنجی برای تعمیر و تعویض بخش کنترلی شیرآلات.",
+      ar: "رأس صمام نحاسي لإصلاح واستبدال أجزاء التحكم في الصمامات.",
+    },
+    description: {
+      en: brassValveHeadDescriptionEn,
+      fa: brassValveHeadDescriptionFa,
+      ar: brassValveHeadDescriptionAr,
+    },
+  },
 ];
 
 const specLabels = {
@@ -339,6 +413,38 @@ function quarterTurnValveSummary(size: { en: string; fa: string; ar: string }) {
     ar: `صمام نحاسي ربع لفة مقاس ${size.ar} لقطع ووصل سريع لتدفق الماء.`,
   };
 }
+
+// Sizes/models are not yet assigned per photo — placeholder names to be
+// replaced once the catalogue specifics are provided.
+function brassValveHeadPlaceholder(n: number): Product {
+  return {
+    slug: `brass-valve-head-${n}`,
+    categorySlug: "brass-valve-head",
+    image: `/images/categories/brass-valve-head/brass-valve-head-${n}.jpg`,
+    name: {
+      en: `Brass Valve Head — Item ${n}`,
+      fa: `بالا تنه برنجی — مورد ${n}`,
+      ar: `رأس صمام نحاسي — العنصر ${n}`,
+    },
+    summary: {
+      en: "Brass valve head — size and model to be confirmed.",
+      fa: "بالا تنه برنجی — سایز و مدل به‌زودی تکمیل می‌شود.",
+      ar: "رأس صمام نحاسي — سيتم تحديد المقاس والموديل لاحقا.",
+    },
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.connection, value: "TBD" },
+    ],
+    draft: true,
+  };
+}
+
+const pump5WayConnectorSummary = {
+  en: "Brass 5-way connector for mounting the pump, pressure tank and gauge in a booster assembly.",
+  fa: "پنج‌راهی برنجی پمپ برای نصب پمپ، منبع تحت فشار و گیج فشار در مجموعه بوستر.",
+  ar: "موزع نحاسي خماسي لتركيب المضخة وخزان الضغط والمقياس في مجموعة البوستر.",
+};
 
 const brassRefrigeratorNutSummary = {
   en: "Brass refrigerator nut for a reliable connection to copper pipes in cooling and refrigeration systems.",
@@ -733,4 +839,22 @@ export const products: Product[] = [
       { label: specLabels.connection, value: "Threaded shut-off valve" },
     ],
   },
+  {
+    slug: "pump-5-way-connector",
+    categorySlug: "pump-5-way-connector",
+    image: "/images/categories/pump-5-way-connector/pump-5-way-connector.jpg",
+    featured: true,
+    name: {
+      en: "Brass Pump 5-Way Connector",
+      fa: "پنج‌راهی پمپ برنجی",
+      ar: "موزع نحاسي خماسي للمضخة",
+    },
+    summary: pump5WayConnectorSummary,
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.connection, value: "Threaded pump manifold" },
+    ],
+  },
+  ...Array.from({ length: 3 }, (_, i) => brassValveHeadPlaceholder(i + 1)),
 ];
