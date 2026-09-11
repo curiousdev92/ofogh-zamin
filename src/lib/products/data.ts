@@ -92,11 +92,21 @@ const brass = {
   ar: "نحاس",
 };
 
-const brassFittingSummary = {
-  en: "Threaded brass tank fitting for creating a reliable inlet or outlet on tank walls.",
-  fa: "فیتینگ برنجی رزوه‌ای برای ایجاد ورودی یا خروجی مطمئن روی دیواره مخزن.",
-  ar: "فيتنغ نحاسي ملولب لإنشاء مدخل أو مخرج موثوق على جدار الخزان.",
-};
+function brassFittingSummary(size: { en: string; fa: string; ar: string }) {
+  return {
+    en: `${size.en} threaded brass tank fitting for a reliable inlet or outlet on tank walls.`,
+    fa: `فیتینگ برنجی رزوه‌ای ${size.fa} برای ایجاد ورودی یا خروجی مطمئن روی دیواره مخزن.`,
+    ar: `فيتنغ نحاسي ملولب مقاس ${size.ar} لإنشاء مدخل أو مخرج موثوق على جدار الخزان.`,
+  };
+}
+
+function floatValveSummary(size: { en: string; fa: string; ar: string }) {
+  return {
+    en: `${size.en} heavy all-brass float valve for automatic tank water-level control.`,
+    fa: `فلوتر تمام برنجی سنگین ${size.fa} برای کنترل خودکار سطح آب مخزن.`,
+    ar: `صمام عوامة ثقيل من النحاس بالكامل مقاس ${size.ar} للتحكم التلقائي في مستوى ماء الخزان.`,
+  };
+}
 
 export const products: Product[] = [
   {
@@ -105,7 +115,7 @@ export const products: Product[] = [
     image: "/images/categories/brass-fittings/brass-fitting-1-2.jpg",
     featured: true,
     name: { en: 'Brass Fitting 1/2"', fa: "فیتینگ برنجی ۱/۲", ar: 'فيتنغ نحاسي 1/2"' },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -123,7 +133,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی ۱/۲ بلند",
       ar: 'فيتنغ نحاسي طويل 1/2"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1/2" long', fa: "۱/۲ بلند", ar: '1/2" طويل' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -137,7 +147,7 @@ export const products: Product[] = [
     image: "/images/categories/brass-fittings/brass-fitting-3-4.jpg",
     featured: true,
     name: { en: 'Brass Fitting 3/4"', fa: "فیتینگ برنجی ۳/۴", ar: 'فيتنغ نحاسي 3/4"' },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -154,7 +164,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی ۳/۴ بلند",
       ar: 'فيتنغ نحاسي طويل 3/4"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '3/4" long', fa: "۳/۴ بلند", ar: '3/4" طويل' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -167,7 +177,7 @@ export const products: Product[] = [
     categorySlug: "brass-fittings",
     image: "/images/categories/brass-fittings/brass-fitting-1-inch.jpg",
     name: { en: 'Brass Fitting 1"', fa: "فیتینگ برنجی ۱ اینچ", ar: 'فيتنغ نحاسي 1"' },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1"', fa: "۱ اینچ", ar: '1"' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -184,7 +194,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی ۱ اینچ بلند",
       ar: 'فيتنغ نحاسي طويل 1"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1" long', fa: "۱ اینچ بلند", ar: '1" طويل' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -201,7 +211,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی ۱ و ۱/۴",
       ar: 'فيتنغ نحاسي 1 1/4"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1 1/4"', fa: "۱ و ۱/۴", ar: '1 1/4"' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -218,7 +228,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی ۱ و ۱/۲",
       ar: 'فيتنغ نحاسي 1 1/2"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '1 1/2"', fa: "۱ و ۱/۲", ar: '1 1/2"' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -235,7 +245,7 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی داخل ۲ اینچ",
       ar: 'فيتنغ نحاسي داخلي 2"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '2" inner', fa: "۲ اینچ داخل", ar: '2" داخلي' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
@@ -252,12 +262,77 @@ export const products: Product[] = [
       fa: "فیتینگ برنجی بیرون ۳ اینچ",
       ar: 'فيتنغ نحاسي خارجي 3"',
     },
-    summary: brassFittingSummary,
+    summary: brassFittingSummary({ en: '3" outer', fa: "۳ اینچ بیرون", ar: '3" خارجي' }),
     material: brass,
     specs: [
       { label: specLabels.material, value: "Brass" },
       { label: specLabels.size, value: '3" Outer' },
       { label: specLabels.connection, value: "Threaded tank fitting" },
+    ],
+  },
+  {
+    slug: "heavy-brass-float-valve-1-2",
+    categorySlug: "heavy-brass-float-valve",
+    image: "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-2-1.jpg",
+    images: [
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-2-1.jpg",
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-2-2.jpg",
+    ],
+    featured: true,
+    name: {
+      en: 'Heavy All-Brass Float Valve 1/2"',
+      fa: "فلوتر تمام برنجی ۱/۲",
+      ar: 'صمام عوامة نحاسي كامل 1/2"',
+    },
+    summary: floatValveSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1/2"' },
+      { label: specLabels.connection, value: "Threaded float valve" },
+    ],
+  },
+  {
+    slug: "heavy-brass-float-valve-3-4",
+    categorySlug: "heavy-brass-float-valve",
+    image: "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-3-4-1.jpg",
+    images: [
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-3-4-1.jpg",
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-3-4-2.jpg",
+    ],
+    featured: true,
+    name: {
+      en: 'Heavy All-Brass Float Valve 3/4"',
+      fa: "فلوتر تمام برنجی ۳/۴",
+      ar: 'صمام عوامة نحاسي كامل 3/4"',
+    },
+    summary: floatValveSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '3/4"' },
+      { label: specLabels.connection, value: "Threaded float valve" },
+    ],
+  },
+  {
+    slug: "heavy-brass-float-valve-1-inch",
+    categorySlug: "heavy-brass-float-valve",
+    image: "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-inch-1.jpg",
+    images: [
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-inch-1.jpg",
+      "/images/categories/heavy-brass-float-valve/heavy-brass-float-valve-1-inch-2.jpg",
+    ],
+    name: {
+      en: 'Heavy All-Brass Float Valve 1"',
+      fa: "فلوتر تمام برنجی ۱ اینچ",
+      ar: 'صمام عوامة نحاسي كامل 1"',
+    },
+    summary: floatValveSummary({ en: '1"', fa: "۱ اینچ", ar: '1"' }),
+    material: brass,
+    specs: [
+      { label: specLabels.material, value: "Brass" },
+      { label: specLabels.size, value: '1"' },
+      { label: specLabels.connection, value: "Threaded float valve" },
     ],
   },
 ];

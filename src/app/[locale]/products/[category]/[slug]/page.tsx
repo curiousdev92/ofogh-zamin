@@ -95,15 +95,35 @@ export default async function ProductPage({ params }: Props) {
           />
           <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-12">
             {product.image ? (
-              <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
-                <Image
-                  src={product.image}
-                  alt={name}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
+              <div className="flex flex-col gap-3">
+                <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
+                  <Image
+                    src={product.image}
+                    alt={name}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                {product.images && product.images.length > 1 && (
+                  <div className="grid grid-cols-4 gap-3">
+                    {product.images.map((src, i) => (
+                      <div
+                        key={src}
+                        className="relative aspect-square overflow-hidden border border-border bg-surface-muted"
+                      >
+                        <Image
+                          src={src}
+                          alt={`${name} — ${i + 1}`}
+                          fill
+                          sizes="120px"
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <PlaceholderTile initial={name.charAt(0)} className="border" />

@@ -33,6 +33,8 @@ export type Product = {
   categorySlug: string;
   /** Public image path, replaceable under /public. */
   image?: string;
+  /** Additional gallery images beyond the primary `image`, replaceable under /public. */
+  images?: string[];
   name: LocalizedText;
   /** Short description for cards and meta descriptions. */
   summary: LocalizedText;
