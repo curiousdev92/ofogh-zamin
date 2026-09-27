@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { PlaceholderTile } from "@/components/product/PlaceholderTile";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductGallery } from "@/components/product/ProductGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge, buttonVariants, Container, Section } from "@/components/ui";
 import { Locale } from "@/lib/i18n/config";
@@ -34,12 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const l = locale as Locale;
   const product = getProductBySlug(category, slug);
   if (!product) return {};
-  return buildLocalizedMetadata({
-    locale: l,
-    pathname: `/products/${category}/${slug}`,
-    title: localize(product.name, l),
-    description: localize(product.summary, l),
-  });
+  return {
+    ...buildLocalizedMetadata({
+      locale: l,
+      pathname: `/products/${category}/${slug}`,
+      title: localize(product.name, l),
+      description: localize(product.summary, l),
+    }),
+    ...(product.draft && { robots: { index: false, follow: false } }),
+  };
 }
 
 export default async function ProductPage({ params }: Props) {
@@ -75,6 +78,7 @@ export default async function ProductPage({ params }: Props) {
     category: categoryName,
     pathname: productPath,
     specs,
+    images: product.images ?? (product.image ? [product.image] : undefined),
   });
 
   return (
@@ -95,16 +99,7 @@ export default async function ProductPage({ params }: Props) {
           />
           <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-12">
             {product.image ? (
-              <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
-                <Image
-                  src={product.image}
-                  alt={name}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              <ProductGallery images={product.images ?? [product.image]} alt={name} />
             ) : (
               <PlaceholderTile initial={name.charAt(0)} className="border" />
             )}

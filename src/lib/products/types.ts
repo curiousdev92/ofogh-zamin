@@ -35,6 +35,8 @@ export type Product = {
   categorySlug: string;
   /** Public image path, replaceable under /public. */
   image?: string;
+  /** Additional gallery images beyond the primary `image`, replaceable under /public. */
+  images?: string[];
   name: LocalizedText;
   /** Short description for cards and meta descriptions. */
   summary: LocalizedText;
@@ -42,4 +44,6 @@ export type Product = {
   specs: Spec[];
   /** Surface on the home page's suggested grid. */
   featured?: boolean;
+  /** Placeholder content pending real data — noindex'd and excluded from the sitemap. */
+  draft?: boolean;
 };

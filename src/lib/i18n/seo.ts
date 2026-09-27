@@ -126,6 +126,7 @@ export function productJsonLd(
     category: string;
     pathname: string;
     specs: { name: string; value: string }[];
+    images?: string[];
   },
 ) {
   return {
@@ -137,6 +138,10 @@ export function productJsonLd(
     material: product.material,
     brand: { "@type": "Brand", name: SITE.name },
     url: absoluteUrl(locale, product.pathname),
+    ...(product.images &&
+      product.images.length > 0 && {
+        image: product.images.map((img) => `${BASE_URL}${img}`),
+      }),
     ...(product.specs.length > 0 && {
       additionalProperty: product.specs.map((s) => ({
         "@type": "PropertyValue",
