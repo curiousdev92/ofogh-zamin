@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { CategoryCard } from "@/components/product/CategoryCard";
 import { ProductCard } from "@/components/product/ProductCard";
-import { Badge, buttonVariants, Container, Section } from "@/components/ui";
+import { buttonVariants, Container, Section } from "@/components/ui";
+import { HeroSection } from "@/components/home/HeroSection";
 import { Locale } from "@/lib/i18n/config";
 import { getDictionaries } from "@/lib/i18n/getDictionary";
 import { localeHref } from "@/lib/i18n/href";
@@ -92,33 +93,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <Section spacing="lg" className="border-b border-border">
-        <Container>
-          <div className="max-w-3xl">
-            <Badge variant="outline">{home.hero.eyebrow}</Badge>
-            <h1 className="mt-6 text-4xl  uppercase tracking-tight sm:text-5xl lg:text-6xl">
-              {home.hero.title}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-600">
-              {home.hero.subtitle}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href={localeHref(l, "/products")}
-                className={buttonVariants({ variant: "primary", size: "lg" })}
-              >
-                {home.hero.primaryCta}
-              </Link>
-              <Link
-                href={localeHref(l, "/contact")}
-                className={buttonVariants({ variant: "outline", size: "lg" })}
-              >
-                {home.hero.secondaryCta}
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <HeroSection locale={l} copy={home.hero} />
 
       {/* Featured categories */}
       {/* <Section spacing="lg" className="bg-surface-muted">

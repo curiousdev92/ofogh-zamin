@@ -68,7 +68,7 @@ const insertBushingsDescriptionEn =
 
 const insertBushingsDescriptionAr =
   "تُصنع البوشات النحاسية الإدخالية (اينزرتي) من أفق زمين (پرورده) باستخدام سبيكة نحاس عالية الجودة، وتُستخدم لإنشاء وصلة موثوقة ومقاومة في أنظمة الأنابيب وإمداد المياه والمرافق والوصلات الصناعية.\n\n" +
-  "تُنتج هذه البوشات بمقاسات قياسية من 1/2\" إلى 2\"، وبحسب نوع الاستخدام، يمكن أيضا إنتاجها بأبعاد ومواصفات مخصصة. يمكن تصنيع الأبعاد والطول والقلاووظ والمواصفات الفنية للمنتج وفقا لاحتياج وطلب العميل.\n\n" +
+  'تُنتج هذه البوشات بمقاسات قياسية من 1/2" إلى 2"، وبحسب نوع الاستخدام، يمكن أيضا إنتاجها بأبعاد ومواصفات مخصصة. يمكن تصنيع الأبعاد والطول والقلاووظ والمواصفات الفنية للمنتج وفقا لاحتياج وطلب العميل.\n\n' +
   "نظرا للمتانة المناسبة لسبيكة النحاس، تُعد البوشات النحاسية الإدخالية خيارا عمليا للاستخدام في الأنظمة التي تهم فيها قوة الاتصال والمتانة وجودة التصنيع.\n\n" +
   "توفر أفق زمين (پرورده) إمكانية تصنيع البوشات النحاسية الإدخالية الكاملة بمقاسات مختلفة، وكذلك بأبعاد ومواصفات مخصصة حسب طلب العميل.";
 
@@ -202,7 +202,7 @@ export const categories: Category[] = [
       fa: brassFittingsDescriptionFa,
       ar: brassFittingsDescriptionAr,
     },
-    image: "/images/categories/brass-fittings/brass-fitting-1-2.jpg",
+    image: "/images/categories/brass-fittings/cover.jpeg",
   },
   {
     slug: "heavy-brass-float-valve",
@@ -222,7 +222,7 @@ export const categories: Category[] = [
       fa: heavyBrassFloatValveDescriptionFa,
       ar: heavyBrassFloatValveDescriptionAr,
     },
-    image: "",
+    image: "/images/categories/heavy-brass-float-valve/cover.jpeg",
   },
   {
     slug: "economy-float-valve",
@@ -242,6 +242,7 @@ export const categories: Category[] = [
       fa: economyFloatValveDescriptionFa,
       ar: economyFloatValveDescriptionAr,
     },
+    image: "/images/categories/economy-float-valve/cover.jpeg",
   },
   {
     slug: "insert-bushings",
@@ -261,6 +262,7 @@ export const categories: Category[] = [
       fa: insertBushingsDescriptionFa,
       ar: insertBushingsDescriptionAr,
     },
+    image: "/images/categories/insert-bushings/cover.jpeg",
   },
   {
     slug: "brass-refrigerator-nut",
@@ -280,6 +282,7 @@ export const categories: Category[] = [
       fa: brassRefrigeratorNutDescriptionFa,
       ar: brassRefrigeratorNutDescriptionAr,
     },
+    image: "/images/categories/brass-refrigerator-nut/cover.jpeg",
   },
   {
     slug: "all-brass-fittings",
@@ -299,6 +302,7 @@ export const categories: Category[] = [
       fa: allBrassFittingsDescriptionFa,
       ar: allBrassFittingsDescriptionAr,
     },
+    image: "/images/categories/all-brass-fittings/cover.jpeg",
   },
   {
     slug: "brass-quarter-turn-valve",
@@ -318,6 +322,7 @@ export const categories: Category[] = [
       fa: brassQuarterTurnValveDescriptionFa,
       ar: brassQuarterTurnValveDescriptionAr,
     },
+    image: "/images/categories/brass-quarter-turn-valve/cover.jpeg",
   },
   {
     slug: "pump-5-way-connector",
@@ -337,6 +342,7 @@ export const categories: Category[] = [
       fa: pump5WayConnectorDescriptionFa,
       ar: pump5WayConnectorDescriptionAr,
     },
+    image: "/images/categories/pump-5-way-connector/cover.jpeg",
   },
   {
     slug: "brass-valve-head",
@@ -356,6 +362,7 @@ export const categories: Category[] = [
       fa: brassValveHeadDescriptionFa,
       ar: brassValveHeadDescriptionAr,
     },
+    image: "/images/categories/brass-valve-head/cover.jpeg",
   },
   {
     slug: "custom-made",
@@ -375,6 +382,7 @@ export const categories: Category[] = [
       fa: customMadeDescriptionFa,
       ar: customMadeDescriptionAr,
     },
+    image: "/images/categories/custom-made/cover.jpeg",
   },
 ];
 
@@ -797,7 +805,11 @@ export const products: Product[] = [
     categorySlug: "insert-bushings",
     image: "/images/categories/insert-bushings/insert-bushing-1-2.jpg",
     featured: true,
-    name: { en: 'Brass Insert Bushing 1/2"', fa: "بوشن برنجی اینزرتی ۱/۲", ar: 'بوشة نحاسية إدخالية 1/2"' },
+    name: {
+      en: 'Brass Insert Bushing 1/2"',
+      fa: "بوشن برنجی اینزرتی ۱/۲",
+      ar: 'بوشة نحاسية إدخالية 1/2"',
+    },
     summary: insertBushingSummary({ en: '1/2"', fa: "۱/۲", ar: '1/2"' }),
     material: brass,
     specs: [
@@ -811,7 +823,11 @@ export const products: Product[] = [
     categorySlug: "insert-bushings",
     image: "/images/categories/insert-bushings/insert-bushing-3-4.jpg",
     featured: true,
-    name: { en: 'Brass Insert Bushing 3/4"', fa: "بوشن برنجی اینزرتی ۳/۴", ar: 'بوشة نحاسية إدخالية 3/4"' },
+    name: {
+      en: 'Brass Insert Bushing 3/4"',
+      fa: "بوشن برنجی اینزرتی ۳/۴",
+      ar: 'بوشة نحاسية إدخالية 3/4"',
+    },
     summary: insertBushingSummary({ en: '3/4"', fa: "۳/۴", ar: '3/4"' }),
     material: brass,
     specs: [
@@ -824,7 +840,11 @@ export const products: Product[] = [
     slug: "insert-bushing-1-inch",
     categorySlug: "insert-bushings",
     image: "/images/categories/insert-bushings/insert-bushing-1-inch.jpg",
-    name: { en: 'Brass Insert Bushing 1"', fa: "بوشن برنجی اینزرتی ۱ اینچ", ar: 'بوشة نحاسية إدخالية 1"' },
+    name: {
+      en: 'Brass Insert Bushing 1"',
+      fa: "بوشن برنجی اینزرتی ۱ اینچ",
+      ar: 'بوشة نحاسية إدخالية 1"',
+    },
     summary: insertBushingSummary({ en: '1"', fa: "۱ اینچ", ar: '1"' }),
     material: brass,
     specs: [
@@ -837,7 +857,11 @@ export const products: Product[] = [
     slug: "insert-bushing-2-inch",
     categorySlug: "insert-bushings",
     image: "/images/categories/insert-bushings/insert-bushing-2-inch.jpg",
-    name: { en: 'Brass Insert Bushing 2"', fa: "بوشن برنجی اینزرتی ۲ اینچ", ar: 'بوشة نحاسية إدخالية 2"' },
+    name: {
+      en: 'Brass Insert Bushing 2"',
+      fa: "بوشن برنجی اینزرتی ۲ اینچ",
+      ar: 'بوشة نحاسية إدخالية 2"',
+    },
     summary: insertBushingSummary({ en: '2"', fa: "۲ اینچ", ar: '2"' }),
     material: brass,
     specs: [

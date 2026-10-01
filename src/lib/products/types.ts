@@ -24,7 +24,7 @@ export type Category = {
   /** Surface on the home page's featured grid. */
   featured?: boolean;
   /** Public image path, replaceable under /public. */
-  image?: string;
+  image: string;
 };
 
 /** A single catalogue product. */

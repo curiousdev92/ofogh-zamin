@@ -19,7 +19,7 @@ export function Header({ locale, messages }: { locale: Locale; messages: CommonM
   const cta = { href: localeHref(locale, "/contact"), label: messages.actions.getQuote };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border backdrop-blur-lg bg-linear-to-b from-gold-100 to-background/25">
+    <header className="sticky top-0 z-50 border-b border-border backdrop-blur-lg ">
       <Container className="relative flex h-16 items-center justify-between gap-4">
         <Link href={localeHref(locale)} aria-label={messages.brand.name}>
           {/* <Logo name={messages.brand.name} /> */}
