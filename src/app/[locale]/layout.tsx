@@ -7,7 +7,7 @@ import { Locale, localeConfig, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import type { CommonMessages } from "@/lib/i18n/messages";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/i18n/seo";
-import { SITE } from "@/lib/site";
+import { localeOrigin } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: MetadataTypes): Promise<Metad
   const t = (await getDictionary(locale as Locale, "common")) as unknown as CommonMessages;
 
   return {
-    metadataBase: new URL(SITE.url),
+    metadataBase: new URL(localeOrigin(locale as Locale)),
     applicationName: t.brand.seoName,
     title: {
       default: `${t.brand.seoName} — ${t.brand.tagline}`,
@@ -73,7 +73,7 @@ export default async function LocaleLayout({ children, params }: PropTypes) {
         {/* Global structured data — brand identity + site, on every page. */}
         <JsonLd
           data={[
-            organizationJsonLd(messages.footer.description),
+            organizationJsonLd(locale, messages.footer.description),
             websiteJsonLd(locale, messages.footer.description),
           ]}
         />

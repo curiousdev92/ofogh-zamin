@@ -1,10 +1,28 @@
-const DEFAULT_URL = "https://ofogh-zamin.vercel.app";
-const envUrl = process.env.NEXT_PUBLIC_BASE_URL?.trim();
+import type { Locale } from "@/lib/i18n/config";
+
+// Production origins. Persian (`fa`) is served from the .ir domain; English and
+// Arabic from the .com domain. Each domain only serves its own locales (see
+// proxy.ts), so canonical / hreflang / sitemap URLs must use the right origin.
+export const ORIGINS = {
+  ir: "https://ofoghzamin.ir",
+  com: "https://ofoghzamin.com",
+} as const;
+
+// `NEXT_PUBLIC_BASE_URL` overrides every origin (local dev, Vercel previews) so
+// those environments stay single-host and nothing points at production.
+const envUrl = process.env.NEXT_PUBLIC_BASE_URL?.trim().replace(/\/+$/, "");
+const override = envUrl && envUrl.length > 0 ? envUrl : undefined;
+
+/** Absolute origin that serves `locale` (no trailing slash). */
+export function localeOrigin(locale: Locale): string {
+  return override ?? (locale === "fa" ? ORIGINS.ir : ORIGINS.com);
+}
 
 export const SITE = {
   name: "Ofogh Zamin",
   altName: "افق زمین",
-  url: (envUrl && envUrl.length > 0 ? envUrl : DEFAULT_URL).replace(/\/+$/, ""),
+  // Primary (international) origin; use `localeOrigin(locale)` for locale-aware URLs.
+  url: override ?? ORIGINS.com,
   email: "ofoghzamin@gmail.com",
   address: {
     fa: "تهران - جاده خاوران - شهرک صنعتی خاوران - سایت آهنکاران - کوچه نهم شرقی - پلاک 5014",

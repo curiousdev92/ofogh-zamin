@@ -1,10 +1,10 @@
 import { getPosts } from "@/lib/blog";
-import { defaultLocale, localeConfig, locales } from "@/lib/i18n/config";
+import { defaultLocale, type Locale, localeConfig, locales } from "@/lib/i18n/config";
+import { domainGroupForHost, domainLocales } from "@/lib/i18n/domains";
 import { getCategories, getProducts } from "@/lib/products";
-import { SITE } from "@/lib/site";
+import { localeOrigin } from "@/lib/site";
+import { headers } from "next/headers";
 import { MetadataRoute } from "next";
-
-const BASE_URL = SITE.url;
 
 type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
 
@@ -17,8 +17,8 @@ type RouteDef = {
 };
 
 /** Locale-prefixed absolute URL for a route. */
-function urlFor(locale: string, path: string): string {
-  return `${BASE_URL}/${locale}${path}`;
+function urlFor(locale: Locale, path: string): string {
+  return `${localeOrigin(locale as Locale)}/${locale}${path}`;
 }
 
 /**
@@ -35,8 +35,13 @@ function alternatesFor(path: string) {
   return { languages };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+
+  // Each domain's sitemap lists only the URLs it serves (fa on .ir, en/ar on .com);
+  // the hreflang alternates still point across domains.
+  const group = domainGroupForHost((await headers()).get("host"));
+  const hostLocales = group ? domainLocales[group] : locales;
 
   // Static routes. `/styleguide` is intentionally excluded (noindex QA surface).
   const routes: RouteDef[] = [
@@ -78,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: MetadataRoute.Sitemap = [];
   for (const route of routes) {
-    for (const locale of locales) {
+    for (const locale of hostLocales) {
       entries.push({
         url: urlFor(locale, route.path),
         lastModified: route.lastModified ?? now,

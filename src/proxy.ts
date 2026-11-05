@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, locales, type Locale } from "./lib/i18n/config";
+import {
+  domainDefaultLocale,
+  domainGroupForHost,
+  domainLocales,
+  type DomainGroup,
+} from "./lib/i18n/domains";
+import { ORIGINS } from "./lib/site";
 
 const LOCALE_COOKIE = "NEXT_LOCALE";
 
@@ -25,28 +32,33 @@ function parseAcceptLanguage(header: string): string[] {
 
 // Pick the best supported locale using BCP 47 "lookup": prefer an exact match,
 // then fall back to the primary subtag (e.g. "fa-IR" matches the "fa" locale).
-function matchLocale(requested: string[]): Locale {
+// Only the locales `allowed` on the current domain are candidates.
+function matchLocale(requested: string[], allowed: readonly Locale[], fallback: Locale): Locale {
   for (const tag of requested) {
-    const exact = locales.find((l) => l === tag);
+    const exact = allowed.find((l) => l === tag);
     if (exact) return exact;
 
     const primary = tag.split("-")[0];
-    const base = locales.find((l) => l === primary);
+    const base = allowed.find((l) => l === primary);
     if (base) return base;
   }
-  return defaultLocale;
+  return fallback;
 }
 
-function getLocaleFromRequest(request: NextRequest): Locale {
+function getLocaleFromRequest(
+  request: NextRequest,
+  allowed: readonly Locale[],
+  fallback: Locale,
+): Locale {
   // 1. Respect an explicit cookie (user manually switched language)
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
-  if (cookieLocale && locales.includes(cookieLocale as Locale)) {
+  if (cookieLocale && allowed.includes(cookieLocale as Locale)) {
     return cookieLocale as Locale;
   }
 
   // 2. Negotiate from the Accept-Language header
   const acceptLanguage = request.headers.get("accept-language") ?? "";
-  return matchLocale(parseAcceptLanguage(acceptLanguage));
+  return matchLocale(parseAcceptLanguage(acceptLanguage), allowed, fallback);
 }
 
 export function proxy(request: NextRequest) {
@@ -55,15 +67,28 @@ export function proxy(request: NextRequest) {
   // Skip non-page paths
   if (PUBLIC_PATHS.test(pathname)) return NextResponse.next();
 
+  // Persian is served from the .ir domain, English/Arabic from .com. Any other
+  // host (localhost, Vercel previews) serves every locale.
+  const group: DomainGroup | null = domainGroupForHost(request.headers.get("host"));
+  const allowed: readonly Locale[] = group ? domainLocales[group] : locales;
+  const fallback: Locale = group ? domainDefaultLocale[group] : defaultLocale;
+
   // Check if the pathname already has a valid locale prefix
-  const pathnameHasLocale = locales.some(
+  const prefixLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
-  if (pathnameHasLocale) return NextResponse.next();
+  if (prefixLocale) {
+    if (group && !allowed.includes(prefixLocale)) {
+      // Locale belongs to the other domain → permanent redirect, same path.
+      const otherOrigin = group === "ir" ? ORIGINS.com : ORIGINS.ir;
+      return NextResponse.redirect(new URL(`${pathname}${request.nextUrl.search}`, otherOrigin), 308);
+    }
+    return NextResponse.next();
+  }
 
   // No locale prefix → detect and redirect
-  const locale = getLocaleFromRequest(request);
+  const locale = getLocaleFromRequest(request, allowed, fallback);
   const redirectUrl = new URL(`/${locale}${pathname}`, request.url);
 
   const response = NextResponse.redirect(redirectUrl);

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils/cn";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { localeOrigin } from "@/lib/site";
 import { Locale, locales } from "./config";
 
 // Display names shown in the menu — always written in the target language.
@@ -59,7 +60,16 @@ export function LanguageSwitcher({
     // Persist the manual choice so the proxy respects it on later visits.
     document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
 
-    router.push(segments.join("/"));
+    const nextPath = segments.join("/");
+
+    // fa lives on a different domain than en/ar → full navigation to that origin.
+    const nextOrigin = localeOrigin(nextLocale);
+    if (nextOrigin !== localeOrigin(currentLocale)) {
+      window.location.assign(`${nextOrigin}${nextPath}${window.location.search}`);
+      return;
+    }
+
+    router.push(nextPath);
   }
 
   // Close on outside click / Escape (Escape returns focus to the trigger).

@@ -1,14 +1,12 @@
-import { SITE } from "@/lib/site";
+import { localeOrigin, SITE } from "@/lib/site";
 import { defaultLocale, Locale, localeConfig, locales } from "./config";
-
-const BASE_URL = SITE.url;
 
 // OpenGraph expects underscore locale tags (en_US, fa_IR, ar_SA). Our intlLocale
 // is the hyphenated BCP-47 form (en-US) used by the Intl.* APIs — convert for OG.
 const toOgLocale = (locale: Locale) => localeConfig[locale].intlLocale.replace("-", "_");
 
 function localePath(locale: Locale, pathname: string) {
-  return `${BASE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+  return `${localeOrigin(locale)}/${locale}${pathname === "/" ? "" : pathname}`;
 }
 
 function localizedAlternates(pathname: string) {
@@ -140,7 +138,7 @@ export function productJsonLd(
     url: absoluteUrl(locale, product.pathname),
     ...(product.images &&
       product.images.length > 0 && {
-        image: product.images.map((img) => `${BASE_URL}${img}`),
+        image: product.images.map((img) => `${localeOrigin(locale)}${img}`),
       }),
     ...(product.specs.length > 0 && {
       additionalProperty: product.specs.map((s) => ({
@@ -179,7 +177,7 @@ export function articleJsonLd(
 // schema.org Organization — the global brand identity, rendered once in the
 // layout so it appears site-wide. No `logo` yet (no logo asset — §12); add it
 // here once one exists. `description` is the shared common.footer.description.
-export function organizationJsonLd(description: string) {
+export function organizationJsonLd(locale: Locale, description: string) {
   // Every reachable line becomes a ContactPoint so search engines surface them all.
   const salesLines = [
     ...SITE.phones.landline,
@@ -191,7 +189,7 @@ export function organizationJsonLd(description: string) {
     "@type": "Organization",
     name: SITE.name,
     alternateName: SITE.altName,
-    url: SITE.url,
+    url: localeOrigin(locale),
     email: SITE.email,
     telephone: SITE.phones.landline[0].tel,
     description,

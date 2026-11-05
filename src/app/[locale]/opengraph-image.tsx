@@ -1,5 +1,5 @@
-import { locales } from "@/lib/i18n/config";
-import { SITE } from "@/lib/site";
+import { Locale, locales } from "@/lib/i18n/config";
+import { localeOrigin } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
 // File-based OpenGraph image for the whole site (applies to this segment and all
@@ -25,8 +25,13 @@ const NAVY = "#0b1c33";
 const GOLD = "#f2b705";
 const STEEL = "#94a3b8";
 
-export default function OpengraphImage() {
-  const domain = SITE.url.replace(/^https?:\/\//, "");
+export default async function OpengraphImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const domain = localeOrigin(locale as Locale).replace(/^https?:\/\//, "");
 
   return new ImageResponse(
     (
